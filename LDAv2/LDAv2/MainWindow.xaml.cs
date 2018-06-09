@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LDAv2.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,22 @@ namespace LDAv2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private login login;
         public MainWindow()
         {
             InitializeComponent();
+            sgrid.Children.Add(login = new login(sgrid));
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void exit_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
