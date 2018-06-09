@@ -30,7 +30,7 @@
                         <ImageBrush ImageSource="/Public/imgs/x-mark.png"/>
                     </Button.Background>
                 </Button>
-                <TextBlock Text="Lab Data Assisstant" Style="{StaticResource Big_TextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="70,4,0,0"/>
+                <TextBlock Text="Lab Data Assisstant" Style="{StaticResource Big_TextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Margin="70,4,0,0"/>
                 <Image HorizontalAlignment="Left" Height="28" Margin="20,0,0,0" Source="Public/imgs/pm_logo_mini.png"/>
             </Grid>
             <Grid x:Name="sgrid" Grid.Row="1">

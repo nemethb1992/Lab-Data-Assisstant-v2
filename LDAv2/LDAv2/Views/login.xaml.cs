@@ -87,12 +87,11 @@ namespace LDAv2.Views
 
             //if (lcontrol.userValidation(Luser_tbx.Text, Lpass_pwd.Password))
             //{
-            if (lcontrol.UserValider_MySql(Luser_tbx.Text))
+            if (lcontrol.UserValider_MySql(Luser_tbx.Text, Lpass_pwd.Password))
             {
                 UserRemember();
-                session.UserData = lcontrol.UserSessionDataList(Luser_tbx.Text);
-                session.tartomanyi = Luser_tbx.Text;
-
+                session.UserData = lcontrol.UserSessionDataList(Luser_tbx.Text, Lpass_pwd.Password);
+                MessageBox.Show(session.UserData[0].email);
                 //Main mw = new Main();
                 //mw.Show();
                 //var window = Window.GetWindow(this);
@@ -101,6 +100,7 @@ namespace LDAv2.Views
 
             else
             {
+                LoginSign.Text = "Sikertelen bejelentkezés!";
                 //Survey_Window SurvWindow = new Survey_Window();
                 //var window = Window.GetWindow(this);
                 //window.Close();

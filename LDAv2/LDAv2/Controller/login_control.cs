@@ -48,14 +48,14 @@ namespace LDAv2.Controller
         {
             dbE.SqliteQueryExecute("DELETE FROM 'app';");
         }
-        public bool UserValider_MySql(string user)
+        public bool UserValider_MySql(string username, string pass)
         {
-            string query = "SELECT count(id) FROM users WHERE username='" + user + "'";
+            string query = "SELECT count(user_id) FROM users WHERE username='" + username + "' AND pass = '"+pass+"'";
             return dbE.SimpleValider_MySQL(query);
         }
-        public List<UserSessData> UserSessionDataList(string username)
+        public List<UserSessData> UserSessionDataList(string username, string pass)
         {
-            string query = "SELECT * FROM users WHERE username='" + username + "'";
+            string query = "SELECT * FROM users WHERE username='" + username + "' AND pass = '" + pass + "'";
 
             List<UserSessData> list = dbE.UserSession(query);
 
