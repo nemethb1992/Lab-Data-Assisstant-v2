@@ -1,4 +1,5 @@
 ﻿using LDAv2.Controller;
+using LDAv2.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,11 +92,10 @@ namespace LDAv2.Views
             {
                 UserRemember();
                 session.UserData = lcontrol.UserSessionDataList(Luser_tbx.Text, Lpass_pwd.Password);
-                MessageBox.Show(session.UserData[0].email);
-                //Main mw = new Main();
-                //mw.Show();
-                //var window = Window.GetWindow(this);
-                //window.Close();
+                WorkWindow mw = new WorkWindow();
+                mw.Show();
+                var window = Window.GetWindow(this);
+                window.Close();
             }
 
             else

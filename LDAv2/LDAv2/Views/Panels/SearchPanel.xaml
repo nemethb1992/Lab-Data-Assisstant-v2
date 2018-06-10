@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="LDAv2.Views.Panels.SearchPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LDAv2.Views.Panels"
+             mc:Ignorable="d" 
+             d:DesignHeight="760" d:DesignWidth="1050">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="Search_list" Style="{StaticResource Standard_ListBox}" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+            <ListBox.Resources>
+                <Style TargetType="{x:Type Border}" BasedOn="{StaticResource Border_Corner_Element}"/>
+                <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource Standard_ListBoxItem}">
+                    
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate  DataType="ProjectListItems">
+                    <Grid Height="40" MaxWidth="1005">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!--<Rectangle Panel.ZIndex="0" Grid.Column="0" Grid.ColumnSpan="6" Fill="#f8f8f8" Stroke="{StaticResource racs_color}"/>-->
+                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Text="{Binding cikkszam}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="1" Text="{Binding charge}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="2" Text="{Binding szallito}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="3" Text="{Binding anyag_nev}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="4" Text="{Binding anyag_tipus}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="5" Text="{Binding kw}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="6" Text="{Binding beerk_datum}" />
+                        <Button x:Name="projekt_open_btn" Style="{StaticResource StandardButton}" Grid.Column="7" Margin="3" Content="Megtekint"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>
