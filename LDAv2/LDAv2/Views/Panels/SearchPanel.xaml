@@ -5,16 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LDAv2.Views.Panels"
              mc:Ignorable="d" 
-             d:DesignHeight="760" d:DesignWidth="1050">
+             d:DesignHeight="650" d:DesignWidth="1050">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="Search_list" Style="{StaticResource Standard_ListBox}" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Stretch" SelectionMode="Extended">
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource Standard_Textblock}" Margin="5,0" Text="Cikkszám" />
+            <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource Standard_Textblock}" Margin="5,0" Text="Charge szám" />
+            <TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource Standard_Textblock}" Margin="5,0" Text="Szállító" />
+            <TextBlock Grid.Column="3" Grid.Row="0" Style="{StaticResource Standard_Textblock}" Margin="5,0" Text="Anyagnév" />
+            <TextBlock Grid.Column="4" Grid.Row="0" Style="{StaticResource Standard_Textblock}" Margin="5,0" Grid.ColumnSpan="2" Text="Beérkezés Dátum" />
+
+            <TextBox x:Name="cikkszam_srcinp" Grid.Column="0" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="0,0,10,0" Text="" TextChanged="Search_TextChanged" />
+            <TextBox x:Name="charge_srcinp" Grid.Column="1" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="0,0,10,0" Text="" TextChanged="Search_TextChanged"/>
+            <TextBox x:Name="szallito_srcinp" Grid.Column="2" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="0,0,10,0" Text="" TextChanged="Search_TextChanged"/>
+            <TextBox x:Name="anyagnev_srcinp" Grid.Column="3" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="0,0,10,0" Text="" TextChanged="Search_TextChanged"/>
+            <TextBox x:Name="beerk_srcinp" Grid.Column="4" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="0,0,10,0" Text="" TextChanged="Search_TextChanged"/>
+            <CheckBox x:Name="allapot_check" Grid.Column="5" Grid.Row="1" Style="{StaticResource Standard_CheckBox}" FontSize="17" Content="Zárt" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="allapot_check_Checked" Unchecked="allapot_check_Checked"/>
+        </Grid>
+        <ListBox x:Name="Search_list" Style="{StaticResource Standard_ListBox}" Background="{StaticResource Listbox_light}" Grid.Column="1" Height="530" Grid.Row="2" HorizontalContentAlignment="Stretch" SelectionMode="Extended" Margin="0,15,0,40">
             <ListBox.Resources>
                 <Style TargetType="{x:Type Border}" BasedOn="{StaticResource Border_Corner_Element}"/>
                 <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource Standard_ListBoxItem}">
@@ -23,27 +52,30 @@
             </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate  DataType="ProjectListItems">
-                    <Grid Height="40" MaxWidth="1005">
+                    <Grid Height="55" MaxWidth="1005">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="110" />
+                            <ColumnDefinition Width="65" />
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
                         <!--<Rectangle Panel.ZIndex="0" Grid.Column="0" Grid.ColumnSpan="6" Fill="#f8f8f8" Stroke="{StaticResource racs_color}"/>-->
-                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Text="{Binding cikkszam}" />
-                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="1" Text="{Binding charge}" />
-                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="2" Text="{Binding szallito}" />
-                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="3" Text="{Binding anyag_nev}" />
-                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="4" Text="{Binding anyag_tipus}" />
-                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="5" Text="{Binding kw}" />
-                        <TextBlock  Panel.ZIndex="1" Padding="11" Style="{StaticResource Standard_Textblock}" Grid.Column="6" Text="{Binding beerk_datum}" />
-                        <Button x:Name="projekt_open_btn" Style="{StaticResource StandardButton}" Grid.Column="7" Margin="3" Content="Megtekint"/>
+                        <TextBlock  Panel.ZIndex="1" Padding="10,0" Height="25" Style="{StaticResource Standard_Textblock}" FontSize="15" Grid.Column="0" Grid.Row="0" Text="{Binding cikkszam}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="10,0" Height="25" Style="{StaticResource Standard_Textblock}" FontSize="15" Grid.Column="1" Grid.Row="0" Text="{Binding charge}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="10,0" Height="25" Style="{StaticResource Standard_Textblock}" FontSize="15" Grid.Column="4" Grid.Row="1" Text="{Binding kw}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="10,0" Height="25" Style="{StaticResource Standard_Textblock}" FontSize="15" Grid.Column="4" Grid.Row="0" Text="{Binding beerk_datum}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="10,0" Height="25" Style="{StaticResource Standard_Textblock}" FontSize="15" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding szallito}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="10,0" Height="25" Style="{StaticResource Standard_Textblock}" FontSize="15" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Text="{Binding anyag_nev}" />
+                        <TextBlock  Panel.ZIndex="1" Padding="10,0" Height="25" Style="{StaticResource Standard_Textblock}" FontSize="15" Grid.Column="2" Grid.Row="0" Text="{Binding anyag_tipus}" />
+                        <Button x:Name="measure_open_btn" Style="{StaticResource StandardButton}" Grid.Column="7" Grid.RowSpan="2" Margin="3" Click="Measure_Open_Click">
+                            <Image Source="/LDAv2;component/Public/imgs/next.png" Height="20"/>
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -177,6 +177,7 @@ namespace LDAv2.Controller
             List<Measure_Compact_Struct> list = new List<Measure_Compact_Struct>();
             if (this.dbOpen() == true)
             {
+                int i = 0;
                 cmd = new MySqlCommand(query, conn);
                 sdr = cmd.ExecuteReader();
                 while (sdr.Read())
@@ -190,9 +191,10 @@ namespace LDAv2.Controller
                         anyag_tipus = sdr["anyag_tipus"].ToString(),
                         charge = sdr["charge"].ToString(),
                         beerk_datum = sdr["beerk_datum"].ToString(),
-                        kw = sdr["kw"].ToString(),
+                        kw = "kw " + sdr["kw"].ToString(),
                         allapot = sdr["allapot"].ToString(),
                     });
+                    i++;
                 }
                 sdr.Close();
             }

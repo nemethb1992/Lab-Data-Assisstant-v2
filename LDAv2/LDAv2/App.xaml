@@ -26,7 +26,7 @@
 
 
         <Style TargetType="TextBox" x:Key="Standard_Textbox">
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Raleway"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="AcceptsReturn" Value="True"></Setter>
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
@@ -37,7 +37,7 @@
             <Setter Property="Foreground" Value="{StaticResource FontColor}"></Setter>
         </Style>
         <Style TargetType="TextBlock" x:Key="Standard_Textblock">
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
@@ -48,10 +48,10 @@
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="Padding" Value="10,5"></Setter>
             <Setter Property="TextAlignment" Value="Left"></Setter>
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
         </Style>
         <Style TargetType="TextBlock" x:Key="Big_TextBlock">
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
             <Setter Property="FontSize" Value="28"></Setter>
             <Setter Property="Foreground" Value="{StaticResource FontColor}"></Setter>
 
@@ -61,7 +61,7 @@
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Foreground" Value="{StaticResource SD_Element_Foreground}"></Setter>
             <Setter Property="FontSize" Value="15"></Setter>
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -85,7 +85,7 @@
         </Style>
 
         <Style TargetType="DatePicker" x:Key="Standard_DatePicker">
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="{StaticResource SD_Element_Borderbrush}"/>
@@ -104,7 +104,7 @@
             </Setter>
         </Style>
         <Style TargetType="TextBlock" x:Key="Wrappabel_TextBlock">
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Raleway"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Raleway"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
@@ -112,7 +112,7 @@
             <Setter Property="Foreground" Value="{StaticResource SD_Element_Foreground}"></Setter>
         </Style>
         <Style TargetType="TextBox" x:Key="Wrappabel_TextBox">
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Raleway"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Raleway"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="AcceptsReturn" Value="True"></Setter>
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
@@ -165,7 +165,7 @@
 
         <Style TargetType="Button" x:Key="Exit_Button">
             <Setter Property="FontSize" Value="16"></Setter>
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Julius Sans One"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Julius Sans One"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="BorderBrush" Value="Transparent"></Setter>
@@ -195,13 +195,13 @@
             <Setter Property="FontSize" Value="15"></Setter>
             <Setter Property="Foreground" Value="{StaticResource FontColor}"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
         </Style>
 
 
         <Style TargetType="TextBox" x:Key="Login_User_tbx">
             <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Raleway"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Raleway"></Setter>
             <Setter Property="FontSize" Value="21"></Setter>
             <Setter Property="Foreground" Value="{StaticResource FontColor}"/>
             <Setter Property="Background" Value="Transparent"></Setter>
@@ -228,7 +228,7 @@
         </Style>
         <Style TargetType="PasswordBox" x:Key="Login_Pass_pwd">
             <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="FontFamily" Value="/HRCloud;component/Public/fonts/#Raleway"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Raleway"></Setter>
             <Setter Property="FontSize" Value="19"></Setter>
             <Setter Property="Foreground" Value="{StaticResource FontColor}"/>
             <Setter Property="Background" Value="Transparent"></Setter>

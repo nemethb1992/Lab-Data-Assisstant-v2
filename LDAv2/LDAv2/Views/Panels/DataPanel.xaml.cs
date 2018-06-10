@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LDAv2.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,16 @@ namespace LDAv2.Views.Panels
     public partial class DataPanel : UserControl
     {
         private Grid grid;
+        workpanel_control w_control = new workpanel_control();
         public DataPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
+            test();
+        }
+        private void test()
+        {
+            MessageBox.Show(w_control.CikkszamID + "   " + w_control.ChargeID + "  " + w_control.BedatumID);
         }
     }
 }
