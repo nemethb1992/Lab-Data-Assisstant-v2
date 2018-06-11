@@ -114,5 +114,13 @@ namespace LDAv2.Views
             //if (lcontrol.userValidation(Luser_tbx.Text, Lpass_pwd.Password))
 
         }
+
+        private void Registration_Click(object sender, MouseButtonEventArgs e)
+        {
+            PopUpFrame popup = new PopUpFrame();
+            popup.Show();
+            var window = Window.GetWindow(this);
+            window.Close();
+        }
     }
 }

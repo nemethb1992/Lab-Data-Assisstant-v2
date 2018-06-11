@@ -99,8 +99,14 @@
     <Compile Include="Views\Panels\DataPanel.xaml.cs">
       <DependentUpon>DataPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Panels\RegistrationPanel.xaml.cs">
+      <DependentUpon>RegistrationPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Panels\SearchPanel.xaml.cs">
       <DependentUpon>SearchPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\PopUpFrame.xaml.cs">
+      <DependentUpon>PopUpFrame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\WorkWindow.xaml.cs">
       <DependentUpon>WorkWindow.xaml</DependentUpon>
@@ -141,7 +147,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Panels\RegistrationPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Panels\SearchPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\PopUpFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
