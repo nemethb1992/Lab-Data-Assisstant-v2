@@ -31,7 +31,7 @@ namespace LDAv2.Views.Panels
         }
         private void test()
         {
-            MessageBox.Show(w_control.CikkszamID + "   " + w_control.ChargeID + "  " + w_control.BedatumID);
+            //MessageBox.Show(w_control.CikkszamID + "   " + w_control.ChargeID + "  " + w_control.BedatumID);
         }
     }
 }
