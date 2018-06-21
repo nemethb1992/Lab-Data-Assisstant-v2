@@ -185,6 +185,7 @@ namespace LDAv2.Controller
                     list.Add(new Measure_Compact_Struct
                     {
                         id = Convert.ToInt32(sdr["id"]),
+                        charge_id = Convert.ToInt32(sdr["charge_id"]),
                         cikkszam = sdr["cikkszam"].ToString(),
                         szallito = sdr["szallito"].ToString(),
                         anyag_nev = sdr["anyag_nev"].ToString(),

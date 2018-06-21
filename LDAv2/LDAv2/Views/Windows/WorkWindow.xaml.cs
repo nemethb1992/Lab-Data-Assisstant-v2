@@ -1,4 +1,5 @@
-﻿using LDAv2.Views.Panels;
+﻿using LDAv2.Controller;
+using LDAv2.Views.Panels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,35 @@ namespace LDAv2.Views.Windows
         {
             InitializeComponent();
             sgrid.Children.Add(searchPanel = new SearchPanel(sgrid));
+            DataPanel_Setting_Up();
+        }
+        void DataPanel_Setting_Up()
+        {
+            Session sess = new Session();
+            if (sess.UserData[0].admintag != 1)
+            {
+                if (sess.UserData[0].auth == 1)
+                {
+                    mw_btn2.Visibility = Visibility.Hidden;
+                    mw_btn3.Visibility = Visibility.Hidden;
+                    mw_btn4.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    mw_btn3.Visibility = Visibility.Hidden;
+                    mw_btn4.Visibility = Visibility.Hidden;
+                }
+            }
         }
         private void logout_btn_Click(object sender, RoutedEventArgs e)
         {
+            workpanel_control w_control = new workpanel_control();
             MainWindow mw = new MainWindow();
             var window = Window.GetWindow(this);
+            if (w_control.SearchParam != null)
+            {
+                w_control.SearchParam.Clear();
+            }
             window.Close();
             mw.Show();
         }

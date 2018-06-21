@@ -54,6 +54,7 @@ namespace LDAv2.Model
         public class Measure_Compact_Struct
         {
             public int id { get; set; }
+            public int charge_id { get; set; }
             public string cikkszam { get; set; }
             public string charge { get; set; }
             public string szallito { get; set; }
@@ -68,5 +69,6 @@ namespace LDAv2.Model
             public int beszallito_id { get; set; }
             public string nev { get; set; }
         }
+
     }
 }

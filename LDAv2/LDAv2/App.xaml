@@ -26,7 +26,7 @@
 
 
         <Style TargetType="TextBox" x:Key="Standard_Textbox">
-            <Setter Property="FontFamily" Value="/Public/fonts/#Raleway"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="AcceptsReturn" Value="True"></Setter>
             <Setter Property="TextWrapping" Value="Wrap"></Setter>

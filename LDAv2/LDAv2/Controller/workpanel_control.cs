@@ -12,21 +12,35 @@ namespace LDAv2.Controller
         dbEntities dbE = new dbEntities();
 
 
-        private static string CikkszamIDs;
-        public string CikkszamID { get { return CikkszamIDs; } set { CikkszamIDs = value; } }
-        private static string ChargeIDs;
-        public string ChargeID { get { return ChargeIDs; } set { ChargeIDs = value; } }
+        private static int CikkszamIDs;
+        public int CikkszamID { get { return CikkszamIDs; } set { CikkszamIDs = value; } }
+        private static int ChargeIDs;
+        public int ChargeID { get { return ChargeIDs; } set { ChargeIDs = value; } }
         private static string BedatumIDs;
         public string BedatumID { get { return BedatumIDs; } set { BedatumIDs = value; } }
 
-        public List<Measure_Full_Struct> Measure_Full_Query()
+        public struct Search_Params
         {
-            string query = "SELECT * FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam";
+            public string cikkszam;
+            public string charge;
+            public string szallito;
+            public string anyagnev;
+            public string beerk_datum;
+            public bool allapot;
+        }
+        private static List<Search_Params> SearchParams;
+            public List<Search_Params> SearchParam { get { return SearchParams; } set { SearchParams = value; } }
+
+
+
+            public List<Measure_Full_Struct> Measure_Full_Query()
+        {
+            string query = "SELECT * FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam WHERE cikk.id ="+ CikkszamID + " AND charge.charge_id = "+ ChargeID + " AND charge.beerk_datum = '"+ BedatumID + "'";
             return dbE.Measure_Full_Query_MySQL(query);
         }
         public List<Measure_Compact_Struct> Measure_Compact_Query(List<string> li)
         {
-            string query = "SELECT cikk.id, cikk.cikkszam,charge.charge,szallito,anyag_nev,anyag_tipus,kw,beerk_datum,allapot FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam WHERE id IS NOT NULL AND allapot = "+li[5]+" ";
+            string query = "SELECT cikk.id, charge.charge_id, cikk.cikkszam,charge.charge,szallito,anyag_nev,anyag_tipus,kw,beerk_datum,allapot FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam WHERE id IS NOT NULL AND allapot = "+li[5]+" ";
             if(li[0] != "")
             {
                 query += " AND cikk.cikkszam LIKE '%"+li[0]+"%'";
