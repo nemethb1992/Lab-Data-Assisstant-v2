@@ -84,6 +84,12 @@
             </Setter>
         </Style>
 
+        <Style TargetType="CheckBox" x:Key="Standard_CheckBox">
+            <Setter Property="FontSize" Value="17"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource FontColor}"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
+        </Style>
         <Style TargetType="DatePicker" x:Key="Standard_DatePicker">
             <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
@@ -194,12 +200,6 @@
                     <Setter Property="BorderBrush" Value="#333333"/>
                 </Trigger>
             </Style.Triggers>
-        </Style>
-        <Style TargetType="CheckBox" x:Key="Standard_CheckBox">
-            <Setter Property="FontSize" Value="15"></Setter>
-            <Setter Property="Foreground" Value="{StaticResource FontColor}"></Setter>
-            <Setter Property="Background" Value="Transparent"></Setter>
-            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
         </Style>
 
 

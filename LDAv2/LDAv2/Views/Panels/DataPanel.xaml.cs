@@ -42,6 +42,17 @@ namespace LDAv2.Views.Panels
             }
             return list;
         }
+        private List<string> DataPanel_Value_List()
+        {
+            TextBox tbx;
+            List<string> list = new List<string>();
+            for (int i = 1; i < 38; i++)
+            {
+                tbx = (TextBox)this.FindName("DataPanel_" + i.ToString());
+                list.Add(tbx.Text);
+            }
+            return list;
+        }
         void DataPanel_Setting_Up()
         {
             Session sess = new Session();
@@ -79,44 +90,46 @@ namespace LDAv2.Views.Panels
             DataPanel_1.Text = list[0].cikkszam;
             DataPanel_2.Text = list[0].szallito;
             DataPanel_3.Text = list[0].anyag_nev;
-            DataPanel_4.Text = list[0].utomun_metszve;
-            DataPanel_5.Text = list[0].utokalapacs_meret_j;
-            DataPanel_6.Text = list[0].suruseg;
-            DataPanel_7.Text = list[0].szakszig_min;
-            DataPanel_8.Text = list[0].utesallosag_min;
-            DataPanel_9.Text = list[0].folyokep_min_g;
-            DataPanel_10.Text = list[0].folyokep_min_cm;
-            DataPanel_11.Text = list[0].toltoanyag_min;
+            DataPanel_4.Text = list[0].utokalapacs_meret_j;
+            DataPanel_5.Text = list[0].suruseg;
+            DataPanel_6.Text = list[0].szakszig_min;
+            DataPanel_7.Text = list[0].utesallosag_min;
+            DataPanel_8.Text = list[0].folyokep_min_g;
+            DataPanel_9.Text = list[0].folyokep_min_cm;
+            DataPanel_10.Text = list[0].toltoanyag_min;
 
-            DataPanel_12.Text = list[0].charge;
-            DataPanel_13.Text = list[0].anyag_tipus;
-            DataPanel_14.Text = list[0].profit_center;
-            DataPanel_15.Text = list[0].folyokep_homerseklet;
-            DataPanel_16.Text = list[0].folyokep_terheles_kg;
-            DataPanel_17.Text = list[0].szin;
-            DataPanel_18.Text = list[0].szakszig_max;
-            DataPanel_19.Text = list[0].utesallosag_max;
-            DataPanel_20.Text = list[0].folyokep_max_g;
-            DataPanel_21.Text = list[0].folyokep_max_cm;
-            DataPanel_22.Text = list[0].toltoanyag_max;
+            DataPanel_11.Text = list[0].charge;
+            DataPanel_12.Text = list[0].anyag_tipus;
+            DataPanel_13.Text = list[0].profit_center;
+            DataPanel_14.Text = list[0].folyokep_homerseklet;
+            DataPanel_15.Text = list[0].folyokep_terheles_kg;
+            DataPanel_16.Text = list[0].szin;
+            DataPanel_17.Text = list[0].szakszig_max;
+            DataPanel_18.Text = list[0].utesallosag_max;
+            DataPanel_19.Text = list[0].folyokep_max_g;
+            DataPanel_20.Text = list[0].folyokep_max_cm;
+            DataPanel_21.Text = list[0].toltoanyag_max;
 
-            DataPanel_23.Text = list[0].beerk_datum;
-            DataPanel_24.Text = list[0].ut_meres_datum;
-            DataPanel_25.Text = list[0].kw;
-            DataPanel_26.Text = list[0].viztartalom;
-            DataPanel_27.Text = list[0].szakszig;
-            DataPanel_28.Text = list[0].utesallosag;
-            DataPanel_29.Text = list[0].folyokep_g;
-            DataPanel_30.Text = list[0].folyokep_cm;
-            DataPanel_31.Text = list[0].toltoanyag;
+            DataPanel_22.Text = list[0].beerk_datum;
+            DataPanel_23.Text = list[0].ut_meres_datum;
+            DataPanel_24.Text = list[0].kw;
+            DataPanel_25.Text = list[0].viztartalom;
+            DataPanel_26.Text = list[0].szakszig;
+            DataPanel_27.Text = list[0].utesallosag;
+            DataPanel_28.Text = list[0].folyokep_g;
+            DataPanel_29.Text = list[0].folyokep_cm;
+            DataPanel_30.Text = list[0].toltoanyag;
 
-            DataPanel_32.Text = list[0].allapot;
-            DataPanel_33.Text = list[0].megjegyzes;
-            DataPanel_34.Text = list[0].szakszig_gy;
-            DataPanel_35.Text = list[0].utesallosag_gy;
-            DataPanel_36.Text = list[0].folyokep_g_gy;
-            DataPanel_37.Text = list[0].folyokep_cm_gy;
-            DataPanel_38.Text = list[0].toltoanyag_gy;
+            DataPanel_31.Text = list[0].megjegyzes;
+            DataPanel_32.Text = list[0].szakszig_gy;
+            DataPanel_33.Text = list[0].utesallosag_gy;
+            DataPanel_34.Text = list[0].folyokep_g_gy;
+            DataPanel_35.Text = list[0].folyokep_cm_gy;
+            DataPanel_36.Text = list[0].toltoanyag_gy;
+            if (list[0].utomun_metszve == "1")
+                DataPanel_37.IsChecked = true;
+            if (list[0].allapot == "1")
+                DataPanel_38.IsChecked = true;
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {

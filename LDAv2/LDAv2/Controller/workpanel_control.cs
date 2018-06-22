@@ -32,7 +32,6 @@ namespace LDAv2.Controller
             public List<Search_Params> SearchParam { get { return SearchParams; } set { SearchParams = value; } }
 
 
-
             public List<Measure_Full_Struct> Measure_Full_Query()
         {
             string query = "SELECT * FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam WHERE cikk.id ="+ CikkszamID + " AND charge.charge_id = "+ ChargeID + " AND charge.beerk_datum = '"+ BedatumID + "'";
