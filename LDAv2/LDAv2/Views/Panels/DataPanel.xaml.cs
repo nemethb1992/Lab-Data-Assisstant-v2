@@ -35,7 +35,7 @@ namespace LDAv2.Views.Panels
         {
             TextBox tbx;
             List<TextBox> list = new List<TextBox>();
-            for (int i = 1; i < 38; i++)
+            for (int i = 1; i < 36; i++)
             {
                 tbx = (TextBox)this.FindName("DataPanel_" + i.ToString());
                 list.Add(tbx);
@@ -46,7 +46,7 @@ namespace LDAv2.Views.Panels
         {
             TextBox tbx;
             List<string> list = new List<string>();
-            for (int i = 1; i < 38; i++)
+            for (int i = 1; i < 36; i++)
             {
                 tbx = (TextBox)this.FindName("DataPanel_" + i.ToString());
                 list.Add(tbx.Text);
@@ -75,6 +75,7 @@ namespace LDAv2.Views.Panels
             {
                 item.IsReadOnly = true;
             }
+            DataPanel_37.is
             Save_Button.Visibility = Visibility.Hidden;
         }
         private void Kategoria_Assisstant()
