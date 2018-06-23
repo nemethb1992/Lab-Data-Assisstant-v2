@@ -41,7 +41,7 @@ namespace LDAv2.Views.Panels
         }
         private void Registration_Click_btn(object sender, RoutedEventArgs e)
         {
-            if (username.Text != "" && username.Text.Length >= 5 && fullname.Text != "" && email.Text != "" && email.Text.Length >= 5 && pass_1.Password != "" && pass_2.Password != "" && !l_control.Registration_Username_Checker(username.Text) &&!l_control.Registration_Email_Checker(email.Text) && pass_1.Password == pass_2.Password && pass_1.Password.Length >= 5 && pass_2.Password.Length >= 5)
+            if (username.Text.Length >= 5 && fullname.Text.Length >= 5 && email.Text.Length >= 5 && pass_1.Password == pass_2.Password && pass_1.Password.Length >= 5 && pass_2.Password.Length >= 5 && !l_control.Registration_Username_Checker(username.Text) &&!l_control.Registration_Email_Checker(email.Text))
             {
                 List<Registration_struct> list = new List<Registration_struct>();
                 list.Add(new Registration_struct
@@ -65,13 +65,13 @@ namespace LDAv2.Views.Panels
             }
             else
             {
-                InfoBlock.Text = "Kitöltetlen mező!";
+                InfoBlock.Text = "Hibás kitöltés!";
             }
         }
 
         private void username_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(!l_control.Registration_Username_Checker(username.Text) && username.Text != "" && username.Text.Length >= 5)
+            if(!l_control.Registration_Username_Checker(username.Text) && username.Text.Length >= 5)
             {
                 user_check.Visibility = Visibility.Visible;
             }
@@ -82,7 +82,7 @@ namespace LDAv2.Views.Panels
         }
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!l_control.Registration_Email_Checker(email.Text) && email.Text != "" && email.Text.Length >= 5)
+            if (!l_control.Registration_Email_Checker(email.Text) && email.Text.Length >= 5)
             {
                 email_check.Visibility = Visibility.Visible;
             }
@@ -112,6 +112,18 @@ namespace LDAv2.Views.Panels
             else
             {
                 pass2_check.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void fullname_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (fullname.Text.Length >= 5)
+            {
+                fullname_check.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                fullname_check.Visibility = Visibility.Hidden;
             }
         }
     }

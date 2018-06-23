@@ -32,7 +32,7 @@
         <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Felhasználónév"/>
         <TextBox x:Name="username" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" TextChanged="username_TextChanged"/>
         <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="Teljes név"/>
-        <TextBox x:Name="fullname" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="fullname" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" TextChanged="fullname_TextChanged"/>
         <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Text="E-Mail"/>
         <TextBox x:Name="email" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" TextChanged="email_TextChanged"/>
         <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Text="Jelszó"/>
@@ -41,6 +41,7 @@
         <PasswordBox x:Name="pass_2" Style="{StaticResource Standard_PasswordBox}"  Margin="30,5" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" PasswordChanged="pass_2_PasswordChanged"/>
 
         <Image x:Name="user_check" Grid.Column="1" Visibility="Hidden" Grid.Row="2" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
+        <Image x:Name="fullname_check" Grid.Column="1" Visibility="Hidden" Grid.Row="4" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
         <Image x:Name="email_check" Grid.Column="1" Visibility="Hidden" Grid.Row="6" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
         <Image x:Name="pass1_check" Grid.Column="1" Visibility="Hidden" Grid.Row="8" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
         <Image x:Name="pass2_check" Grid.Column="1" Visibility="Hidden" Grid.Row="10" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>

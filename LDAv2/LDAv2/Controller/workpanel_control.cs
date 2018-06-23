@@ -68,5 +68,10 @@ namespace LDAv2.Controller
             string query = "SELECT cikk.id, cikk.cikkszam,charge.charge,szallito,anyag_nev,anyag_tipus,kw,beerk_datum,allapot FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam ";
             return dbE.Beszallitok_Query_MySQL(query);
         }
+        public bool Cikk_Checker(string item)
+        {
+            string query = "SELECT count(id) FROM cikk WHERE cikkszam='" + item + "'";
+            return dbE.SimpleValider_MySQL(query);
+        }
     }
 }

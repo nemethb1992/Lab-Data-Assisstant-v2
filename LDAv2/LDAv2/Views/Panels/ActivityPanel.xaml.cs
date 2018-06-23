@@ -28,5 +28,18 @@ namespace LDAv2.Views.Panels
             this.grid = grid;
             //Search_list.ItemsSource = w_control.Measure_Compact_Query();
         }
+        private void Refresh_Search_Click(object sender, RoutedEventArgs e)
+        {
+            cikkszam_srcinp.Text = "";
+            charge_srcinp.Text = "";
+            szallito_srcinp.Text = "";
+            anyagnev_srcinp.Text = "";
+            beerk_srcinp.Text = "";
+            allapot_check.IsChecked = false;
+        }
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

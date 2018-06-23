@@ -274,6 +274,7 @@
             <Setter Property="BorderBrush" Value="Transparent"></Setter>
             <Setter Property="Foreground" Value="{StaticResource SD_Element_ListBoxItem}"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
             <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
