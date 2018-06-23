@@ -86,6 +86,7 @@
     <Compile Include="Controller\Session.cs" />
     <Compile Include="Model\admin_model.cs" />
     <Compile Include="Model\language_model.cs" />
+    <Compile Include="Model\user_model.cs" />
     <Compile Include="Model\workpanel_model.cs" />
     <Compile Include="Views\login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
@@ -197,6 +198,8 @@
     <Resource Include="Public\fonts\Raleway-Medium.ttf" />
     <Resource Include="Public\fonts\Raleway-Regular.ttf" />
     <Resource Include="Public\imgs\add.png" />
+    <Resource Include="Public\imgs\checked.png" />
+    <Resource Include="Public\imgs\checked_passive.png" />
     <Resource Include="Public\imgs\settings.png" />
     <Resource Include="Public\imgs\x-mark.png" />
   </ItemGroup>

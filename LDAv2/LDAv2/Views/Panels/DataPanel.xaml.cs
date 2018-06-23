@@ -75,7 +75,8 @@ namespace LDAv2.Views.Panels
             {
                 item.IsReadOnly = true;
             }
-            DataPanel_37.is
+            DataPanel_37_locker.Visibility = Visibility.Visible;
+            DataPanel_38_locker.Visibility = Visibility.Visible;
             Save_Button.Visibility = Visibility.Hidden;
         }
         private void Kategoria_Assisstant()
@@ -137,5 +138,7 @@ namespace LDAv2.Views.Panels
             Regex regex = new Regex("[^0-9.-]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+
     }
 }

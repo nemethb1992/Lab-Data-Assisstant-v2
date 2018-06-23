@@ -23,6 +23,7 @@
         <SolidColorBrush x:Key="SD_Element_Borderbrush" Color="#808080"/>
         <SolidColorBrush x:Key="SD_Element_Foreground" Color="#333333"/>
         <SolidColorBrush x:Key="ThemeColor" Color="#FF007ACC"/>
+        <SolidColorBrush x:Key="White_Foreground" Color="White"/>
 
 
         <Style TargetType="TextBox" x:Key="Standard_Textbox">
@@ -30,6 +31,15 @@
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="AcceptsReturn" Value="True"></Setter>
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{StaticResource SD_Element_Borderbrush}"/>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Padding" Value="8,4,0,0"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource FontColor}"></Setter>
+        </Style>
+        <Style TargetType="PasswordBox" x:Key="Standard_PasswordBox">
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="{StaticResource SD_Element_Borderbrush}"/>
             <Setter Property="Background" Value="White"></Setter>
@@ -307,6 +317,33 @@
                 </EventTrigger>
             </Style.Triggers>
 
+        </Style>
+        <Style TargetType="Button" x:Key="ThemeButton">
+            <Setter Property="Background" Value="{StaticResource ThemeColor}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="{StaticResource White_Foreground}"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderBrush="{StaticResource ThemeColor}" 
+                            BorderThickness ="1"
+                            CornerRadius="3" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource SD_Element_Hover_Background}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource SD_Element_Borderbrush}"/>
+                                <Setter Property="Foreground" Value="{StaticResource ThemeColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Application.Resources>
 </Application>

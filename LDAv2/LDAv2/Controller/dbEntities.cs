@@ -57,6 +57,15 @@ namespace LDAv2.Controller
             }
         }
 
+        public void MysqlQueryExecute(string query)
+        {
+            if (this.dbOpen() == true)
+            {
+                cmd = new MySqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+            dbClose();
+        }
         public bool SimpleValider_MySQL(string query)
         {
             bool valid = false;

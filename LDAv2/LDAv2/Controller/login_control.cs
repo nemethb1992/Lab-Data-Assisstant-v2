@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LDAv2.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,6 +61,21 @@ namespace LDAv2.Controller
             List<UserSessData> list = dbE.UserSession(query);
 
             return list;
+        }
+        public bool Registration_Username_Checker(string username)
+        {
+            string query = "SELECT count(user_id) FROM users WHERE username='" + username + "'";
+            return dbE.SimpleValider_MySQL(query);
+        }
+        public bool Registration_Email_Checker(string email)
+        {
+            string query = "SELECT count(user_id) FROM users WHERE email='" + email + "'";
+            return dbE.SimpleValider_MySQL(query);
+        }
+        public void User_Registration_Write(List<Registration_struct> list)
+        {
+            dbE.MysqlQueryExecute("INSERT INTO ldadatabase.users (`username`, `pass`, `real_name`, `auth`, `email`, `valid`, `admintag`, `lastlogindate`, `language`) " +
+                "VALUES ('"+list[0].username+"', '"+ list[0].pass + "', '"+ list[0].real_name + "', "+ list[0].auth + ", '"+ list[0].email + "', "+ list[0].valid + ", "+ list[0].admintag + ", '"+ list[0].lastlogindate + "', "+ list[0].language + ");");
         }
     }
 }

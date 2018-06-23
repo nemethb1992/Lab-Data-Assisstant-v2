@@ -13,28 +13,38 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="30" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="45" />
             <RowDefinition Height="*" />
             <RowDefinition Height="65" />
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource Big_TextBlock}" Margin="15" Grid.Column="0" Grid.Row="0" Text="Regisztráció"/>
         <TextBlock x:Name="InfoBlock" Style="{StaticResource Standard_Textblock}" Margin="15" VerticalAlignment="Center" Grid.Column="1" TextAlignment="Right" FontSize="18" Foreground="{StaticResource FontColor_Light}" Grid.Row="0" Text=""/>
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Teljes név:"/>
-        <TextBox x:Name="teljesnev" Style="{StaticResource Standard_Textbox}" Padding="10,10,10,0" Margin="30,5" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="e-mail:"/>
-        <TextBox x:Name="email" Style="{StaticResource Standard_Textbox}" Padding="10,10,10,0" Margin="30,5" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"/>
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Text="Felhasználó típus:"/>
+       
+        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Felhasználónév"/>
+        <TextBox x:Name="username" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" TextChanged="username_TextChanged"/>
+        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="Teljes név"/>
+        <TextBox x:Name="fullname" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Text="E-Mail"/>
+        <TextBox x:Name="email" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" TextChanged="email_TextChanged"/>
+        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Text="Jelszó"/>
+        <PasswordBox x:Name="pass_1" Style="{StaticResource Standard_PasswordBox}"  Margin="30,5" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" PasswordChanged="pass_1_PasswordChanged"/>
+        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" Text="Ismételt jelszó"/>
+        <PasswordBox x:Name="pass_2" Style="{StaticResource Standard_PasswordBox}"  Margin="30,5" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" PasswordChanged="pass_2_PasswordChanged"/>
 
-
-        <Button x:Name="Back_btn" Style="{StaticResource StandardButton}" Grid.Column="0" Grid.Row="11" Content="Vissza" Margin="10" Click="Back_Click_btn"/>
-        <Button x:Name="Registration_btn" Style="{StaticResource StandardButton}" Grid.Column="1" Grid.Row="11" Content="Regisztráció" Margin="10" />
+        <Image x:Name="user_check" Grid.Column="1" Visibility="Hidden" Grid.Row="2" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
+        <Image x:Name="email_check" Grid.Column="1" Visibility="Hidden" Grid.Row="6" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
+        <Image x:Name="pass1_check" Grid.Column="1" Visibility="Hidden" Grid.Row="8" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
+        <Image x:Name="pass2_check" Grid.Column="1" Visibility="Hidden" Grid.Row="10" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
+        <Button x:Name="Back_btn" Style="{StaticResource StandardButton}" Grid.Column="0" Grid.Row="12" Content="Vissza" Margin="10" Click="Back_Click_btn"/>
+        <Button x:Name="Registration_btn" Style="{StaticResource StandardButton}" Grid.Column="1" Grid.Row="12" Content="Regisztráció" Margin="10" Click="Registration_Click_btn"/>
     </Grid>
 </UserControl>
