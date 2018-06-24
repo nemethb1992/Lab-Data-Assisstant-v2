@@ -43,7 +43,7 @@
             <TextBox x:Name="szallito_srcinp" Grid.Column="2" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="5,0,5,5" Text="" TextChanged="Search_TextChanged"/>
             <TextBox x:Name="anyagnev_srcinp" Grid.Column="3" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="5,0,5,5" Text="" TextChanged="Search_TextChanged"/>
             <TextBox x:Name="beerk_srcinp" Grid.Column="4" Grid.Row="1" Style="{StaticResource Standard_Textbox}" Margin="5,0,5,5" Text="" TextChanged="Search_TextChanged"/>
-            <CheckBox x:Name="allapot_check" Grid.Column="5" Grid.Row="0" Style="{StaticResource Standard_CheckBox}" FontSize="17" Content="Zárt" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="allapot_check_Checked" Unchecked="allapot_check_Checked"/>
+            <CheckBox x:Name="allapot_check" Grid.Column="5" Padding="3,-1,0,0" Grid.Row="0" Style="{StaticResource Standard_CheckBox}" Content="Zárt" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="allapot_check_Checked" Unchecked="allapot_check_Checked"/>
         </Grid>
         <ListBox x:Name="Search_list" Style="{StaticResource Standard_ListBox}" Background="{StaticResource Listbox_light}" Grid.Column="1" Height="520" Grid.Row="2" HorizontalContentAlignment="Stretch" Padding="0,5" SelectionMode="Extended" Margin="0,15,0,40">
             <ListBox.Resources>

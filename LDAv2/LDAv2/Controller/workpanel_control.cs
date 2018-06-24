@@ -60,7 +60,7 @@ namespace LDAv2.Controller
             {
                 query += " AND beerk_datum LIKE '%" + li[4] + "%'";
             }
-            query += " ORDER BY beerk_datum DESC";
+            query += " ORDER BY beerk_datum DESC LIMIT 25";
             return dbE.Measure_Compact_Query_MySQL(query);
         }
         public List<Beszallitok_Struct> Beszallitok_Query()

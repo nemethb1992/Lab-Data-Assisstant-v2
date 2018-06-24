@@ -95,7 +95,8 @@
         </Style>
 
         <Style TargetType="CheckBox" x:Key="Standard_CheckBox">
-            <Setter Property="FontSize" Value="17"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="Padding" Value="3,-3,0,0"></Setter>
             <Setter Property="Foreground" Value="{StaticResource FontColor}"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="FontFamily" Value="/Public/fonts/#Montserrat"></Setter>

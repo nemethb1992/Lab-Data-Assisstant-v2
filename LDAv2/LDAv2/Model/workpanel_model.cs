@@ -69,6 +69,5 @@ namespace LDAv2.Model
             public int beszallito_id { get; set; }
             public string nev { get; set; }
         }
-
     }
 }
