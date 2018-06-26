@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static LDAv2.Model.workpanel_model;
 
 namespace LDAv2.Views.Panels
 {
@@ -43,33 +44,33 @@ namespace LDAv2.Views.Panels
 
             list.Add(szallito_inp);
             list.Add(anyagnev_inp);
-            list.Add(utomunka_inp);
-            list.Add(utokalapacs_inp);
-            list.Add(suruseg_inp);
-
             list.Add(anyagtipus_inp);
             list.Add(pc_inp);
-            list.Add(szin_inp);
+            //list.Add(utomunka_inp);
+
             list.Add(folyokep_hom_inp);
+            list.Add(utokalapacs_inp);
             list.Add(folyokep_suly_inp);
+            list.Add(suruseg_inp);
+            list.Add(szin_inp);
 
             list.Add(szak_min);
-            list.Add(utes_min);
-            list.Add(foly_g_min);
-            list.Add(foly_cm_min);
-            list.Add(tolt_min);
-
             list.Add(szak_max);
+            list.Add(utes_min);
             list.Add(utes_max);
+            list.Add(foly_g_min);
             list.Add(foly_g_max);
+            list.Add(foly_cm_min);
             list.Add(foly_cm_max);
+            list.Add(tolt_min);
             list.Add(tolt_max);
 
-            list.Add(szak_gy);
-            list.Add(utes_gy);
-            list.Add(foly_g_gy);
-            list.Add(foly_cm_gy);
-            list.Add(tolt_gy);
+
+            //list.Add(szak_gy);
+            //list.Add(utes_gy);
+            //list.Add(foly_g_gy);
+            //list.Add(foly_cm_gy);
+            //list.Add(tolt_gy);
 
             return list;
         }
@@ -122,6 +123,62 @@ namespace LDAv2.Views.Panels
             {
                 Save_Button.IsEnabled = false;
             }
+        }
+
+        private void Cikk_Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string utomunka = "0";
+            if(utomunka_inp.IsChecked == true)
+            {
+                utomunka ="1";
+            }
+            List<Cikk_Struct> list = new List<Cikk_Struct>();
+            List<TextBox> tb_list = Cikk_Input_Collector();
+            list.Add(new Cikk_Struct {
+                cikkszam = tb_list[0].Text,
+                szallito = tb_list[1].Text,
+                anyag_nev = tb_list[2].Text,
+                anyag_tipus = tb_list[3].Text,
+                profit_center = tb_list[4].Text,
+                utomun_metszve = utomunka,
+                folyokep_homerseklet = tb_list[5].Text,
+                utokalapacs_meret_j = tb_list[6].Text,
+                folyokep_terheles_kg = tb_list[7].Text,
+                suruseg = tb_list[8].Text,
+                szin = tb_list[9].Text,
+                szakszig_min = tb_list[10].Text,
+                szakszig_max = tb_list[11].Text,
+                utesallosag_min = tb_list[12].Text,
+                utesallosag_max = tb_list[13].Text,
+                folyokep_min_g = tb_list[14].Text,
+                folyokep_max_g = tb_list[15].Text,
+                folyokep_min_cm = tb_list[16].Text,
+                folyokep_max_cm = tb_list[17].Text,
+                toltoanyag_min = tb_list[18].Text,
+                toltoanyag_max = tb_list[19].Text,
+            });
+            w_control.Cikk_INSERT_MySQL(list);
+        }
+
+        private void Charge_Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<Charge_Struct> list = new List<Charge_Struct>();
+            List<TextBox> tb_list = Charge_Input_Collector();
+            list.Add(new Charge_Struct
+            {
+                charge_cikkszam = tb_list[0].Text,
+                charge = tb_list[1].Text,
+                beerk_datum = tb_list[2].Text,
+                ut_meres_datum = tb_list[3].Text,
+                kw = tb_list[4].Text,
+                megjegyzes = tb_list[5].Text
+            });
+            w_control.Charge_INSERT_MySQL(list);
+        }
+
+        private void Save_Charge_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

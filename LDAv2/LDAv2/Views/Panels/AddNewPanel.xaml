@@ -63,11 +63,10 @@
 
         <TextBlock Grid.Column="1" Grid.Row="1"  Style="{StaticResource DataLabel_TextBlock}" Text="Cikkszám"/>
         <TextBlock Grid.Column="3" Grid.Row="1"  Style="{StaticResource DataLabel_TextBlock}" Text="Cikkszám"/>
-         <TextBlock Grid.Column="3" Grid.Row="3"  Style="{StaticResource DataLabel_TextBlock}" Text="Szállító"/>
+        <TextBlock Grid.Column="3" Grid.Row="3"  Style="{StaticResource DataLabel_TextBlock}" Text="Szállító"/>
         <TextBlock Grid.Column="3" Grid.Row="5"  Style="{StaticResource DataLabel_TextBlock}" Text="Anyagnév"/>
-        <TextBlock Grid.Column="3" Grid.Row="7"  Style="{StaticResource DataLabel_TextBlock}" Text="Ütőmunkához metszve"/>
         <TextBlock Grid.Column="3" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="Ütőkalapács mérete (J)"/>
-        <TextBlock Grid.Column="5" Grid.Row="3" Style="{StaticResource DataLabel_TextBlock}" Text="Sűrűség (g/cm3)"/>
+        <TextBlock Grid.Column="5" Grid.Row="1" Style="{StaticResource DataLabel_TextBlock}" Text="Sűrűség (g/cm3)"/>
         <TextBlock Grid.Column="3" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="Szakítószilárdság min. (MPa)"/>
         <TextBlock Grid.Column="3" Grid.Row="13" Style="{StaticResource DataLabel_TextBlock}" Text="Charpy Ütésállóság min. (kJ/m2)"/>
         <TextBlock Grid.Column="3" Grid.Row="15" Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség min. (g/10 min)"/>
@@ -75,11 +74,11 @@
         <TextBlock Grid.Column="3" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}" Text="Töltőanyagtartalom min. (%)"/>
 
         <TextBlock Grid.Column="1" Grid.Row="3"   Style="{StaticResource DataLabel_TextBlock}" Text="Charge szám"/>
-        <TextBlock Grid.Column="5" Grid.Row="5"   Style="{StaticResource DataLabel_TextBlock}" Text="Anyag típus"/>
-        <TextBlock Grid.Column="5" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Profit Center"/>
-        <TextBlock Grid.Column="7" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség mérési hőm. (°C)"/>
-        <TextBlock Grid.Column="7" Grid.Row="9"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség súlyterhelése (kg)"/>
-        <TextBlock Grid.Column="5" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="Szín"/>
+        <TextBlock Grid.Column="5" Grid.Row="3"   Style="{StaticResource DataLabel_TextBlock}" Text="Anyag típus"/>
+        <TextBlock Grid.Column="3" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Profit Center" />
+        <TextBlock Grid.Column="5" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség mérési hőm. (°C)" />
+        <TextBlock Grid.Column="5" Grid.Row="9"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség súlyterhelése (kg)" />
+        <TextBlock Grid.Column="5" Grid.Row="5"  Style="{StaticResource DataLabel_TextBlock}" Text="Szín"/>
         <TextBlock Grid.Column="5" Grid.Row="11"  Style="{StaticResource DataLabel_TextBlock}" Text="Szakítószilárdság max. (MPa)"/>
         <TextBlock Grid.Column="5" Grid.Row="13"  Style="{StaticResource DataLabel_TextBlock}" Text="Charpy Ütésállóság max. (kJ/m2)"/>
         <TextBlock Grid.Column="5" Grid.Row="15"  Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség max. (g/10 min)"/>
@@ -104,11 +103,11 @@
         <!--<TextBlock Grid.Column="7" Grid.Row="7"  Style="{StaticResource DataLabel_TextBlock}" Text="Megnevezés"/>-->
         <!--<TextBlock Grid.Column="7" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="Megnevezés"/>-->
         <!--<TextBlock Grid.Column="7" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="Megnevezés"/>-->
-        <TextBlock Grid.Column="7" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Szakítószilárdság (MPa)"/>
+        <!--<TextBlock Grid.Column="7" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Szakítószilárdság (MPa)"/>
         <TextBlock Grid.Column="7" Grid.Row="13" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Charpy Ütésállóság (kJ/m2)"/>
         <TextBlock Grid.Column="7" Grid.Row="15" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Folyóképesség (g/10 min)"/>
         <TextBlock Grid.Column="7" Grid.Row="17" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Folyóképesség (cm3/10 min)"/>
-        <TextBlock Grid.Column="7" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Töltőanyagtartalom (%)"/>
+        <TextBlock Grid.Column="7" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Töltőanyagtartalom (%)"/>-->
 
         <TextBox Grid.Column="1"  Grid.Row="2"    x:Name="cikk_inp"   Style="{StaticResource Standard_Textbox}" TextChanged="cikk_inp_TextChanged" />
         <TextBox Grid.Column="1"   Grid.Row="4"   x:Name="charge_inp"  Style="{StaticResource Standard_Textbox}" />
@@ -121,14 +120,15 @@
         <TextBox Grid.Column="3"  Grid.Row="2"  x:Name="cikkszam_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
         <TextBox Grid.Column="3"  Grid.Row="4"  x:Name="szallito_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
         <TextBox Grid.Column="3"  Grid.Row="6"  x:Name="anyagnev_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
-        <TextBox Grid.Column="3"  Grid.Row="8"  x:Name="utomunka_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
+        <CheckBox Grid.Column="7"  Grid.Row="4"  x:Name="utomunka_inp"   Style="{StaticResource Standard_CheckBox}" VerticalAlignment="Center" Padding="3,-1,0,0" Content="Ütőmunkához metszve"/>
+        <!--<TextBox Grid.Column="3"  Grid.Row="8"  x:Name="utomunka_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>-->
         <TextBox Grid.Column="3"  Grid.Row="10" x:Name="utokalapacs_inp"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged"/>
-        <TextBox Grid.Column="5"  Grid.Row="4" x:Name="suruseg_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" />
-        <TextBox Grid.Column="5"   Grid.Row="6"  x:Name="anyagtipus_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" />
-        <TextBox Grid.Column="5"   Grid.Row="8"  x:Name="pc_inp"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged"/>
-        <TextBox Grid.Column="5"   Grid.Row="10" x:Name="szin_inp"   Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged"/>
-        <TextBox Grid.Column="7"   Grid.Row="8"  x:Name="folyokep_hom_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
-        <TextBox Grid.Column="7"   Grid.Row="10" x:Name="folyokep_suly_inp"   Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged"/>
+        <TextBox Grid.Column="5"  Grid.Row="2" x:Name="suruseg_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" />
+        <TextBox Grid.Column="5"   Grid.Row="4"  x:Name="anyagtipus_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" />
+        <TextBox Grid.Column="3"   Grid.Row="8"  x:Name="pc_inp"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged"/>
+        <TextBox Grid.Column="5"   Grid.Row="6" x:Name="szin_inp"   Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged"/>
+        <TextBox Grid.Column="5"   Grid.Row="8"  x:Name="folyokep_hom_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
+        <TextBox Grid.Column="5"   Grid.Row="10" x:Name="folyokep_suly_inp"   Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged" Margin="0,0,1,0"/>
 
         <TextBox Grid.Column="3"  Grid.Row="12" x:Name="szak_min"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox Grid.Column="3"  Grid.Row="14" x:Name="utes_min"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCikk_inp_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
@@ -142,16 +142,16 @@
         <TextBox Grid.Column="5"   Grid.Row="18" x:Name="foly_cm_max"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"  PreviewTextInput="NumberValidationTextBox"/>
         <TextBox Grid.Column="5"   Grid.Row="20" x:Name="tolt_max"     Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"  PreviewTextInput="NumberValidationTextBox"/>
 
-        <TextBox Grid.Column="7"   Grid.Row="12"  x:Name="szak_gy"      Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
+        <!--<TextBox Grid.Column="7"   Grid.Row="12"  x:Name="szak_gy"      Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox Grid.Column="7"   Grid.Row="14"  x:Name="utes_gy"      Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox Grid.Column="7"   Grid.Row="16"  x:Name="foly_g_gy"    Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
         <TextBox Grid.Column="7"   Grid.Row="18"  x:Name="foly_cm_gy"   Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"  PreviewTextInput="NumberValidationTextBox"/>
-        <TextBox Grid.Column="7"   Grid.Row="20"  x:Name="tolt_gy"      Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"  PreviewTextInput="NumberValidationTextBox"/>
-        
+        <TextBox Grid.Column="7"   Grid.Row="20"  x:Name="tolt_gy"      Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"  PreviewTextInput="NumberValidationTextBox"/>-->
+
         <Border Panel.ZIndex="-1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="21" Grid.Row="1" Background="{StaticResource Listbox_light}" Margin="30,0,30,0" CornerRadius="15"/>
         <Border Panel.ZIndex="-1" Grid.Column="2" Grid.ColumnSpan="7" Grid.RowSpan="21" Grid.Row="1" Background="{StaticResource Listbox_light}" Margin="30,0,30,0" CornerRadius="15"/>
-        <Button x:Name="Save_Button" Grid.Column="7" Grid.Row="1" Grid.RowSpan="3" Height="50" Style="{StaticResource ThemeButton}" Content="Mentés" IsEnabled="False"/>
-        <Button x:Name="Save_Charge_Button" IsEnabled="False" Grid.Column="1" Grid.RowSpan="3" Height="50" Grid.Row="19" Style="{StaticResource ThemeButton}" Margin="0,5,0,0" Content="Mentés"/>
+        <Button x:Name="Save_Button" Grid.Column="7" Grid.Row="1" Grid.RowSpan="3" Height="50" Style="{StaticResource ThemeButton}" Content="Mentés" IsEnabled="False" Click="Cikk_Save_Button_Click"/>
+        <Button x:Name="Save_Charge_Button" IsEnabled="False" Grid.Column="1" Grid.RowSpan="3" Height="50" Grid.Row="19" Style="{StaticResource ThemeButton}" Margin="0,5,0,0" Content="Mentés" Click="Charge_Save_Button_Click"/>
         <Image x:Name="cikkszam_check" Grid.Column="1" Visibility="Hidden" Grid.Row="2" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,5,0"/>
     </Grid>
 </UserControl>
