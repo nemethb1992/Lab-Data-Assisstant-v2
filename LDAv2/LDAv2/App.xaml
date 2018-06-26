@@ -331,8 +331,30 @@
                     <ControlTemplate TargetType="Button">
                         <Border Name="border" 
                             BorderBrush="{StaticResource ThemeColor}" 
-                            BorderThickness ="1"
+                            BorderThickness ="2"
                             CornerRadius="3" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource SD_Element_Hover_Background}"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource SD_Element_Borderbrush}"/>
+                                <Setter Property="Foreground" Value="{StaticResource ThemeColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="RoundButton" BasedOn="{StaticResource ThemeButton}">
+            <Setter Property="Template">
+            <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderBrush="{StaticResource ThemeColor}" 
+                            BorderThickness ="2"
+                            CornerRadius="25" 
                             Background="{TemplateBinding Background}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>

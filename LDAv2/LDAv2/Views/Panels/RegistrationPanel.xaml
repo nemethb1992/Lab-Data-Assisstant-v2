@@ -24,7 +24,7 @@
             <RowDefinition Height="25" />
             <RowDefinition Height="45" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="65" />
+            <RowDefinition Height="70" />
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource Big_TextBlock}" Margin="15" Grid.Column="0" Grid.Row="0" Text="Regisztráció"/>
         <TextBlock x:Name="InfoBlock" Style="{StaticResource Standard_Textblock}" Margin="15" VerticalAlignment="Center" Grid.Column="1" TextAlignment="Right" FontSize="18" Foreground="{StaticResource FontColor_Light}" Grid.Row="0" Text=""/>
@@ -45,7 +45,7 @@
         <Image x:Name="email_check" Grid.Column="1" Visibility="Hidden" Grid.Row="6" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
         <Image x:Name="pass1_check" Grid.Column="1" Visibility="Hidden" Grid.Row="8" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
         <Image x:Name="pass2_check" Grid.Column="1" Visibility="Hidden" Grid.Row="10" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>
-        <Button x:Name="Back_btn" Style="{StaticResource StandardButton}" Grid.Column="0" Grid.Row="12" Content="Vissza" Margin="10" Click="Back_Click_btn"/>
-        <Button x:Name="Registration_btn" Style="{StaticResource StandardButton}" Grid.Column="1" Grid.Row="12" Content="Regisztráció" Margin="10" Click="Registration_Click_btn"/>
+        <Button x:Name="Back_btn" Style="{StaticResource ThemeButton}" Grid.Column="0" Grid.Row="12" Content="Vissza" Margin="30,0,15,20" Click="Back_Click_btn"/>
+        <Button x:Name="Registration_btn" Style="{StaticResource ThemeButton}" Grid.Column="1" Grid.Row="12" Content="Regisztráció" Margin="15,0,30,20" Click="Registration_Click_btn"/>
     </Grid>
 </UserControl>
