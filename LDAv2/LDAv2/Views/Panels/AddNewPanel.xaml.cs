@@ -158,6 +158,11 @@ namespace LDAv2.Views.Panels
                 toltoanyag_max = tb_list[19].Text,
             });
             w_control.Cikk_INSERT_MySQL(list);
+            foreach (var item in tb_list)
+            {
+                item.Text = "";
+            }
+            utomunka_inp.IsChecked = false;
         }
 
         private void Charge_Save_Button_Click(object sender, RoutedEventArgs e)
@@ -174,6 +179,11 @@ namespace LDAv2.Views.Panels
                 megjegyzes = tb_list[5].Text
             });
             w_control.Charge_INSERT_MySQL(list);
+            foreach (var item in tb_list)
+            {
+                item.Text = "";
+            }
+
         }
 
         private void Save_Charge_Button_Click(object sender, RoutedEventArgs e)
