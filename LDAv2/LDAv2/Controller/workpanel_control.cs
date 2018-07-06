@@ -137,6 +137,28 @@ namespace LDAv2.Controller
                 "WHERE `charge`.`charge_id` = 399;";
 
             dbE.MysqlQueryExecute(query);
+            string query2 = "UPDATE `charge` SET " +
+     "`charge_cikkszam` = 'cikkszam', " +
+     "`charge` = 'charge.', " +
+     "`beerk_datum` = '2018.06.28..', " +
+     "`ut_meres_datum` = '2018.06.28..', " +
+     "`kw` = '30.', " +
+     "`allapot` = '1', " +
+     "`viztartalom` = '1', " +
+     "`szakszig` = '1', " +
+     "`szakszig_gy` = '1', " +
+     "`utesallosag` = '1', " +
+     "`utesallosag_gy` = '1', " +
+     "`folyokep_g` = '1', " +
+     "`folyokep_g_gy` = '1', " +
+     "`folyokep_cm` = '1', " +
+     "`folyokep_cm_gy` = '1', " +
+     "`toltoanyag` = '1', " +
+     "`toltoanyag_gy` = '1', " +
+     "`megjegyzes` = 'megjegyzes1' " +
+     "WHERE `charge`.`charge_id` = 399;";
+
+            dbE.MysqlQueryExecute(query);
         }
     }
 }

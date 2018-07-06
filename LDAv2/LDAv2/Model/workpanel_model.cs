@@ -26,8 +26,8 @@ namespace LDAv2.Model
             public string szakszig_max { get; set; }
             public string utesallosag_min { get; set; }
             public string utesallosag_max { get; set; }
-            public string folyokep_min_g { get; set; }
-            public string folyokep_max_g { get; set; }
+            public string folyokep_min_g  { get; set; }
+            public string folyokep_max_g  { get; set; }
             public string folyokep_min_cm { get; set; }
             public string folyokep_max_cm { get; set; }
             public string toltoanyag_min { get; set; }

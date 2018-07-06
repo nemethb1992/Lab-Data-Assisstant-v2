@@ -51,6 +51,22 @@ namespace LDAv2.Views.Panels
                 tbx = (TextBox)this.FindName("DataPanel_" + i.ToString());
                 list.Add(tbx.Text);
             }
+            if (DataPanel_37.IsChecked == true)
+            {
+                list.Add("1");
+            }
+            else
+            {
+                list.Add("1");
+            }
+            if (DataPanel_38.IsChecked == true)
+            {
+                list.Add("1");
+            }
+            else
+            {
+                list.Add("1");
+            }
             return list;
         }
         void DataPanel_Setting_Up()
@@ -139,6 +155,55 @@ namespace LDAv2.Views.Panels
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<Measure_Full_Struct> li = new List<Measure_Full_Struct>();
+            List<string> listr = DataPanel_Value_List();
+            li.Add(new Measure_Full_Struct
+            {
+                cikkszam = listr[0],
+                szallito = listr[1],
+                anyag_nev = listr[2],
+                utokalapacs_meret_j = listr[3],
+                suruseg = listr[4],
+                szakszig_min = listr[5],
+                utesallosag_min = listr[6],
+                folyokep_min_g = listr[7],
+                folyokep_min_cm = listr[8],
+                toltoanyag_min = listr[9],
 
+                charge = listr[10],
+                anyag_tipus = listr[11],
+                profit_center = listr[12],
+                folyokep_homerseklet = listr[13],
+                folyokep_terheles_kg = listr[14],
+                szin = listr[15],
+                szakszig_max = listr[16],
+                utesallosag_max = listr[17],
+                folyokep_max_g = listr[18],
+                folyokep_max_cm = listr[19],
+                toltoanyag_max = listr[20],
+                
+                beerk_datum = listr[0],
+                ut_meres_datum = listr[0],
+                kw = listr[0],
+
+                viztartalom = listr[0],
+                szakszig = listr[0],
+                utesallosag = listr[0],
+                folyokep_g = listr[0],
+                folyokep_cm = listr[0],
+                toltoanyag = listr[0],
+
+                megjegyzes = listr[0],
+                szakszig_gy = listr[0],
+                utesallosag_gy = listr[0],
+                folyokep_g_gy = listr[0],
+                folyokep_cm_gy = listr[0],
+                toltoanyag_gy = listr[0],
+                utomun_metszve = listr[0],
+                allapot = listr[0],
+            });
+        }
     }
 }
