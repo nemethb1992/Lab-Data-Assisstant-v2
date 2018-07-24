@@ -113,50 +113,53 @@ namespace LDAv2.Controller
 
             dbE.MysqlQueryExecute(query);
         }
-        public void Measure_UPDATE_MySQL(List<Charge_Struct> list)
+        public void Measure_UPDATE_MySQL(List<Measure_Full_Struct> list)
         {
             string query = "UPDATE `charge` SET " +
-                "`charge_cikkszam` = 'cikkszam', " +
-                "`charge` = 'charge.', " +
-                "`beerk_datum` = '2018.06.28..', " +
-                "`ut_meres_datum` = '2018.06.28..', " +
-                "`kw` = '30.', " +
-                "`allapot` = '1', " +
-                "`viztartalom` = '1', " +
-                "`szakszig` = '1', " +
-                "`szakszig_gy` = '1', " +
-                "`utesallosag` = '1', " +
-                "`utesallosag_gy` = '1', " +
-                "`folyokep_g` = '1', " +
-                "`folyokep_g_gy` = '1', " +
-                "`folyokep_cm` = '1', " +
-                "`folyokep_cm_gy` = '1', " +
-                "`toltoanyag` = '1', " +
-                "`toltoanyag_gy` = '1', " +
-                "`megjegyzes` = 'megjegyzes1' " +
-                "WHERE `charge`.`charge_id` = 399;";
+                "`charge_cikkszam` = '"+list[0].cikkszam+"', " +
+                "`charge` = '" + list[0].charge + "', " +
+                "`beerk_datum` = '" + list[0].beerk_datum + "', " +
+                "`ut_meres_datum` = '" + list[0].ut_meres_datum + "', " +
+                "`kw` = '" + list[0].kw + "', " +
+                "`allapot` = '" + list[0].allapot + "', " +
+                "`viztartalom` = '" + list[0].viztartalom + "', " +
+                "`szakszig` = '" + list[0].szakszig + "', " +
+                "`szakszig_gy` = '" + list[0].szakszig_gy + "', " +
+                "`utesallosag` = '" + list[0].utesallosag + "', " +
+                "`utesallosag_gy` = '" + list[0].utesallosag_gy + "', " +
+                "`folyokep_g` = '" + list[0].folyokep_g + "', " +
+                "`folyokep_g_gy` = '" + list[0].folyokep_g_gy + "', " +
+                "`folyokep_cm` = '" + list[0].folyokep_cm + "', " +
+                "`folyokep_cm_gy` = '" + list[0].folyokep_cm_gy + "', " +
+                "`toltoanyag` = '" + list[0].toltoanyag + "', " +
+                "`toltoanyag_gy` = '" + list[0].toltoanyag_gy + "', " +
+                "`megjegyzes` = '" + list[0].megjegyzes + "' " +
+                "WHERE `charge`.`charge_id` = '"+ ChargeID + "'";
 
             dbE.MysqlQueryExecute(query);
-            string query2 = "UPDATE `charge` SET " +
-     "`charge_cikkszam` = 'cikkszam', " +
-     "`charge` = 'charge.', " +
-     "`beerk_datum` = '2018.06.28..', " +
-     "`ut_meres_datum` = '2018.06.28..', " +
-     "`kw` = '30.', " +
-     "`allapot` = '1', " +
-     "`viztartalom` = '1', " +
-     "`szakszig` = '1', " +
-     "`szakszig_gy` = '1', " +
-     "`utesallosag` = '1', " +
-     "`utesallosag_gy` = '1', " +
-     "`folyokep_g` = '1', " +
-     "`folyokep_g_gy` = '1', " +
-     "`folyokep_cm` = '1', " +
-     "`folyokep_cm_gy` = '1', " +
-     "`toltoanyag` = '1', " +
-     "`toltoanyag_gy` = '1', " +
-     "`megjegyzes` = 'megjegyzes1' " +
-     "WHERE `charge`.`charge_id` = 399;";
+            string query2 = "UPDATE `cikk` " +
+                "SET `cikkszam` = '" + list[0].cikkszam + "', " +
+                "`szallito` = '" + list[0].szallito + "', " +
+                "`anyag_nev` = '" + list[0].anyag_nev + "', " +
+                "`anyag_tipus` = '" + list[0].anyag_tipus + "', " +
+                "`profit_center` = '" + list[0].profit_center + "', " +
+                "`utomun_metszve` = '" + list[0].utomun_metszve + "', " +
+                "`folyokep_homerseklet` = '" + list[0].folyokep_homerseklet + "', " +
+                "`utokalapacs_meret_j` = '" + list[0].utokalapacs_meret_j + "', " +
+                "`folyokep_terheles_kg` = '" + list[0].folyokep_terheles_kg + "', " +
+                "`suruseg` = '" + list[0].suruseg + "', " +
+                "`szin` = '" + list[0].szin + "', " +
+                "`szakszig_min` = '" + list[0].szakszig_min + "', " +
+                "`szakszig_max` = '" + list[0].szakszig_max + "', " +
+                "`utesallosag_min` = '" + list[0].utesallosag_min + "', " +
+                "`utesallosag_max` = '" + list[0].utesallosag_max + "', " +
+                "`folyokep_min_g` = '" + list[0].folyokep_min_g + "', " +
+                "`folyokep_max_g` = '" + list[0].folyokep_max_g + "', " +
+                "`folyokep_min_cm` = '" + list[0].folyokep_min_cm + "', " +
+                "`folyokep_max_cm` = '" + list[0].folyokep_max_cm + "', " +
+                "`toltoanyag_min` = '" + list[0].toltoanyag_min + "', " +
+                "`toltoanyag_max` = '" + list[0].toltoanyag_max + "' " +
+                "WHERE `cikk`.`id` = '" +CikkszamID+"'";
 
             dbE.MysqlQueryExecute(query);
         }

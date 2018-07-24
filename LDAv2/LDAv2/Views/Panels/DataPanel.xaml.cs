@@ -46,7 +46,7 @@ namespace LDAv2.Views.Panels
         {
             TextBox tbx;
             List<string> list = new List<string>();
-            for (int i = 1; i < 36; i++)
+            for (int i = 1; i < 37; i++)
             {
                 tbx = (TextBox)this.FindName("DataPanel_" + i.ToString());
                 list.Add(tbx.Text);
@@ -57,7 +57,7 @@ namespace LDAv2.Views.Panels
             }
             else
             {
-                list.Add("1");
+                list.Add("0");
             }
             if (DataPanel_38.IsChecked == true)
             {
@@ -65,7 +65,7 @@ namespace LDAv2.Views.Panels
             }
             else
             {
-                list.Add("1");
+                list.Add("0");
             }
             return list;
         }
@@ -184,26 +184,28 @@ namespace LDAv2.Views.Panels
                 folyokep_max_cm = listr[19],
                 toltoanyag_max = listr[20],
                 
-                beerk_datum = listr[0],
-                ut_meres_datum = listr[0],
-                kw = listr[0],
+                beerk_datum = listr[21],
+                ut_meres_datum = listr[22],
+                kw = listr[23],
 
-                viztartalom = listr[0],
-                szakszig = listr[0],
-                utesallosag = listr[0],
-                folyokep_g = listr[0],
-                folyokep_cm = listr[0],
-                toltoanyag = listr[0],
+                viztartalom = listr[24],
+                szakszig = listr[25],
+                utesallosag = listr[26],
+                folyokep_g = listr[27],
+                folyokep_cm = listr[28],
+                toltoanyag = listr[29],
 
-                megjegyzes = listr[0],
-                szakszig_gy = listr[0],
-                utesallosag_gy = listr[0],
-                folyokep_g_gy = listr[0],
-                folyokep_cm_gy = listr[0],
-                toltoanyag_gy = listr[0],
-                utomun_metszve = listr[0],
-                allapot = listr[0],
+                megjegyzes = listr[30],
+                szakszig_gy = listr[31],
+                utesallosag_gy = listr[32],
+                folyokep_g_gy = listr[33],
+                folyokep_cm_gy = listr[34],
+                toltoanyag_gy = listr[35],
+                utomun_metszve = listr[36],
+                allapot = listr[37],
             });
+            w_control.Measure_UPDATE_MySQL(li);
+            DataPanel_MeasureDat_Loud_Up();
         }
     }
 }
