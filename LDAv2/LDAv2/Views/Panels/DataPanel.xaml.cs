@@ -154,6 +154,45 @@ namespace LDAv2.Views.Panels
             Regex regex = new Regex("[^0-9.-]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        void inputEvaulationColorer(List<Measure_Value> li)
+        {
+            //if (li[0].val2 == "" || li[0].val2 == "-")
+            //{
+            //    li[0].val2 = li[0].val1;
+            //}
+            //var bc = new BrushConverter();
+            //string color = "#FFFFFF";
+            //try
+            //{
+            //    Double.TryParse(li[0].min.Replace(".", ","), out double min);
+            //    Double.TryParse(li[0].max.Replace(".", ","), out double max);
+            //    Double.TryParse(li[0].val1.Replace(".", ","), out double value1);
+            //    Double.TryParse(li[0].val2.Replace(".", ","), out double value2);
+
+            //    double finalValue = (value1 + value2) / 2;
+            //    if (finalValue > (min + 0.00000000) && finalValue < (max + 0.00000000))
+            //    {
+            //        color = "#ccffcc";
+            //    }
+            //    else if (finalValue == (min + 0.00000000) || finalValue == (max + 0.00000000))
+            //    {
+            //        color = "#fffabb";
+            //    }
+            //    else if (finalValue < (min + 0.00000000) || finalValue > (max + 0.00000000))
+            //    {
+            //        color = "#ffcccc";
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    color = "#FFFFFF";
+            //}
+            //input.Background = (Brush)bc.ConvertFrom(color);
+            //if (input2 != null)
+            //{
+            //    input2.Background = (Brush)bc.ConvertFrom(color);
+            //}
+        }
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -206,6 +245,104 @@ namespace LDAv2.Views.Panels
             });
             w_control.Measure_UPDATE_MySQL(li);
             DataPanel_MeasureDat_Loud_Up();
+        }
+
+        private void Measure_Valider_TextChanger(object sender, TextChangedEventArgs e)
+        {
+            string min_s="", max_s="", val1_s="", val2_s="";
+            TextBox tbx = sender as TextBox;
+            TextBox input1 = tbx;
+            switch (tbx.Tag)
+            {
+
+                case "1":
+                    {
+                        input1 = DataPanel_26;
+                        min_s = DataPanel_6.Text;
+                        max_s = DataPanel_17.Text;
+                        val1_s = DataPanel_26.Text;
+                        val2_s = "";
+                        break;
+                    }
+
+                case "2":
+                    {
+                        input1 = DataPanel_27;
+                        min_s = DataPanel_7.Text;
+                        max_s = DataPanel_18.Text;
+                        val1_s = DataPanel_27.Text;
+                        val2_s = "";
+                        break;
+                    }
+
+                case "3":
+                    {
+                        input1 = DataPanel_28;
+                        min_s = DataPanel_8.Text;
+                        max_s = DataPanel_19.Text;
+                        val1_s = DataPanel_28.Text;
+                        val2_s = "";
+                        break;
+                    }
+
+                case "4":
+                    {
+                        input1 = DataPanel_29;
+                        min_s = DataPanel_9.Text;
+                        max_s = DataPanel_20.Text;
+                        val1_s = DataPanel_29.Text;
+                        val2_s = "";
+                        break;
+                    }
+
+                case "5":
+                    {
+                        input1 = DataPanel_30;
+                        min_s = DataPanel_10.Text;
+                        max_s = DataPanel_21.Text;
+                        val1_s = DataPanel_30.Text;
+                        val2_s = "";
+                        break;
+                    }
+                default:
+                    break;
+            }
+            if (val2_s == "" || val2_s == "-")
+            {
+                val2_s = val1_s;
+            }
+            var bc = new BrushConverter();
+            string color = "#FFFFFF";
+            try
+            {
+                Double.TryParse(min_s.Replace(".", ","), out double min);
+                Double.TryParse(max_s.Replace(".", ","), out double max);
+                Double.TryParse(val1_s.Replace(".", ","), out double val1);
+                Double.TryParse(val2_s.Replace(".", ","), out double val2);
+
+                double finalValue = (val1 + val2) / 2;
+                if (finalValue > (min + 0.00000000) && finalValue < (max + 0.00000000))
+                {
+                    color = "#ccffcc";
+                }
+                else if (finalValue == (min + 0.00000000) || finalValue == (max + 0.00000000))
+                {
+                    color = "#fffabb";
+                }
+                else if (finalValue < (min + 0.00000000) || finalValue > (max + 0.00000000))
+                {
+                    color = "#ffcccc";
+                }
+            }
+            catch (Exception)
+            {
+                color = "#FFFFFF";
+            }
+            input1.Background = (Brush)bc.ConvertFrom(color);
+            //if (input2 != null)
+            //{
+            //    input2.Background = (Brush)bc.ConvertFrom(color);
+            //}
         }
     }
 }

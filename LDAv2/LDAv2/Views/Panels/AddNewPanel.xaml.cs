@@ -74,6 +74,7 @@ namespace LDAv2.Views.Panels
 
             return list;
         }
+
         private List<TextBox> Charge_Input_Collector()
         {
             List<TextBox> list = new List<TextBox>();

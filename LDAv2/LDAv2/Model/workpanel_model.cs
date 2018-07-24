@@ -116,5 +116,13 @@ namespace LDAv2.Model
             public string toltoanyag_gy { get; set; }
             public string megjegyzes { get; set; }
         }
+        public class Measure_Value
+        {
+            public string min { get; set; }
+            public string max { get; set; }
+            public string val1 { get; set; }
+            public string val2 { get; set; }
+
+        }
     }
 }
