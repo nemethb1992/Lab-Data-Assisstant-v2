@@ -161,7 +161,7 @@ namespace LDAv2.Controller
                 "`toltoanyag_max` = '" + list[0].toltoanyag_max + "' " +
                 "WHERE `cikk`.`id` = '" +CikkszamID+"'";
 
-            dbE.MysqlQueryExecute(query);
+            dbE.MysqlQueryExecute(query2);
         }
     }
 }

@@ -100,12 +100,19 @@ namespace LDAv2.Views.Panels
             }
             return filled;
         }
-        private void cikk_inp_TextChanged(object sender, TextChangedEventArgs e)
+        private void NewCharge_inp_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (w_control.Cikk_Checker(cikk_inp.Text))
             {
                 cikkszam_check.Visibility = Visibility.Visible;
-                Save_Charge_Button.IsEnabled = true;
+                if (charge_inp.Text.Length > 0 && beerk_inp.Text.Length > 0 && utolso_meres_inp.Text.Length > 0 && kw_inp.Text.Length > 0)
+                {
+                    Save_Charge_Button.IsEnabled = true;
+                }
+                else
+                {
+                    Save_Charge_Button.IsEnabled = false;
+                }
             }
             else
             {
@@ -115,13 +122,22 @@ namespace LDAv2.Views.Panels
         }
         private void NewCikk_inp_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (NewCikk_All_Filled())
+            if (!w_control.Cikk_Checker(cikkszam_inp.Text))
             {
-                Save_Button.IsEnabled = true;
+                cikkszam2_check.Visibility = Visibility.Hidden;
+                if (NewCikk_All_Filled())
+                {
+                    Save_Button.IsEnabled = true;
+                }
+                else
+                {
+                    Save_Button.IsEnabled = false;
+                }
             }
             else
             {
                 Save_Button.IsEnabled = false;
+                cikkszam2_check.Visibility = Visibility.Visible;
             }
         }
 

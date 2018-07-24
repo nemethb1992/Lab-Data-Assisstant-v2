@@ -109,12 +109,12 @@
         <TextBlock Grid.Column="7" Grid.Row="17" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Folyóképesség (cm3/10 min)"/>
         <TextBlock Grid.Column="7" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Töltőanyagtartalom (%)"/>-->
 
-        <TextBox Grid.Column="1"  Grid.Row="2"    x:Name="cikk_inp"   Style="{StaticResource Standard_Textbox}" TextChanged="cikk_inp_TextChanged" />
-        <TextBox Grid.Column="1"   Grid.Row="4"   x:Name="charge_inp"  Style="{StaticResource Standard_Textbox}" />
-        <TextBox Grid.Column="1"   Grid.Row="6"   x:Name="beerk_inp"  Style="{StaticResource Standard_Textbox}" />
-        <TextBox Grid.Column="1"   Grid.Row="8"   x:Name="utolso_meres_inp"  Style="{StaticResource Standard_Textbox}" />
-        <TextBox Grid.Column="1"   Grid.Row="10"  x:Name="kw_inp"  Style="{StaticResource Standard_Textbox}" />
-        <TextBox Grid.Column="1" Grid.RowSpan="7" x:Name="megjegyzes_inp"  Grid.Row="12" Style="{StaticResource Standard_Textbox}" />
+        <TextBox Grid.Column="1"  Grid.Row="2"    x:Name="cikk_inp"   Style="{StaticResource Standard_Textbox}" TextChanged="NewCharge_inp_TextChanged" />
+        <TextBox Grid.Column="1"   Grid.Row="4"   x:Name="charge_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCharge_inp_TextChanged" />
+        <TextBox Grid.Column="1"   Grid.Row="6"   x:Name="beerk_inp"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCharge_inp_TextChanged" />
+        <TextBox Grid.Column="1"   Grid.Row="8"   x:Name="utolso_meres_inp"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCharge_inp_TextChanged" />
+        <TextBox Grid.Column="1"   Grid.Row="10"  x:Name="kw_inp"  Style="{StaticResource Standard_Textbox}"  TextChanged="NewCharge_inp_TextChanged" />
+        <TextBox Grid.Column="1" Grid.RowSpan="7" x:Name="megjegyzes_inp"  Grid.Row="12" Style="{StaticResource Standard_Textbox}"  TextChanged="NewCharge_inp_TextChanged" />
 
 
         <TextBox Grid.Column="3"  Grid.Row="2"  x:Name="cikkszam_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
@@ -153,6 +153,7 @@
         <Button x:Name="Save_Button" Grid.Column="7" Grid.Row="1" Grid.RowSpan="3" Height="50" Style="{StaticResource ThemeButton}" Content="Mentés" IsEnabled="False" Click="Cikk_Save_Button_Click"/>
         <Button x:Name="Save_Charge_Button" IsEnabled="False" Grid.Column="1" Grid.RowSpan="3" Height="50" Grid.Row="19" Style="{StaticResource ThemeButton}" Margin="0,5,0,0" Content="Mentés" Click="Charge_Save_Button_Click"/>
         <Image x:Name="cikkszam_check" Grid.Column="1" Visibility="Hidden" Grid.Row="2" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <Image x:Name="cikkszam2_check" Grid.Column="3" Visibility="Hidden" Grid.Row="2" Source="/LDAv2;component/Public/imgs/checked_passive.png" Height="18" HorizontalAlignment="Right" Margin="0,0,5,0"/>
     </Grid>
 </UserControl>
 
