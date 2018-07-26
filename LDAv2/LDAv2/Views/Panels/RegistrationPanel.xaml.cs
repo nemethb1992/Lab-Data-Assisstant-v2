@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static LDAv2.Model.admin_model;
 
 namespace LDAv2.Views.Panels
 {
@@ -43,8 +44,8 @@ namespace LDAv2.Views.Panels
         {
             if (username.Text.Length >= 5 && fullname.Text.Length >= 5 && email.Text.Length >= 5 && pass_1.Password == pass_2.Password && pass_1.Password.Length >= 5 && pass_2.Password.Length >= 5 && !l_control.Registration_Username_Checker(username.Text) &&!l_control.Registration_Email_Checker(email.Text))
             {
-                List<Registration_struct> list = new List<Registration_struct>();
-                list.Add(new Registration_struct
+                List<UserSessData> list = new List<UserSessData>();
+                list.Add(new UserSessData
                 {
                     username = username.Text,
                     pass = pass_1.Password,

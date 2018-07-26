@@ -51,7 +51,7 @@
             <CheckBox x:Name="allapot_check" Grid.Column="6" Padding="3,-1,0,0" Grid.Row="0" Style="{StaticResource Standard_CheckBox}" Content="Zárt" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Grid>
         
-        <ListBox x:Name="activity_list" Style="{StaticResource Standard_ListBox}" Background="{StaticResource Listbox_light}" Grid.Column="1" Height="520" Grid.Row="2" HorizontalContentAlignment="Stretch" Padding="0,5" SelectionMode="Extended" Margin="0,15,0,40">
+        <ListBox x:Name="activity_list" Style="{StaticResource Standard_ListBox}" Background="{StaticResource Listbox_light}" Grid.Column="1" Height="520" Grid.Row="2" HorizontalContentAlignment="Stretch" Padding="0,5" SelectionMode="Extended" Margin="0,10,0,40">
             <ListBox.Resources>
                 <Style TargetType="{x:Type Border}" BasedOn="{StaticResource Border_Corner_Element}"/>
                 <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource Standard_ListBoxItem}">

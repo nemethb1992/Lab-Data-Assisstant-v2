@@ -25,7 +25,6 @@ namespace LDAv2.Views.Panels
 
         //Thread SearchThread = new Thread(new ThreadStart(SearchMethod));
         admin_control a_control = new admin_control();
-        private static ActivityPanel ap2;
         private  Grid grid;
         public ActivityPanel(Grid grid)
         {

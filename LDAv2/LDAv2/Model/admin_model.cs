@@ -18,5 +18,19 @@ namespace LDAv2.Model
             public string beerk { get; set; }
             public string date { get; set; }
         }
+        public class UserSessData
+        {
+            public int user_id { get; set; }
+            public string username { get; set; }
+            public string pass { get; set; }
+            public string real_name { get; set; }
+            public int auth { get; set; }
+            public string email { get; set; }
+            public int valid { get; set; }
+            public int admintag { get; set; }
+            public string lastlogindate { get; set; }
+            public int language { get; set; }
+            public string allapot_megnev { get; set; }
+        }
     }
 }

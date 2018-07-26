@@ -127,5 +127,13 @@ namespace LDAv2.Views.Panels
             Write_SearchParams();
             Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
         }
+
+        private void Measuere_Delete(object sender, RoutedEventArgs e)
+        {
+            MenuItem raw = sender as MenuItem;
+            Measure_Compact_Struct data = raw.DataContext as Measure_Compact_Struct;
+            w_control.Delete_Charge(data.charge_id);
+            Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
+        }
     }
 }

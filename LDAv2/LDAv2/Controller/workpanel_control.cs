@@ -10,7 +10,7 @@ namespace LDAv2.Controller
     class workpanel_control
     {
         dbEntities dbE = new dbEntities();
-
+        Session sess = new Session();
 
         private static int CikkszamIDs;
         public int CikkszamID { get { return CikkszamIDs; } set { CikkszamIDs = value; } }
@@ -162,6 +162,12 @@ namespace LDAv2.Controller
                 "WHERE `cikk`.`id` = '" +CikkszamID+"'";
 
             dbE.MysqlQueryExecute(query2);
+        }
+        public void Delete_Charge(int id)
+        {
+            string query = "DELETE FROM `charge` WHERE `charge`.`charge_id` = " + id + ";";
+            if (sess.UserData[0].admintag == 1)
+            dbE.MysqlQueryExecute(query);
         }
     }
 }

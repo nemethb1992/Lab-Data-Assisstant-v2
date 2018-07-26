@@ -31,7 +31,7 @@ namespace LDAv2.Controller
         //Initialize values
         private void SetupDB()
         {
-            string connectionString = "Data Source = mysql.nethely.hu; Port = 3306; Initial Catalog = ldadatabase; User ID = ldadatabase; Password = lda2018";
+            string connectionString = "Data Source = 192.168.144.189; Port=3306; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
             conn = new MySqlConnection(connectionString);
         }
         public bool dbOpen()
@@ -126,6 +126,17 @@ namespace LDAv2.Controller
             //conn.Close();
             return list;
         }
+        //public void UserActivityLogger(string username, string activity, int allapot, string cikk, string charge, string beerk, string date)
+        //{
+        //    SQLiteConnection conn = new SQLiteConnection(sess.databaseUrl);
+        //    conn.Open();
+        //    var command = conn.CreateCommand();
+        //    command.CommandText = "CREATE TABLE IF NOT EXISTS userActivity (username TEXT,activity TEXT, allapot INT,cikk TEXT,charge TEXT,beerk TEXT,date TEXT) ";
+        //    command.ExecuteNonQuery();
+        //    command.CommandText = "INSERT INTO userActivity (username,activity,allapot,cikk,charge,beerk,date) VALUES ('" + username + "','" + activity + "'," + allapot + ",'" + cikk + "','" + charge + "','" + beerk + "','" + date + "')";
+        //    command.ExecuteNonQuery();
+        //    conn.Close();
+        //}
         public List<Measure_Full_Struct> Measure_Full_Query_MySQL(string query)
         {
             List<Measure_Full_Struct> list = new List<Measure_Full_Struct>();

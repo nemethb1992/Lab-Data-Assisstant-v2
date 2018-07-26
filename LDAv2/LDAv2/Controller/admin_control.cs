@@ -11,6 +11,10 @@ namespace LDAv2.Controller
     class admin_control
     {
 
+
+        private static int User_id;
+        public int User_ID { get { return User_id; } set { User_id = value; } }
+
         dbEntities dbE = new dbEntities();
         public List<Activity_Struct> Aktivitas_List(List<string> list)
         {
@@ -30,6 +34,39 @@ namespace LDAv2.Controller
 
             query += " ORDER BY date DESC LIMIT 50";
             return dbE.Activity_Query_MySQL(query);
+        }
+        public List<UserSessData> Admin_User_Datasource()
+        {
+            string query = "SELECT user_id, `username`, `real_name`, `auth`, `email`, `valid`, `admintag`, `lastlogindate`, `language` FROM users";
+
+            List<UserSessData> list = dbE.UserSession(query);
+
+            return list;
+        }
+        public List<UserSessData> SelectedUserDataSource(int id)
+        {
+            string query = "SELECT * FROM users WHERE user_id='" + id + "'";
+
+            List<UserSessData> list = dbE.UserSession(query);
+
+            return list;
+        }
+        public void SelectedUserModification(List<UserSessData> li)
+        {
+            string query = "UPDATE `users` " +
+                "SET `username` = '" + li[0].username+ "', " +
+                "`real_name` = '" + li[0].real_name+ "', " +
+                "`auth` = '" + li[0].auth+ "', " +
+                "`email` = '" + li[0].email+ "', " +
+                "`valid` = '" + li[0].valid+ "', " +
+                "`admintag` = '" + li[0].admintag+ "' " +
+                "WHERE `users`.`user_id` = "+li[0].user_id+";";
+            dbE.MysqlQueryExecute(query);
+        }
+        public void Delete_User(int id)
+        {
+            string query = "DELETE FROM `users` WHERE `users`.`user_id` = " + id + ";";
+            dbE.MysqlQueryExecute(query);
         }
     }
 }

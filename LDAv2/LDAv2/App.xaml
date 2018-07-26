@@ -190,6 +190,7 @@
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="BorderBrush" Value="Transparent"></Setter>
+            <Setter Property="Cursor" Value="Hand"/>
             <!--<Setter Property="Foreground" Value="#FF757D81"></Setter>-->
             <Setter Property="VerticalAlignment" Value="Top"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
