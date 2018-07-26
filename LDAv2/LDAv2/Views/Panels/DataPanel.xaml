@@ -164,7 +164,7 @@
         <CheckBox Grid.Column="8"   Grid.Row="2"  x:Name="DataPanel_38"   Style="{StaticResource Standard_CheckBox}" Margin="5" VerticalAlignment="Center" Padding="3,-1,0,0" Content="Lezárva"/>
         <Border Grid.Column="1" Panel.ZIndex="2"  Grid.Row="8" Background="Transparent"  x:Name="DataPanel_37_locker" Visibility="Hidden"/>
         <Border Grid.Column="8" Panel.ZIndex="2"  Grid.Row="2" Background="Transparent"  x:Name="DataPanel_38_locker" Visibility="Hidden"/>
-        <Border Panel.ZIndex="-1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="15" Grid.Row="9" Background="{StaticResource Listbox_light}" Margin="10,10,10,30" CornerRadius="15"/>
+        <Border Panel.ZIndex="-1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="15" Grid.Row="9" Background="White" Margin="10,10,10,30" CornerRadius="15,15,0,0"/>
     </Grid>
 </UserControl>
 

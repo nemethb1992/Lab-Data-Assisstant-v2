@@ -67,6 +67,12 @@ namespace LDAv2.Views.Panels
             {
                 list.Add("0");
             }
+                list.Add(DataPanel_26_2.Text);
+                list.Add(DataPanel_27_2.Text);
+                list.Add(DataPanel_28_2.Text);
+                list.Add(DataPanel_29_2.Text);
+                list.Add(DataPanel_30_2.Text);
+            
             return list;
         }
         void DataPanel_Setting_Up()
@@ -137,6 +143,12 @@ namespace LDAv2.Views.Panels
             DataPanel_28.Text = list[0].folyokep_g;
             DataPanel_29.Text = list[0].folyokep_cm;
             DataPanel_30.Text = list[0].toltoanyag;
+            
+            DataPanel_26_2.Text = "";
+            DataPanel_27_2.Text = "";
+            DataPanel_28_2.Text = "";
+            DataPanel_29_2.Text = "";
+            DataPanel_30_2.Text = "";
 
             DataPanel_31.Text = list[0].megjegyzes;
             DataPanel_32.Text = list[0].szakszig_gy;
@@ -196,8 +208,57 @@ namespace LDAv2.Views.Panels
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
+
             List<Measure_Full_Struct> li = new List<Measure_Full_Struct>();
             List<string> listr = DataPanel_Value_List();
+            //string szakszig = listr[25], utesall = listr[26], folykepg = listr[27], folykepcm = listr[28], tolto = listr[29];
+            try
+            {
+                if (listr[38] == "" || listr[38] == "-")
+                    listr[38] = listr[25];
+                if (listr[39] == "" || listr[39] == "-")
+                    listr[39] = listr[26];
+                if (listr[40] == "" || listr[40] == "-")
+                    listr[40] = listr[27];
+                if (listr[41] == "" || listr[41] == "-")
+                    listr[41] = listr[28];
+                if (listr[42] == "" || listr[42] == "-")
+                    listr[42] = listr[29];
+
+                Double.TryParse(listr[25].Replace(".", ","), out double szakszig_1);
+                Double.TryParse(listr[26].Replace(".", ","), out double utesallosag_1);
+                Double.TryParse(listr[27].Replace(".", ","), out double folyokep_g_1);
+                Double.TryParse(listr[28].Replace(".", ","), out double folyokep_cm_1);
+                Double.TryParse(listr[29].Replace(".", ","), out double toltoanyag_1);
+
+                Double.TryParse(listr[38].Replace(".", ","), out double szakszig_2);
+                Double.TryParse(listr[39].Replace(".", ","), out double utesallosag_2);
+                Double.TryParse(listr[40].Replace(".", ","), out double folyokep_g_2);
+                Double.TryParse(listr[41].Replace(".", ","), out double folyokep_cm_2);
+                Double.TryParse(listr[42].Replace(".", ","), out double toltoanyag_2);
+
+                listr[25] = ((szakszig_1 + szakszig_2) / 2).ToString();
+                listr[26] = ((utesallosag_1 + utesallosag_2) / 2).ToString();
+                listr[27] = ((folyokep_g_1 + folyokep_g_2) / 2).ToString();
+                listr[28] = ((folyokep_cm_1 + folyokep_cm_2) / 2).ToString();
+                listr[29] = ((toltoanyag_1 + toltoanyag_2) / 2).ToString();
+
+
+
+            }
+            catch (Exception)
+            {
+                //    if (listr[38] == "" || listr[38] == "-")
+                //        listr[38] = listr[25];
+                //    if (listr[39] == "" || listr[39] == "-")
+                //        listr[39] = listr[26];
+                //    if (listr[40] == "" || listr[40] == "-")
+                //        listr[40] = listr[27];
+                //    if (listr[41] == "" || listr[41] == "-")
+                //        listr[41] = listr[28];
+                //    if (listr[42] == "" || listr[42] == "-")
+                //        listr[42] = listr[29];
+            }
             li.Add(new Measure_Full_Struct
             {
                 cikkszam = listr[0],
@@ -226,8 +287,8 @@ namespace LDAv2.Views.Panels
                 beerk_datum = listr[21],
                 ut_meres_datum = listr[22],
                 kw = listr[23],
-
                 viztartalom = listr[24],
+
                 szakszig = listr[25],
                 utesallosag = listr[26],
                 folyokep_g = listr[27],
@@ -261,7 +322,7 @@ namespace LDAv2.Views.Panels
                         min_s = DataPanel_6.Text;
                         max_s = DataPanel_17.Text;
                         val1_s = DataPanel_26.Text;
-                        val2_s = "";
+                        val2_s = DataPanel_26_2.Text;
                         break;
                     }
 
@@ -271,7 +332,7 @@ namespace LDAv2.Views.Panels
                         min_s = DataPanel_7.Text;
                         max_s = DataPanel_18.Text;
                         val1_s = DataPanel_27.Text;
-                        val2_s = "";
+                        val2_s = DataPanel_27_2.Text;
                         break;
                     }
 
@@ -281,7 +342,7 @@ namespace LDAv2.Views.Panels
                         min_s = DataPanel_8.Text;
                         max_s = DataPanel_19.Text;
                         val1_s = DataPanel_28.Text;
-                        val2_s = "";
+                        val2_s = DataPanel_28_2.Text;
                         break;
                     }
 
@@ -291,7 +352,7 @@ namespace LDAv2.Views.Panels
                         min_s = DataPanel_9.Text;
                         max_s = DataPanel_20.Text;
                         val1_s = DataPanel_29.Text;
-                        val2_s = "";
+                        val2_s = DataPanel_29_2.Text;
                         break;
                     }
 
@@ -301,7 +362,7 @@ namespace LDAv2.Views.Panels
                         min_s = DataPanel_10.Text;
                         max_s = DataPanel_21.Text;
                         val1_s = DataPanel_30.Text;
-                        val2_s = "";
+                        val2_s = DataPanel_30_2.Text;
                         break;
                     }
                 default:
