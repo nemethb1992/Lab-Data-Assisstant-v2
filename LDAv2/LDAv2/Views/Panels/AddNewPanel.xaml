@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LDAv2.Views.Panels"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1050">
-    <Grid Background="White">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
 

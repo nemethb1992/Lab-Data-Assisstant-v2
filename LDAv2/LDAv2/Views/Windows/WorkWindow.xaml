@@ -19,7 +19,10 @@
                               ShadowDepth="1"
                               Opacity="0.5"/>
         </Border.Effect>
-        <Grid Height="710" Width="1130" Background="White"  HorizontalAlignment="Center">
+        <Grid Height="710" Width="1130"  HorizontalAlignment="Center">
+            <Grid.Background>
+                <ImageBrush ImageSource="/LDAv2;component/Public/imgs/bgKinga.png"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
                 <RowDefinition Height="1*" />
@@ -72,7 +75,11 @@
 
 
             <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" VerticalScrollBarVisibility="Auto">
-                <Grid x:Name="sgrid" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"  Background="White"  Panel.ZIndex="1"/>
+                <Grid x:Name="sgrid" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"  Panel.ZIndex="1">
+                    <Grid.Background>
+                        <ImageBrush/>
+                    </Grid.Background>
+                </Grid>
             </ScrollViewer>
 
 
