@@ -65,7 +65,7 @@ namespace LDAv2.Controller
         }
         public List<Beszallitok_Struct> Beszallitok_Query()
         {
-            string query = "SELECT cikk.id, cikk.cikkszam,charge.charge,szallito,anyag_nev,anyag_tipus,kw,beerk_datum,allapot FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam ";
+            string query = "SELECT beszallito_id, nev FROM beszallitok ORDER BY nev DESC";
             return dbE.Beszallitok_Query_MySQL(query);
         }
         public bool Cikk_Checker(string item)

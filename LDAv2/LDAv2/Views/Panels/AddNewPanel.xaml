@@ -118,7 +118,16 @@
 
 
         <TextBox Grid.Column="3"  Grid.Row="2"  x:Name="cikkszam_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
-        <TextBox Grid.Column="3"  Grid.Row="4"  x:Name="szallito_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
+        <ComboBox Grid.Column="3"  Grid.Row="4"  x:Name="szallito_cbx">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <TextBlock Grid.Column="1" Style="{StaticResource checkbox_item_style}" Text="{Binding nev}"/>
+                    </Grid>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <!--<TextBox Grid.Column="3"  Grid.Row="4"  x:Name="szallito_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>-->
         <TextBox Grid.Column="3"  Grid.Row="6"  x:Name="anyagnev_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>
         <CheckBox Grid.Column="7"  Grid.Row="4"  x:Name="utomunka_inp"   Style="{StaticResource Standard_CheckBox}" VerticalAlignment="Center" Padding="3,-1,0,0" Content="Ütőmunkához metszve"/>
         <!--<TextBox Grid.Column="3"  Grid.Row="8"  x:Name="utomunka_inp" Style="{StaticResource Standard_Textbox}" TextChanged="NewCikk_inp_TextChanged"/>-->

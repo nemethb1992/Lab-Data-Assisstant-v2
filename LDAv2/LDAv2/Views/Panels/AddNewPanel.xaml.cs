@@ -29,6 +29,11 @@ namespace LDAv2.Views.Panels
         {
             InitializeComponent();
             this.grid = grid;
+            StartUp();
+        }
+        private void StartUp()
+        {
+            szallito_cbx.ItemsSource = w_control.Beszallitok_Query();
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -41,8 +46,7 @@ namespace LDAv2.Views.Panels
             List<TextBox> list = new List<TextBox>();
 
             list.Add(cikkszam_inp);
-
-            list.Add(szallito_inp);
+            
             list.Add(anyagnev_inp);
             list.Add(anyagtipus_inp);
             list.Add(pc_inp);
@@ -93,7 +97,7 @@ namespace LDAv2.Views.Panels
             bool filled = true;
             foreach (var item in Cikk_Input_Collector())
             {
-                if (item.Text.Length == 0)
+                if (item.Text.Length == 0 || szallito_cbx.SelectedItem == null)
                 {
                     filled = false;
                     break;
@@ -153,26 +157,26 @@ namespace LDAv2.Views.Panels
             List<TextBox> tb_list = Cikk_Input_Collector();
             list.Add(new Cikk_Struct {
                 cikkszam = tb_list[0].Text,
-                szallito = tb_list[1].Text,
-                anyag_nev = tb_list[2].Text,
-                anyag_tipus = tb_list[3].Text,
-                profit_center = tb_list[4].Text,
+                szallito = szallito_cbx.SelectedItem.ToString(),
+                anyag_nev = tb_list[1].Text,
+                anyag_tipus = tb_list[2].Text,
+                profit_center = tb_list[3].Text,
                 utomun_metszve = utomunka,
-                folyokep_homerseklet = tb_list[5].Text,
-                utokalapacs_meret_j = tb_list[6].Text,
-                folyokep_terheles_kg = tb_list[7].Text,
-                suruseg = tb_list[8].Text,
-                szin = tb_list[9].Text,
-                szakszig_min = tb_list[10].Text,
-                szakszig_max = tb_list[11].Text,
-                utesallosag_min = tb_list[12].Text,
-                utesallosag_max = tb_list[13].Text,
-                folyokep_min_g = tb_list[14].Text,
-                folyokep_max_g = tb_list[15].Text,
-                folyokep_min_cm = tb_list[16].Text,
-                folyokep_max_cm = tb_list[17].Text,
-                toltoanyag_min = tb_list[18].Text,
-                toltoanyag_max = tb_list[19].Text,
+                folyokep_homerseklet = tb_list[4].Text,
+                utokalapacs_meret_j = tb_list[5].Text,
+                folyokep_terheles_kg = tb_list[6].Text,
+                suruseg = tb_list[7].Text,
+                szin = tb_list[8].Text,
+                szakszig_min = tb_list[9].Text,
+                szakszig_max = tb_list[10].Text,
+                utesallosag_min = tb_list[11].Text,
+                utesallosag_max = tb_list[12].Text,
+                folyokep_min_g = tb_list[13].Text,
+                folyokep_max_g = tb_list[14].Text,
+                folyokep_min_cm = tb_list[15].Text,
+                folyokep_max_cm = tb_list[16].Text,
+                toltoanyag_min = tb_list[17].Text,
+                toltoanyag_max = tb_list[18].Text,
             });
             w_control.Cikk_INSERT_MySQL(list);
             foreach (var item in tb_list)
