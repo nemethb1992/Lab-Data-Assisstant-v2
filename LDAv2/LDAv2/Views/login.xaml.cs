@@ -26,12 +26,18 @@ namespace LDAv2.Views
         login_control lcontrol = new login_control();
         Session session = new Session();
         dbEntities dbE = new dbEntities();
+        language_control L = new language_control();
         public login(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
             BootMethods();
             dbConnectionOpener();
+            //MessageBox.Show(L.Word(10));
+        }
+        public string teststring()
+        {
+            return "Sikerült!";
         }
         void dbConnectionOpener()
         {
@@ -122,5 +128,6 @@ namespace LDAv2.Views
             var window = Window.GetWindow(this);
             window.Close();
         }
+
     }
 }

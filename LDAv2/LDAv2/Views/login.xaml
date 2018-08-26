@@ -22,7 +22,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="0.4*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="LoginSign" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="0,20,0,0" TextAlignment="Center" Style="{StaticResource Big_TextBlock}"   Text="Bejelentkezés" />
+        <TextBlock x:Name="LoginSign" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="0,20,0,0" TextAlignment="Center" Style="{StaticResource Big_TextBlock}" Text="Bejelentkezés"/>
 
         <Image Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="25"  Width="25" Source="/Public/imgs/user.png"/>
         <TextBox Grid.Row="1" Grid.Column="2" x:Name="Luser_tbx" Text=""  Style="{StaticResource Login_User_tbx}" KeyUp="Luser_tbx_KeyUp"/>
