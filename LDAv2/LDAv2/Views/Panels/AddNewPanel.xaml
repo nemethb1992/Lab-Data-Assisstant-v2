@@ -57,57 +57,39 @@
                 <ColumnDefinition Width="260" />
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Style="{StaticResource Big_TextBlock}" Text="Új mérés felvitele" Margin="0,15,0,0" FontSize="22"/>
-            <TextBlock Grid.Column="1" Style="{StaticResource Big_TextBlock}" Text="Új cikk felvitele" Margin="0,15,0,0" FontSize="22"/>
+            <TextBlock x:Name="big_label1" Grid.Column="0" Style="{StaticResource Big_TextBlock}" Text="Új mérés felvitele" Margin="0,15,0,0" FontSize="22"/>
+            <TextBlock x:Name="big_label2" Grid.Column="1" Style="{StaticResource Big_TextBlock}" Text="Új cikk felvitele" Margin="0,15,0,0" FontSize="22"/>
         </Grid>
 
-        <TextBlock Grid.Column="1" Grid.Row="1"  Style="{StaticResource DataLabel_TextBlock}" Text="Cikkszám"/>
-        <TextBlock Grid.Column="3" Grid.Row="1"  Style="{StaticResource DataLabel_TextBlock}" Text="Cikkszám"/>
-        <TextBlock Grid.Column="3" Grid.Row="3"  Style="{StaticResource DataLabel_TextBlock}" Text="Szállító"/>
-        <TextBlock Grid.Column="3" Grid.Row="5"  Style="{StaticResource DataLabel_TextBlock}" Text="Anyagnév"/>
-        <TextBlock Grid.Column="3" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="Ütőkalapács mérete (J)"/>
-        <TextBlock Grid.Column="5" Grid.Row="1" Style="{StaticResource DataLabel_TextBlock}" Text="Sűrűség (g/cm3)"/>
-        <TextBlock Grid.Column="3" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="Szakítószilárdság min. (MPa)"/>
-        <TextBlock Grid.Column="3" Grid.Row="13" Style="{StaticResource DataLabel_TextBlock}" Text="Charpy Ütésállóság min. (kJ/m2)"/>
-        <TextBlock Grid.Column="3" Grid.Row="15" Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség min. (g/10 min)"/>
-        <TextBlock Grid.Column="3" Grid.Row="17" Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség min. (cm3/10 min)"/>
-        <TextBlock Grid.Column="3" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}" Text="Töltőanyagtartalom min. (%)"/>
+        <TextBlock x:Name="cikkszam2_label" Grid.Column="3" Grid.Row="1"  Style="{StaticResource DataLabel_TextBlock}" Text="Cikkszám"/>
+        <TextBlock x:Name="szallito_label" Grid.Column="3" Grid.Row="3"  Style="{StaticResource DataLabel_TextBlock}" Text="Szállító"/>
+        <TextBlock x:Name="anyagnev_label" Grid.Column="3" Grid.Row="5"  Style="{StaticResource DataLabel_TextBlock}" Text="Anyagnév"/>
+        <TextBlock x:Name="utokalapacs_label" Grid.Column="3" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="Ütőkalapács mérete (J)"/>
+        <TextBlock x:Name="suruseg_label" Grid.Column="5" Grid.Row="1" Style="{StaticResource DataLabel_TextBlock}" Text="Sűrűség (g/cm3)"/>
+        <TextBlock x:Name="szakszigmin_label" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="Szakítószilárdság min. (MPa)"/>
+        <TextBlock x:Name="charpymin_label" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="13" Style="{StaticResource DataLabel_TextBlock}" Text="Charpy Ütésállóság min. (kJ/m2)"/>
+        <TextBlock x:Name="folyokepming_label" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="15" Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség min. (g/10 min)"/>
+        <TextBlock x:Name="folyokepmincm_label" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="17" Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség min. (cm3/10 min)"/>
+        <TextBlock x:Name="toltoanyagmin_label" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}" Text="Töltőanyagtartalom min. (%)"/>
 
-        <TextBlock Grid.Column="1" Grid.Row="3"   Style="{StaticResource DataLabel_TextBlock}" Text="Charge szám"/>
-        <TextBlock Grid.Column="5" Grid.Row="3"   Style="{StaticResource DataLabel_TextBlock}" Text="Anyag típus"/>
-        <TextBlock Grid.Column="3" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Profit Center" />
-        <TextBlock Grid.Column="5" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség mérési hőm. (°C)" />
-        <TextBlock Grid.Column="5" Grid.Row="9"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség súlyterhelése (kg)" />
-        <TextBlock Grid.Column="5" Grid.Row="5"  Style="{StaticResource DataLabel_TextBlock}" Text="Szín"/>
-        <TextBlock Grid.Column="5" Grid.Row="11"  Style="{StaticResource DataLabel_TextBlock}" Text="Szakítószilárdság max. (MPa)"/>
-        <TextBlock Grid.Column="5" Grid.Row="13"  Style="{StaticResource DataLabel_TextBlock}" Text="Charpy Ütésállóság max. (kJ/m2)"/>
-        <TextBlock Grid.Column="5" Grid.Row="15"  Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség max. (g/10 min)"/>
-        <TextBlock Grid.Column="5" Grid.Row="17"  Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség max. (cm3/10 min)"/>
-        <TextBlock Grid.Column="5" Grid.Row="19"  Style="{StaticResource DataLabel_TextBlock}" Text="Töltőanyagtartalom max. (%)"/>
+        <TextBlock x:Name="anyagtipus_label" Grid.Column="5" Grid.Row="3"   Style="{StaticResource DataLabel_TextBlock}" Text="Anyag típus"/>
+        <TextBlock x:Name="pc_label" Grid.Column="3" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Profit Center" />
+        <TextBlock x:Name="folyhom_label" Grid.Column="5" Grid.Row="7"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség mérési hőm. (°C)" />
+        <TextBlock x:Name="folysuly_label" Grid.Column="5" Grid.Row="9"   Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség súlyterhelése (kg)" />
+        <TextBlock x:Name="szin" Grid.Column="5" Grid.Row="5"  Style="{StaticResource DataLabel_TextBlock}" Text="Szín"/>
+        <TextBlock x:Name="szakszigmax_label" Grid.Column="5" Grid.Row="11"  Style="{StaticResource DataLabel_TextBlock}" Text="Szakítószilárdság max. (MPa)"/>
+        <TextBlock x:Name="charpymax_label" Grid.Column="5" Grid.Row="13"  Style="{StaticResource DataLabel_TextBlock}" Text="Charpy Ütésállóság max. (kJ/m2)"/>
+        <TextBlock x:Name="folyokepmaxg_label" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="15"  Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség max. (g/10 min)"/>
+        <TextBlock x:Name="folyokepmaxcm_label" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="17"  Style="{StaticResource DataLabel_TextBlock}" Text="Folyóképesség max. (cm3/10 min)"/>
+        <TextBlock x:Name="toltoanyagmax_label" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="19"  Style="{StaticResource DataLabel_TextBlock}" Text="Töltőanyagtartalom max. (%)"/>
 
 
-        <TextBlock Grid.Column="1" Grid.Row="5" Style="{StaticResource DataLabel_TextBlock}" Text="Beérkezés Dátum"/>
-        <TextBlock Grid.Column="1" Grid.Row="7"  Style="{StaticResource DataLabel_TextBlock}" Text="Utolsó Mérés Dátum"/>
-        <TextBlock Grid.Column="1" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="KW"/>
-        <!--<TextBlock Grid.Column="5" Grid.Row="7"  Style="{StaticResource DataLabel_TextBlock}" Text="dasd"/>-->
-        <!--<TextBlock Grid.Column="1" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="Víztartalom szárítás után (%)"/>
-        <TextBlock Grid.Column="1" Grid.Row="13" Style="{StaticResource DataLabel_TextBlock}"><Run FontFamily="/Public/fonts/#Montserrat" Text="Szakítószilárdság (MPa)"/></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="15" Style="{StaticResource DataLabel_TextBlock}"><Run FontFamily="/Public/fonts/#Montserrat" Text="Charpy Ütésállóság (kJ/m2)"/></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="17" Style="{StaticResource DataLabel_TextBlock}"><Run FontFamily="/Public/fonts/#Montserrat" Text="Folyóképesség (g/10 min)"/></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}"><Run FontFamily="/Public/fonts/#Montserrat" Text="Folyóképesség (cm3/10 min)"/></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="21" Style="{StaticResource DataLabel_TextBlock}"><Run FontFamily="/Public/fonts/#Montserrat" Text="Töltőanyagtartalom (%)"/></TextBlock>-->
-
-        <!--<TextBlock Grid.Column="7" Grid.Row="1"  Style="{StaticResource DataLabel_TextBlock}" Text="Állapot"/>-->
-        <TextBlock Grid.Column="1" Grid.Row="11"  Style="{StaticResource DataLabel_TextBlock}" Text="Megjegyzés"/>
-        <!--<TextBlock Grid.Column="7" Grid.Row="5"  Style="{StaticResource DataLabel_TextBlock}" Text="Megnevezés"/>-->
-        <!--<TextBlock Grid.Column="7" Grid.Row="7"  Style="{StaticResource DataLabel_TextBlock}" Text="Megnevezés"/>-->
-        <!--<TextBlock Grid.Column="7" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="Megnevezés"/>-->
-        <!--<TextBlock Grid.Column="7" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="Megnevezés"/>-->
-        <!--<TextBlock Grid.Column="7" Grid.Row="11" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Szakítószilárdság (MPa)"/>
-        <TextBlock Grid.Column="7" Grid.Row="13" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Charpy Ütésállóság (kJ/m2)"/>
-        <TextBlock Grid.Column="7" Grid.Row="15" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Folyóképesség (g/10 min)"/>
-        <TextBlock Grid.Column="7" Grid.Row="17" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Folyóképesség (cm3/10 min)"/>
-        <TextBlock Grid.Column="7" Grid.Row="19" Style="{StaticResource DataLabel_TextBlock}" Text="[GY] Töltőanyagtartalom (%)"/>-->
+        <TextBlock x:Name="cikkszam1_label" Grid.Column="1" Grid.Row="1"  Style="{StaticResource DataLabel_TextBlock}" Text="Cikkszám"/>
+        <TextBlock x:Name="charge_label" Grid.Column="1" Grid.Row="3"   Style="{StaticResource DataLabel_TextBlock}" Text="Charge szám"/>
+        <TextBlock x:Name="beerk_label" Grid.Column="1" Grid.Row="5" Style="{StaticResource DataLabel_TextBlock}" Text="Beérkezés Dátum"/>
+        <TextBlock x:Name="utmeres_label" Grid.Column="1" Grid.Row="7"  Style="{StaticResource DataLabel_TextBlock}" Text="Utolsó Mérés Dátum"/>
+        <TextBlock x:Name="kw_label" Grid.Column="1" Grid.Row="9"  Style="{StaticResource DataLabel_TextBlock}" Text="KW"/>
+        <TextBlock x:Name="megjegyzes_label" Grid.Column="1" Grid.Row="11"  Style="{StaticResource DataLabel_TextBlock}" Text="Megjegyzés"/>
 
         <TextBox Grid.Column="1"  Grid.Row="2"    x:Name="cikk_inp"   Style="{StaticResource Standard_Textbox}" TextChanged="NewCharge_inp_TextChanged" />
         <TextBox Grid.Column="1"   Grid.Row="4"   x:Name="charge_inp"  Style="{StaticResource Standard_Textbox}" TextChanged="NewCharge_inp_TextChanged" />

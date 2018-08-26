@@ -25,11 +25,13 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         workpanel_control w_control = new workpanel_control();
+        language_control L = new language_control();
         public AddNewPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
             StartUp();
+            LangControl_AddNewpanel();
         }
         private void StartUp()
         {
@@ -206,10 +208,42 @@ namespace LDAv2.Views.Panels
             }
 
         }
-
-        private void Save_Charge_Button_Click(object sender, RoutedEventArgs e)
+        private void LangControl_AddNewpanel()
         {
+            big_label1.Text = L.Word(1);
+            big_label2.Text = L.Word(1);
+            Save_Button.Content = L.Word(48);
+            cikkszam2_label.Text = L.Word(15);
+            szallito_label.Text = L.Word(18);
+            anyagnev_label.Text = L.Word(19);
+            utokalapacs_label.Text = L.Word(43);
+            suruseg_label.Text = L.Word(26);
+            szakszigmin_label.Text = L.Word(28);
+            charpymin_label.Text = L.Word(30);
+            folyokepming_label.Text = L.Word(32);
+            folyokepmincm_label.Text = L.Word(34);
+            toltoanyagmin_label.Text = L.Word(36);
 
+            anyagtipus_label.Text = L.Word(19);
+            pc_label.Text = L.Word(21);
+            folyhom_label.Text = L.Word(23);
+            folysuly_label.Text = L.Word(25);
+            szin.Text = L.Word(27);
+            szakszigmax_label.Text = L.Word(29);
+            charpymax_label.Text = L.Word(31);
+            folyokepmaxg_label.Text = L.Word(33);
+            folyokepmaxcm_label.Text = L.Word(35);
+            toltoanyagmax_label.Text = L.Word(37);
+            utomunka_inp.Content = L.Word(22);
+            Save_Button.Content = L.Word(48);
+            Save_Charge_Button.Content = L.Word(48);
+
+            cikkszam1_label.Text = L.Word(15);
+            charge_label.Text = L.Word(16);
+            beerk_label.Text = L.Word(17);
+            utmeres_label.Text = L.Word(38);
+            kw_label.Text = L.Word(39);
+            megjegyzes_label.Text = L.Word(47);
         }
     }
 }

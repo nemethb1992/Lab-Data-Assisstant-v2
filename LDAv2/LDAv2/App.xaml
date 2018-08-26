@@ -111,7 +111,6 @@
             <Setter Property="Foreground" Value="{StaticResource SD_Element_Foreground}"></Setter>
         </Style>
         <Style TargetType="Grid" x:Key="Standard_Grid_Shadow">
-
             <!--<Setter Property="Background"  Value="{StaticResource NavGridColor}"></Setter>-->
             <Setter Property="Background"  Value="Transparent"></Setter>
             <Setter Property = "BitmapEffect" >
@@ -137,6 +136,10 @@
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Padding" Value="5"></Setter>
             <Setter Property="Foreground" Value="{StaticResource SD_Element_Foreground}"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="Search_Textblock" BasedOn="{StaticResource Standard_Textblock}">
+            <Setter Property="FontSize" Value="15"></Setter>
+
         </Style>
         <Style TargetType="ListBoxItem" x:Key="Standard_ListBoxItem">
             <!--<Setter Property="OverridesDefaultStyle" Value="true"/>-->
@@ -178,12 +181,11 @@
         <Style TargetType="Border" x:Key="Border_Corner_Element">
             <Setter Property="CornerRadius" Value="5"/>
         </Style>
-
         <Style TargetType="TextBlock" x:Key="DataLabel_TextBlock" BasedOn="{StaticResource Standard_Textblock}">
-            <Setter Property="FontSize" Value="13"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
         </Style>
-     
         <Style TargetType="Button" x:Key="Exit_Button">
             <Setter Property="FontSize" Value="16"></Setter>
             <Setter Property="FontFamily" Value="/Public/fonts/#Julius Sans One"></Setter>

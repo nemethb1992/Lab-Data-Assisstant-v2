@@ -17,7 +17,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="40" />
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="1" Style="{StaticResource Big_TextBlock}" Text="Beállítások" Margin="0,15,0,0" FontSize="22"/>
+        <TextBlock x:Name="beallitasok_label" Grid.Column="1" Style="{StaticResource Big_TextBlock}" Text="Beállítások" Margin="0,15,0,0" FontSize="22"/>
         <Border Panel.ZIndex="-1" Grid.Column="1"  Grid.RowSpan="15" Grid.Row="1" Background="{StaticResource Listbox_light}" Margin="0,0,0,40" CornerRadius="15"/>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="4" Grid.Row="0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Felhasználók:"/>
+            <TextBlock x:Name="felhasznalok_label" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Felhasználók:"/>
             <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
@@ -49,10 +49,10 @@
                     <RowDefinition Height="10" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Felhasználónév"/>
-                <TextBlock Grid.Row="2" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Teljes név"/>
-                <TextBlock Grid.Row="4" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="E-Mail"/>
-                <TextBlock Grid.Row="6" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Jogosultságok"/>
+                <TextBlock x:Name="felhasznalo_label" Grid.Row="0" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Felhasználónév"/>
+                <TextBlock x:Name="teljesnev_label" Grid.Row="2" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Teljes név"/>
+                <TextBlock x:Name="email_label" Grid.Row="4" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="E-Mail"/>
+                <TextBlock x:Name="jogosultsag_label" Grid.Row="6" Margin="20,0" VerticalAlignment="Center"  Style="{StaticResource Big_TextBlock}" FontSize="18" Text="Jogosultságok"/>
                 <TextBox  Grid.Row="1" Margin="20,0" Padding="8" x:Name="User_data_inp_1" Style="{StaticResource Standard_Textbox}" TextChanged="User_Modification_TextChanged"/>
                 <TextBox  Grid.Row="3" Margin="20,0" Padding="8" x:Name="User_data_inp_2" Style="{StaticResource Standard_Textbox}" TextChanged="User_Modification_TextChanged"/>
                 <TextBox  Grid.Row="5" Margin="20,0" Padding="8" x:Name="User_data_inp_3" Style="{StaticResource Standard_Textbox}" TextChanged="User_Modification_TextChanged"/>

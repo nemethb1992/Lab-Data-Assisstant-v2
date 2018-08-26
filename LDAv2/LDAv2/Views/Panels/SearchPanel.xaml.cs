@@ -25,12 +25,14 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         workpanel_control w_control = new workpanel_control();
+        language_control L = new language_control();
         public SearchPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
             Read_SearchParams();
             Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
+            LangControl_Searchpanel();
 
         }
         private List<string> Search_Data_Collector()
@@ -134,6 +136,15 @@ namespace LDAv2.Views.Panels
             Measure_Compact_Struct data = raw.DataContext as Measure_Compact_Struct;
             w_control.Delete_Charge(data.charge_id);
             Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
+        }
+        private void LangControl_Searchpanel()
+        {
+            allapot_check.Content = L.Word(109);
+            cikkszam_label.Text = L.Word(15);
+            charge_label.Text = L.Word(16);
+            szallito_label.Text = L.Word(18);
+            anyagnev_label.Text = L.Word(19);
+            beerk_label.Text = L.Word(17);
         }
     }
 }

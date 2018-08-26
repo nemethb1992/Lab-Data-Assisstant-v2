@@ -29,7 +29,7 @@ namespace LDAv2.Views
         language_control L = new language_control();
         public login(Grid grid)
         {
-            L.LanguageID = 3;
+            L.LanguageID = 2;
             InitializeComponent();
             this.grid = grid;
             BootMethods();

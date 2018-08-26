@@ -24,11 +24,13 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         admin_control a_control = new admin_control();
+        language_control L = new language_control();
         public AdminPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
             UsersListLorader();
+            LangControl_Adminpanel();
         }
         void UsersListLorader()
         {
@@ -185,6 +187,22 @@ namespace LDAv2.Views.Panels
             UserSessData data = raw.DataContext as UserSessData;
             a_control.Delete_User(data.user_id);
             UsersListLorader();
+        }
+        private void LangControl_Adminpanel()
+        {
+            felhasznalo_label.Text = L.Word(7);
+
+            teljesnev_label.Text = L.Word(11);
+            email_label.Text = L.Word(13);
+            jogosultsag_label.Text = L.Word(51);
+            felhasznalok_label.Text = L.Word(110);
+            beallitasok_label.Text = L.Word(111);
+
+            User_data_check_1.Content = L.Word(49);
+            User_data_check_2.Content = L.Word(50);
+            User_data_check_3.Content = L.Word(101);
+            User_data_check_4.Content = L.Word(102);
+            User_Modification_Save_Btn.Content = L.Word(48);
         }
     }
 }

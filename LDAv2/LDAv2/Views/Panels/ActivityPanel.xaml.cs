@@ -25,12 +25,14 @@ namespace LDAv2.Views.Panels
 
         //Thread SearchThread = new Thread(new ThreadStart(SearchMethod));
         admin_control a_control = new admin_control();
+        language_control L = new language_control();
         private  Grid grid;
         public ActivityPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
             List_Loader();
+            LangControl_Activitypanel();
             //Search_list.ItemsSource = w_control.Measure_Compact_Query();
 
         }
@@ -80,6 +82,16 @@ namespace LDAv2.Views.Panels
         private void Search_TextChanged(object sender, TextChangedEventArgs e)
         {
             List_Loader();
+        }
+        private void LangControl_Activitypanel()
+        {
+            felhasznalo_label.Text = L.Word(7);
+            muvelet_label.Text = L.Word(96);
+            muveletdat_label.Text = L.Word(97);
+
+            cikkszam_label.Text = L.Word(15);
+            charge_label.Text = L.Word(16);
+            beerk_label.Text = L.Word(17);
         }
     }
 }
