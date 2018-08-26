@@ -29,17 +29,19 @@ namespace LDAv2.Views
         language_control L = new language_control();
         public login(Grid grid)
         {
+            L.LanguageID = 3;
             InitializeComponent();
             this.grid = grid;
             BootMethods();
             dbConnectionOpener();
+            LangControl_Login();
             //MessageBox.Show(L.Word(10));
         }
-        public string teststring()
+        private string teststring()
         {
             return "Sikerült!";
         }
-        void dbConnectionOpener()
+        private void dbConnectionOpener()
         {
             if (!dbE.dbOpen())
             {
@@ -128,6 +130,12 @@ namespace LDAv2.Views
             var window = Window.GetWindow(this);
             window.Close();
         }
-
+        private void LangControl_Login()
+        {
+            LoginSign.Text = L.Word(104);
+            login_cbx.Content = L.Word(105);
+            reg_btn.Text = L.Word(10);
+            btn_login.Content = L.Word(9);
+        }
     }
 }

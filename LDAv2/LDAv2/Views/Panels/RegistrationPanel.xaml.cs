@@ -26,10 +26,12 @@ namespace LDAv2.Views.Panels
         private Grid grid;
         login_control l_control = new login_control();
         Session session = new Session();
+        language_control L = new language_control();
         public RegistrationPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
+            LangControl_Registration();
         }
 
 
@@ -126,6 +128,17 @@ namespace LDAv2.Views.Panels
             {
                 fullname_check.Visibility = Visibility.Hidden;
             }
+        }
+        private void LangControl_Registration()
+        {
+            Reg_label.Text = L.Word(10);
+            felhasznalonev_label.Text = L.Word(7);
+            teljesnev_label.Text = L.Word(11);
+            email_label.Text = L.Word(13);
+            jelszo_label.Text = L.Word(8);
+            jelszoismet_label.Text = L.Word(12);
+            Back_btn.Content = L.Word(14);
+            Registration_btn.Content = L.Word(10);
         }
     }
 }

@@ -26,18 +26,18 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
-        <TextBlock Style="{StaticResource Big_TextBlock}" Margin="30,15" Grid.Column="0" Grid.Row="0" Text="Regisztráció"/>
+        <TextBlock x:Name="Reg_label" Style="{StaticResource Big_TextBlock}" Margin="30,15" Grid.Column="0" Grid.Row="0" Text="Regisztráció"/>
         <TextBlock x:Name="InfoBlock" Style="{StaticResource Standard_Textblock}" Margin="15" VerticalAlignment="Center" Grid.Column="1" TextAlignment="Right" FontSize="18" Foreground="{StaticResource FontColor_Light}" Grid.Row="0" Text=""/>
        
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Felhasználónév"/>
+        <TextBlock x:Name="felhasznalonev_label" Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Felhasználónév"/>
         <TextBox x:Name="username" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" TextChanged="username_TextChanged"/>
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="Teljes név"/>
+        <TextBlock x:Name="teljesnev_label" Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="Teljes név"/>
         <TextBox x:Name="fullname" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" TextChanged="fullname_TextChanged"/>
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Text="E-Mail"/>
+        <TextBlock x:Name="email_label" Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Text="E-Mail"/>
         <TextBox x:Name="email" Style="{StaticResource Standard_Textbox}"  Margin="30,5" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" TextChanged="email_TextChanged"/>
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Text="Jelszó"/>
+        <TextBlock x:Name="jelszo_label" Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Text="Jelszó"/>
         <PasswordBox x:Name="pass_1" Style="{StaticResource Standard_PasswordBox}"  Margin="30,5" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" PasswordChanged="pass_1_PasswordChanged"/>
-        <TextBlock Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" Text="Ismételt jelszó"/>
+        <TextBlock x:Name="jelszoismet_label" Style="{StaticResource Standard_Textblock}" Margin="30,2" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" Text="Ismételt jelszó"/>
         <PasswordBox x:Name="pass_2" Style="{StaticResource Standard_PasswordBox}"  Margin="30,5" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" PasswordChanged="pass_2_PasswordChanged"/>
 
         <Image x:Name="user_check" Grid.Column="1" Visibility="Hidden" Grid.Row="2" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,35,0"/>

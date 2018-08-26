@@ -25,11 +25,13 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         workpanel_control w_control = new workpanel_control();
+        language_control L = new language_control();
         public DataPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
             DataPanel_Setting_Up();
+            LangControl_Datapanel();
         }
         private List<TextBox> DataPanel_TextBox_List()
         {
@@ -404,6 +406,53 @@ namespace LDAv2.Views.Panels
             //{
             //    input2.Background = (Brush)bc.ConvertFrom(color);
             //}
+        }
+        private void LangControl_Datapanel()
+        {
+            big_label.Text = L.Word(1);
+            Save_Button.Content = L.Word(48);
+            cikkszam_label.Text = L.Word(15);
+            szallito_label.Text = L.Word(18);
+            anyagnev_label.Text = L.Word(19);
+            utomunka_label.Text = L.Word(22);
+            utokalapacs_label.Text = L.Word(43);
+            suruseg_label.Text = L.Word();
+            szakszigmin_label.Text = L.Word();
+            charpymin_label.Text = L.Word();
+            folyokepming_label.Text = L.Word();
+            folyokepmincm_label.Text = L.Word();
+            toltoanyagmin_label.Text = L.Word();
+
+            charge_label.Text = L.Word();
+            anyagtipus_label.Text = L.Word();
+            pc_label.Text = L.Word();
+            folyhom_label.Text = L.Word();
+            folysuly_label.Text = L.Word();
+            szin.Text = L.Word();
+            szakszigmax_label.Text = L.Word();
+            charpymax_label.Text = L.Word();
+            folyokepmaxg_label.Text = L.Word();
+            folyokepmaxcm_label.Text = L.Word();
+            toltoanyagmax_label.Text = L.Word();
+
+            beerk_label.Text = L.Word();
+            utmeres_label.Text = L.Word();
+            kw_label.Text = L.Word();
+            big2_label.Text = L.Word();
+            viztartalom_label.Text = L.Word();
+            szakszig_label.Text = L.Word();
+            charpy_label.Text = L.Word();
+            folyokepg_label.Text = L.Word();
+            folyokepcm_label.Text = L.Word();
+            toltoanyag_label.Text = L.Word();
+
+            allapot_label.Text = L.Word();
+            megjegyzes_label.Text = L.Word();
+            szakszigGY_label.Text = L.Word();
+            charpyGY_label.Text = L.Word();
+            folyokepgGY_label.Text = L.Word();
+            folyokepcmGY_label.Text = L.Word();
+            toltoanyagGY_label.Text = L.Word();
         }
     }
 }
