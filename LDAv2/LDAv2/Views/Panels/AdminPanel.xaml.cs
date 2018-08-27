@@ -204,5 +204,52 @@ namespace LDAv2.Views.Panels
             User_data_check_4.Content = L.Word(102);
             User_Modification_Save_Btn.Content = L.Word(48);
         }
+        void Lang_nav_control()
+        {
+            if (lang_hu.IsVisible == false)
+            {
+                lang_hu.Visibility = Visibility.Visible;
+                lang_de.Visibility = Visibility.Visible;
+                lang_en.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lang_hu.Visibility = Visibility.Hidden;
+                lang_de.Visibility = Visibility.Hidden;
+                lang_en.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Lang_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Lang_nav_control();
+        }
+
+        private void Lang_Selection(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            switch (btn.Tag)
+            {
+                case "1":
+                    {
+                        L.LanguageID = 1;
+                        break;
+                    }
+                case "2":
+                    {
+                        L.LanguageID = 2;
+                        break;
+                    }
+                case "3":
+                    {
+                        L.LanguageID = 3;
+                        break;
+                    }
+                default:
+                    break;
+            }
+            LangControl_Adminpanel();
+            Lang_nav_control();
+        }
     }
 }

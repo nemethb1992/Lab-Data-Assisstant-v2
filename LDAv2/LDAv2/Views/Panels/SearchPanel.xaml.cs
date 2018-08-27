@@ -146,5 +146,52 @@ namespace LDAv2.Views.Panels
             anyagnev_label.Text = L.Word(19);
             beerk_label.Text = L.Word(17);
         }
+        void Lang_nav_control()
+        {
+            if (lang_hu.IsVisible == false)
+            {
+                lang_hu.Visibility = Visibility.Visible;
+                lang_de.Visibility = Visibility.Visible;
+                lang_en.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lang_hu.Visibility = Visibility.Hidden;
+                lang_de.Visibility = Visibility.Hidden;
+                lang_en.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Lang_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Lang_nav_control();
+        }
+
+        private void Lang_Selection(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            switch (btn.Tag)
+            {
+                case "1":
+                    {
+                        L.LanguageID = 1;
+                        break;
+                    }
+                case "2":
+                    {
+                        L.LanguageID = 2;
+                        break;
+                    }
+                case "3":
+                    {
+                        L.LanguageID = 3;
+                        break;
+                    }
+                default:
+                    break;
+            }
+            LangControl_Searchpanel();
+            Lang_nav_control();
+        }
     }
 }

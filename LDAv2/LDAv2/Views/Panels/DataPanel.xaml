@@ -60,7 +60,7 @@
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="big_label" Grid.Column="0" Style="{StaticResource Big_TextBlock}" Text="Mérési Adatlap" Margin="0,15,0,0" FontSize="22"/>
-            <Button x:Name="Save_Button" Grid.Column="3" Style="{StaticResource StandardButton}" Content="Mentés" Margin="0,0,0,15" Click="Save_Button_Click"/>
+            <Button x:Name="Save_Button" Grid.Column="3" Style="{StaticResource ThemeButton}" Content="Mentés" Margin="0,0,0,15" Click="Save_Button_Click"/>
 
 
         </Grid>
@@ -165,6 +165,20 @@
         <Border Grid.Column="1" Panel.ZIndex="2"  Grid.Row="8" Background="Transparent"  x:Name="DataPanel_37_locker" Visibility="Hidden"/>
         <Border Grid.Column="8" Panel.ZIndex="2"  Grid.Row="2" Background="Transparent"  x:Name="DataPanel_38_locker" Visibility="Hidden"/>
         <Border Panel.ZIndex="-1" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="15" Grid.Row="9" Background="White" Margin="10,10,10,30" CornerRadius="15,15,0,0"/>
+        <Grid x:Name="Language_Button_Nav" Grid.Column="8" Grid.Row="23" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="30" Margin="5" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Lang_btn" Grid.Column="3" Margin="1" Style="{StaticResource Language_Button}" Click="Lang_btn_Click">
+                <Image Width="20" Height="20" Source="/LDAv2;component/Public/imgs/translation.png"/>
+            </Button>
+            <Button x:Name="lang_hu" Content="Hu" Grid.Column="2" Margin="1" Visibility="Hidden" Tag="1" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+            <Button x:Name="lang_de" Content="De" Grid.Column="1" Margin="1" Visibility="Hidden" Tag="2" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+            <Button x:Name="lang_en" Content="En" Grid.Column="0" Margin="1" Visibility="Hidden" Tag="3" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+        </Grid>
     </Grid>
 </UserControl>
 

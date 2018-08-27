@@ -31,7 +31,7 @@ namespace LDAv2.Controller
         //Initialize values
         private void SetupDB()
         {
-            string connectionString = "Data Source = vpn.phoenix-mecano.hu; Port=29920; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
+            string connectionString = "Data Source = 192.168.144.189; Port=3306; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
             conn = new MySqlConnection(connectionString);
         }
         public bool dbOpen()

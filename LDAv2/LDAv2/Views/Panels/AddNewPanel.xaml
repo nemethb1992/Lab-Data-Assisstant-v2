@@ -145,6 +145,20 @@
         <Button x:Name="Save_Charge_Button" IsEnabled="False" Grid.Column="1" Grid.RowSpan="3" Height="50" Grid.Row="19" Style="{StaticResource ThemeButton}" Margin="0,5,0,0" Content="Mentés" Click="Charge_Save_Button_Click"/>
         <Image x:Name="cikkszam_check" Grid.Column="1" Visibility="Hidden" Grid.Row="2" Source="/Public/imgs/checked.png" Height="18" HorizontalAlignment="Right" Margin="0,0,5,0"/>
         <Image x:Name="cikkszam2_check" Grid.Column="3" Visibility="Hidden" Grid.Row="2" Source="/LDAv2;component/Public/imgs/checked_passive.png" Height="18" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+        <Grid x:Name="Language_Button_Nav" Grid.Column="7" Grid.Row="23" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="30" Margin="5" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Lang_btn" Grid.Column="3" Margin="1" Style="{StaticResource Language_Button}" Click="Lang_btn_Click">
+                <Image Width="20" Height="20" Source="/LDAv2;component/Public/imgs/translation.png"/>
+            </Button>
+            <Button x:Name="lang_hu" Content="Hu" Grid.Column="2" Margin="1" Visibility="Hidden" Tag="1" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+            <Button x:Name="lang_de" Content="De" Grid.Column="1" Margin="1" Visibility="Hidden" Tag="2" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+            <Button x:Name="lang_en" Content="En" Grid.Column="0" Margin="1" Visibility="Hidden" Tag="3" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+        </Grid>
     </Grid>
 </UserControl>
 

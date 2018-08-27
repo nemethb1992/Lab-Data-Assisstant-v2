@@ -236,6 +236,7 @@
     <Resource Include="Public\imgs\checked.png" />
     <Resource Include="Public\imgs\checked_passive.png" />
     <Resource Include="Public\imgs\settings.png" />
+    <Resource Include="Public\imgs\translation.png" />
     <Resource Include="Public\imgs\user2.png" />
     <Resource Include="Public\imgs\x-mark.png" />
   </ItemGroup>

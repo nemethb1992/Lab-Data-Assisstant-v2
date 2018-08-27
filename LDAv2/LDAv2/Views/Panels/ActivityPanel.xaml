@@ -88,5 +88,19 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Grid x:Name="Language_Button_Nav" Grid.Column="1" Grid.Row="23" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="30" Margin="5" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Lang_btn" Grid.Column="3" Margin="1" Style="{StaticResource Language_Button}" Click="Lang_btn_Click">
+                <Image Width="20" Height="20" Source="/LDAv2;component/Public/imgs/translation.png"/>
+            </Button>
+            <Button x:Name="lang_hu" Content="Hu" Grid.Column="2" Margin="1" Visibility="Hidden" Tag="1" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+            <Button x:Name="lang_de" Content="De" Grid.Column="1" Margin="1" Visibility="Hidden" Tag="2" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+            <Button x:Name="lang_en" Content="En" Grid.Column="0" Margin="1" Visibility="Hidden" Tag="3" Style="{StaticResource Language_Button}" Click="Lang_Selection" />
+        </Grid>
     </Grid>
 </UserControl>
