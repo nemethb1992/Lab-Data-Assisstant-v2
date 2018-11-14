@@ -2,6 +2,7 @@
 using LDAv2.Model;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -97,45 +98,63 @@ namespace LDAv2.Views.Panels
             }
             return filled;
         }
-        private void NewCharge_inp_TextChanged(object sender, TextChangedEventArgs e)
+        private async void NewCharge_inp_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (Cikk.IsExists(cikk_inp.Text))
+            TextBox textbox = (TextBox)sender;
+            int fisrtLength = textbox.Text.Length;
+
+            await Task.Delay(250);
+            if (fisrtLength == textbox.Text.Length)
             {
-                cikkszam_check.Visibility = Visibility.Visible;
-                if (charge_inp.Text.Length > 0 && beerk_inp.Text.Length > 0 && utolso_meres_inp.Text.Length > 0 && kw_inp.Text.Length > 0)
+                if (Cikk.IsExists(cikk_inp.Text))
                 {
-                    Save_Charge_Button.IsEnabled = true;
+                    cikkszam_check.Visibility = Visibility.Visible;
+                    if (charge_inp.Text.Length > 0 && beerk_inp.Text.Length > 0 && utolso_meres_inp.Text.Length > 0 && kw_inp.Text.Length > 0)
+                    {
+                        Save_Charge_Button.IsEnabled = true;
+                    }
+                    else
+                    {
+                        Save_Charge_Button.IsEnabled = false;
+                    }
                 }
                 else
                 {
+                    cikkszam_check.Visibility = Visibility.Hidden;
                     Save_Charge_Button.IsEnabled = false;
                 }
             }
-            else
-            {
-                cikkszam_check.Visibility = Visibility.Hidden;
-                Save_Charge_Button.IsEnabled = false;
-            }
+
+
         }
-        private void NewCikk_inp_TextChanged(object sender, TextChangedEventArgs e)
+        private async void NewCikk_inp_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!Cikk.IsExists(cikkszam_inp.Text))
+            TextBox textbox = (TextBox)sender;
+            int fisrtLength = textbox.Text.Length;
+
+            await Task.Delay(250);
+            if (fisrtLength == textbox.Text.Length)
             {
-                cikkszam2_check.Visibility = Visibility.Hidden;
-                if (NewCikk_All_Filled())
+                if (!Cikk.IsExists(cikkszam_inp.Text))
                 {
-                    Save_Button.IsEnabled = true;
+                    cikkszam2_check.Visibility = Visibility.Hidden;
+                    if (NewCikk_All_Filled())
+                    {
+                        Save_Button.IsEnabled = true;
+                    }
+                    else
+                    {
+                        Save_Button.IsEnabled = false;
+                    }
                 }
                 else
                 {
                     Save_Button.IsEnabled = false;
+                    cikkszam2_check.Visibility = Visibility.Visible;
                 }
             }
-            else
-            {
-                Save_Button.IsEnabled = false;
-                cikkszam2_check.Visibility = Visibility.Visible;
-            }
+
+
         }
 
         private void Cikk_Save_Button_Click(object sender, RoutedEventArgs e)

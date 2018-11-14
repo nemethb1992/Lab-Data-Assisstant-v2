@@ -2,6 +2,7 @@
 using LDAv2.Model;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -82,10 +83,17 @@ namespace LDAv2.Views.Panels
             });
             Session.SearchParam = list;
         }
-        private void SearchTextChanged(object sender, TextChangedEventArgs e)
+        private async void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
-            Search_list.ItemsSource = MeasureShort.GetSearched(SearchData());
-            SetSearchParam();
+            TextBox textbox = (TextBox)sender;
+            int fisrtLength = textbox.Text.Length;
+
+            await Task.Delay(250);
+            if (fisrtLength == textbox.Text.Length)
+            {
+                Search_list.ItemsSource = MeasureShort.GetSearched(SearchData());
+                SetSearchParam();
+            }
         }
 
         private void AllapotChecked(object sender, RoutedEventArgs e)
