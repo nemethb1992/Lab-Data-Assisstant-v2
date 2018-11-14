@@ -21,11 +21,11 @@ namespace LDAv2
     /// </summary>
     public partial class MainWindow : Window
     {
-        private login login;
+        private LoginPanel login;
         public MainWindow()
         {
             InitializeComponent();
-            sgrid.Children.Add(login = new login(sgrid));
+            sgrid.Children.Add(login = new LoginPanel(sgrid));
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

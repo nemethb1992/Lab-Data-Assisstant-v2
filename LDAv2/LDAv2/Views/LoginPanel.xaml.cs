@@ -20,26 +20,23 @@ namespace LDAv2.Views
     /// <summary>
     /// Interaction logic for login.xaml
     /// </summary>
-    public partial class login : UserControl
+    public partial class LoginPanel : UserControl
     {
         private Grid grid;
-        login_control lcontrol = new login_control();
+        Login login = new Login();
         Session session = new Session();
-        dbEntities dbE = new dbEntities();
+        Database dbE = new Database();
         language_control L = new language_control();
-        public login(Grid grid)
+        public LoginPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
-            BootMethods();
+            //BootMethods();
             dbConnectionOpener();
             LangControl_Login();
             //MessageBox.Show(L.Word(10));
         }
-        private string teststring()
-        {
-            return "Sikerült!";
-        }
+
         private void dbConnectionOpener()
         {
             if (!dbE.dbOpen())
@@ -47,58 +44,52 @@ namespace LDAv2.Views
                 LoginSign.Text = "Nincs adatkapcsolat!";
             }
         }
-        private void btn_login_Click(object sender, RoutedEventArgs e)
+        private void LoginClick(object sender, RoutedEventArgs e)
         {
             enterApplication();
         }
 
-        private void Luser_tbx_KeyUp(object sender, KeyEventArgs e)
+        private void EnterKeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key != System.Windows.Input.Key.Enter) return;
             e.Handled = true;
             enterApplication();
         }
-
-        private void Lpass_pwd_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key != System.Windows.Input.Key.Enter) return;
-            e.Handled = true;
-            enterApplication();
-        }
-        private void BootMethods()
-        {
-            string user = lcontrol.GetRememberedUser();
-            if (user != "")
-            {
-                Luser_tbx.Text = user;
-                login_cbx.IsChecked = true;
-            }
-            else
-            {
-                login_cbx.IsChecked = false;
-            }
-        }
-        private void UserRemember()
-        {
-            if (login_cbx.IsChecked == true)
-            {
-                lcontrol.WriteRememberedUser(Luser_tbx.Text);
-            }
-            else
-            {
-                lcontrol.DeleteRememberedUser();
-            }
-        }
+        
+        //private void BootMethods()
+        //{
+        //    string user = login.GetRememberedUser();
+        //    if (user != "")
+        //    {
+        //        Luser_tbx.Text = user;
+        //        login_cbx.IsChecked = true;
+        //    }
+        //    else
+        //    {
+        //        login_cbx.IsChecked = false;
+        //    }
+        //}
+        //private void UserRemember()
+        //{
+        //    if (login_cbx.IsChecked == true)
+        //    {
+        //        login.WriteRememberedUser(Luser_tbx.Text);
+        //    }
+        //    else
+        //    {
+        //        login.DeleteRememberedUser();
+        //    }
+        //}
         private void enterApplication()
         {
 
 
             //if (lcontrol.userValidation(Luser_tbx.Text, Lpass_pwd.Password))
             //{
-            if (lcontrol.UserValider_MySql(Luser_tbx.Text, Lpass_pwd.Password))
+            if (login.UserValider_MySql(Luser_tbx.Text, Lpass_pwd.Password))
             {
-                UserRemember();
-                session.UserData = lcontrol.UserSessionDataList(Luser_tbx.Text, Lpass_pwd.Password);
+                //UserRemember();
+                session.UserData = login.UserSessionDataList(Luser_tbx.Text, Lpass_pwd.Password);
                 WorkWindow mw = new WorkWindow();
                 mw.Show();
                 var window = Window.GetWindow(this);

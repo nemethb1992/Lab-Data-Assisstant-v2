@@ -15,7 +15,7 @@ namespace LDAv2.Controller
         private static int User_id;
         public int User_ID { get { return User_id; } set { User_id = value; } }
 
-        dbEntities dbE = new dbEntities();
+        Database dbE = new Database();
         public List<Activity_Struct> Aktivitas_List(List<string> list)
         {
             string query = "SELECT * FROM userActivity WHERE allapot = "+list[0]+" ";

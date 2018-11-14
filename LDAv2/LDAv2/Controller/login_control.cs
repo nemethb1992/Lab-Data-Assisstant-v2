@@ -8,10 +8,10 @@ using static LDAv2.Model.admin_model;
 
 namespace LDAv2.Controller
 {
-    class login_control
+    class Login
     {
         Session session = new Session();
-        dbEntities dbE = new dbEntities();
+        Database dbE = new Database();
 
 
         //public bool userValidation(string name, string pass)
@@ -27,29 +27,29 @@ namespace LDAv2.Controller
         //    }
         //    return valider;
         //}
-        public string GetRememberedUser()
-        {
-            string user = "";
-            try
-            {
-                user = dbE.SqliteReaderExecute("select username from app");
-            }
-            catch (Exception)
-            {
-                dbE.SqliteQueryExecute("CREATE TABLE IF NOT EXISTS 'app' ('username' TEXT);");
-                user = dbE.SqliteReaderExecute("SELECT 'username' FROM 'app';");
-            }
-            return user;
-        }
-        public void WriteRememberedUser(string username)
-        {
-            dbE.SqliteQueryExecute("DELETE FROM 'app';");
-            dbE.SqliteQueryExecute("INSERT INTO 'app' (username) VALUES ('" + username + "');");
-        }
-        public void DeleteRememberedUser()
-        {
-            dbE.SqliteQueryExecute("DELETE FROM 'app';");
-        }
+        //public string GetRememberedUser()
+        //{
+        //    string user = "";
+        //    try
+        //    {
+        //        user = dbE.SqliteReaderExecute("select username from app");
+        //    }
+        //    catch (Exception)
+        //    {
+        //        dbE.SqliteQueryExecute("CREATE TABLE IF NOT EXISTS 'app' ('username' TEXT);");
+        //        user = dbE.SqliteReaderExecute("SELECT 'username' FROM 'app';");
+        //    }
+        //    return user;
+        //}
+        //public void WriteRememberedUser(string username)
+        //{
+        //    dbE.SqliteQueryExecute("DELETE FROM 'app';");
+        //    dbE.SqliteQueryExecute("INSERT INTO 'app' (username) VALUES ('" + username + "');");
+        //}
+        //public void DeleteRememberedUser()
+        //{
+        //    dbE.SqliteQueryExecute("DELETE FROM 'app';");
+        //}
         public bool UserValider_MySql(string username, string pass)
         {
             string query = "SELECT count(user_id) FROM users WHERE username='" + username + "' AND pass = '"+pass+"'";

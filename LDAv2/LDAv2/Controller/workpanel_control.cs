@@ -9,7 +9,7 @@ namespace LDAv2.Controller
 {
     class workpanel_control
     {
-        dbEntities dbE = new dbEntities();
+        Database dbE = new Database();
         Session sess = new Session();
 
         private static int CikkszamIDs;

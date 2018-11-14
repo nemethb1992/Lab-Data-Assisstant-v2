@@ -15,7 +15,7 @@ namespace LDAv2.Controller
         private List<Language_Struct> WordLists;
         public List<Language_Struct> WordList { get { return WordLists; } set { WordLists = value; } }
 
-        dbEntities dbE = new dbEntities();
+        Database dbE = new Database();
 
         public language_control()
         {

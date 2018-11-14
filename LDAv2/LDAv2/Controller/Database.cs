@@ -12,7 +12,7 @@ using static LDAv2.Model.workpanel_model;
 
 namespace LDAv2.Controller
 {
-    class dbEntities
+    class Database
     {
         private MySqlConnection conn;
         private MySqlCommand cmd;
@@ -23,7 +23,7 @@ namespace LDAv2.Controller
         //string connectionString = "Data Source = mysql.nethely.hu; Port = 3306; Initial Catalog = ldadatabase; User ID = ldadatabase; Password = lda2018";
         public static string innerDataSourceURL = "Data Source = innerDatabase.db";
 
-        public dbEntities()
+        public Database()
         {
             SetupDB();
         }
@@ -296,32 +296,32 @@ namespace LDAv2.Controller
         // SQLite
 
 
-        public void SqliteQueryExecute(string query)
-        {
-            SQLiteConnection connSqlite = new SQLiteConnection(innerDataSourceURL);
-            var command = connSqlite.CreateCommand();
-            connSqlite.Open();
-            command.CommandText = "CREATE TABLE IF NOT EXISTS 'app' ('username' TEXT);";
-            command.ExecuteNonQuery();
-            command.CommandText = query;
-            command.ExecuteNonQuery();
-            connSqlite.Close();
-        }
-        public string SqliteReaderExecute(string query)
-        {
-            SQLiteConnection connSqlite = new SQLiteConnection(innerDataSourceURL);
-            connSqlite.Open();
-            var command = connSqlite.CreateCommand();
-            command.CommandText = query;
-            SQLiteDataReader sdr = command.ExecuteReader();
-            string data = "";
-            while (sdr.Read())
-            {
-                data = sdr.GetValue(0).ToString();
-            }
-            sdr.Close();
-            connSqlite.Close();
-            return data;
-        }
+        //public void SqliteQueryExecute(string query)
+        //{
+        //    SQLiteConnection connSqlite = new SQLiteConnection(innerDataSourceURL);
+        //    var command = connSqlite.CreateCommand();
+        //    connSqlite.Open();
+        //    command.CommandText = "CREATE TABLE IF NOT EXISTS 'app' ('username' TEXT);";
+        //    command.ExecuteNonQuery();
+        //    command.CommandText = query;
+        //    command.ExecuteNonQuery();
+        //    connSqlite.Close();
+        //}
+        //public string SqliteReaderExecute(string query)
+        //{
+        //    SQLiteConnection connSqlite = new SQLiteConnection(innerDataSourceURL);
+        //    connSqlite.Open();
+        //    var command = connSqlite.CreateCommand();
+        //    command.CommandText = query;
+        //    SQLiteDataReader sdr = command.ExecuteReader();
+        //    string data = "";
+        //    while (sdr.Read())
+        //    {
+        //        data = sdr.GetValue(0).ToString();
+        //    }
+        //    sdr.Close();
+        //    connSqlite.Close();
+        //    return data;
+        //}
     }
 }

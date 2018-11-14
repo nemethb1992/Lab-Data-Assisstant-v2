@@ -24,7 +24,7 @@ namespace LDAv2.Views.Panels
     public partial class RegistrationPanel : UserControl
     {
         private Grid grid;
-        login_control l_control = new login_control();
+        Login l_control = new Login();
         Session session = new Session();
         language_control L = new language_control();
         public RegistrationPanel(Grid grid)
