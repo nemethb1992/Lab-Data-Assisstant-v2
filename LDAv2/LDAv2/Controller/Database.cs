@@ -1,26 +1,21 @@
-﻿using MySql.Data.MySqlClient;
+﻿using LDAv2.Model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using static LDAv2.Model.admin_model;
-using static LDAv2.Model.language_model;
-using static LDAv2.Model.workpanel_model;
 
 namespace LDAv2.Controller
 {
     class Database
     {
-        private MySqlConnection conn;
-        private MySqlCommand cmd;
-        private MySqlDataReader sdr;
+        public MySqlConnection conn;
+        public MySqlCommand cmd;
+        public MySqlDataReader sdr;
 
-        //string connectionString = "Data Source = 192.168.144.189; Port=3306; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
-        //string connectionString = "Data Source = vpn.phoenix-mecano.hu; Port=29920; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
-        //string connectionString = "Data Source = mysql.nethely.hu; Port = 3306; Initial Catalog = ldadatabase; User ID = ldadatabase; Password = lda2018";
+        private const string CONNECTION_URL_1 = "Data Source = 192.168.144.189; Port=3306; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
+        private const string CONNECTION_URL_2 = "Data Source = mysql.nethely.hu; Port = 3306; Initial Catalog = ldadatabase; User ID = ldadatabase; Password = lda2018";
+        private const string CONNECTION_URL_3 = "Data Source = vpn.phoenix-mecano.hu; Port=29920; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
+
         public static string innerDataSourceURL = "Data Source = innerDatabase.db";
 
         public Database()
@@ -31,8 +26,7 @@ namespace LDAv2.Controller
         //Initialize values
         private void SetupDB()
         {
-            string connectionString = "Data Source = 192.168.144.189; Port=3306; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
-            conn = new MySqlConnection(connectionString);
+            conn = new MySqlConnection(CONNECTION_URL_2);
         }
         public bool dbOpen()
         {
@@ -47,7 +41,7 @@ namespace LDAv2.Controller
                 return false;
             }
         }
-        private bool dbClose()
+        public bool dbClose()
         {
             try
             {
@@ -95,37 +89,7 @@ namespace LDAv2.Controller
             return valid;
         }
 
-        public List<UserSessData> UserSession(string query)
-        {
 
-            List<UserSessData> list = new List<UserSessData>();
-            if (this.dbOpen() == true)
-            {
-                cmd = new MySqlCommand(query, conn);
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    list.Add(new UserSessData
-                    {
-                        user_id = Convert.ToInt32(sdr["user_id"]),
-                        username = sdr["username"].ToString(),
-                        real_name = sdr["real_name"].ToString(),
-                        auth = Convert.ToInt32(sdr["auth"]),
-                        email = sdr["email"].ToString(),
-                        valid = Convert.ToInt32(sdr["valid"]),
-                        admintag = Convert.ToInt32(sdr["admintag"]),
-                        lastlogindate = sdr["lastlogindate"].ToString(),
-                        language = Convert.ToInt32(sdr["language"]),
-                    });
-                }
-                sdr.Close();
-            }
-            dbClose();
-
-
-            //conn.Close();
-            return list;
-        }
         //public void UserActivityLogger(string username, string activity, int allapot, string cikk, string charge, string beerk, string date)
         //{
         //    SQLiteConnection conn = new SQLiteConnection(sess.databaseUrl);
@@ -137,16 +101,16 @@ namespace LDAv2.Controller
         //    command.ExecuteNonQuery();
         //    conn.Close();
         //}
-        public List<Measure_Full_Struct> Measure_Full_Query_MySQL(string query)
+        public List<MeasureModel> Measure_Full_Query_MySQL(string query)
         {
-            List<Measure_Full_Struct> list = new List<Measure_Full_Struct>();
+            List<MeasureModel> list = new List<MeasureModel>();
             if (this.dbOpen() == true)
             {
                 cmd = new MySqlCommand(query, conn);
                 sdr = cmd.ExecuteReader();
                 while (sdr.Read())
                 {
-                    list.Add(new Measure_Full_Struct
+                    list.Add(new MeasureModel
                     {
                         id = Convert.ToInt32(sdr["id"]),
                         cikkszam = sdr["cikkszam"].ToString(),
@@ -195,9 +159,9 @@ namespace LDAv2.Controller
             dbClose();
             return list;
         }
-        public List<Measure_Compact_Struct> Measure_Compact_Query_MySQL(string query)
+        public List<MeasureShortModel> Measure_Compact_Query_MySQL(string query)
         {
-            List<Measure_Compact_Struct> list = new List<Measure_Compact_Struct>();
+            List<MeasureShortModel> list = new List<MeasureShortModel>();
             if (this.dbOpen() == true)
             {
                 int i = 0;
@@ -205,7 +169,7 @@ namespace LDAv2.Controller
                 sdr = cmd.ExecuteReader();
                 while (sdr.Read())
                 {
-                    list.Add(new Measure_Compact_Struct
+                    list.Add(new MeasureShortModel
                     {
                         id = Convert.ToInt32(sdr["id"]),
                         charge_id = Convert.ToInt32(sdr["charge_id"]),
@@ -226,16 +190,16 @@ namespace LDAv2.Controller
             return list;
         }
 
-        public List<Beszallitok_Struct> Beszallitok_Query_MySQL(string query)
+        public List<BeszallitoModel> Beszallitok_Query_MySQL(string query)
         {
-            List<Beszallitok_Struct> list = new List<Beszallitok_Struct>();
+            List<BeszallitoModel> list = new List<BeszallitoModel>();
             if (this.dbOpen() == true)
             {
                 cmd = new MySqlCommand(query, conn);
                 sdr = cmd.ExecuteReader();
                 while (sdr.Read())
                 {
-                    list.Add(new Beszallitok_Struct
+                    list.Add(new BeszallitoModel
                     {
                         beszallito_id = Convert.ToInt32(sdr["beszallito_id"]),
                         nev = sdr["nev"].ToString(),
@@ -246,53 +210,8 @@ namespace LDAv2.Controller
             dbClose();
             return list;
         }
-        public List<Language_Struct> Language_Query_MySQL(string query)
-        {
-            List<Language_Struct> list = new List<Language_Struct>();
-            if (this.dbOpen() == true)
-            {
-                cmd = new MySqlCommand(query, conn);
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    list.Add(new Language_Struct
-                    {
-                        id = Convert.ToInt32(sdr["id"]),
-                        hu_HU = sdr["hu_HU"].ToString(),
-                        de_DE = sdr["de_DE"].ToString(),
-                        en_EN = sdr["en_EN"].ToString(),
-                    });
-                }
-                sdr.Close();
-            }
-            dbClose();
-            return list;
-        }
-        public List<Activity_Struct> Activity_Query_MySQL(string query)
-        {
-            List<Activity_Struct> list = new List<Activity_Struct>();
-            if (this.dbOpen() == true)
-            {
-                cmd = new MySqlCommand(query, conn);
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    list.Add(new Activity_Struct
-                    {
-                        username = sdr["username"].ToString(),
-                        activity = sdr["activity"].ToString(),
-                        allapot = sdr["allapot"].ToString(),
-                        cikk = sdr["cikk"].ToString(),
-                        charge = sdr["charge"].ToString(),
-                        beerk = sdr["beerk"].ToString(),
-                        date = sdr["date"].ToString(),
-                    });
-                }
-                sdr.Close();
-            }
-            dbClose();
-            return list;
-        }
+
+
         // SQLite
 
 

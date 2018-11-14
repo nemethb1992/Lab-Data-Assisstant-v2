@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static LDAv2.Model.admin_model;
+using static LDAv2.Model.UserDataModel;
 
 namespace LDAv2.Controller
 {
     class Login
     {
         Session session = new Session();
-        Database dbE = new Database();
+        Database db = new Database();
 
 
         //public bool userValidation(string name, string pass)
@@ -53,29 +53,29 @@ namespace LDAv2.Controller
         public bool UserValider_MySql(string username, string pass)
         {
             string query = "SELECT count(user_id) FROM users WHERE username='" + username + "' AND pass = '"+pass+"'";
-            return dbE.SimpleValider_MySQL(query);
+            return db.SimpleValider_MySQL(query);
         }
-        public List<UserSessData> UserSessionDataList(string username, string pass)
+        public List<UserDataModel> UserSessionDataList(string username, string pass)
         {
             string query = "SELECT * FROM users WHERE username='" + username + "' AND pass = '" + pass + "'";
 
-            List<UserSessData> list = dbE.UserSession(query);
+            List<UserDataModel> list = Get(query);
 
             return list;
         }
         public bool Registration_Username_Checker(string username)
         {
             string query = "SELECT count(user_id) FROM users WHERE username='" + username + "'";
-            return dbE.SimpleValider_MySQL(query);
+            return db.SimpleValider_MySQL(query);
         }
         public bool Registration_Email_Checker(string email)
         {
             string query = "SELECT count(user_id) FROM users WHERE email='" + email + "'";
-            return dbE.SimpleValider_MySQL(query);
+            return db.SimpleValider_MySQL(query);
         }
-        public void User_Registration_Write(List<UserSessData> list)
+        public void User_Registration_Write(List<UserDataModel> list)
         {
-            dbE.MysqlQueryExecute("INSERT INTO ldadatabase.users (`username`, `pass`, `real_name`, `auth`, `email`, `valid`, `admintag`, `lastlogindate`, `language`) " +
+            db.MysqlQueryExecute("INSERT INTO ldadatabase.users (`username`, `pass`, `real_name`, `auth`, `email`, `valid`, `admintag`, `lastlogindate`, `language`) " +
                 "VALUES ('"+list[0].username+"', '"+ list[0].pass + "', '"+ list[0].real_name + "', "+ list[0].auth + ", '"+ list[0].email + "', "+ list[0].valid + ", "+ list[0].admintag + ", '"+ list[0].lastlogindate + "', "+ list[0].language + ");");
         }
 

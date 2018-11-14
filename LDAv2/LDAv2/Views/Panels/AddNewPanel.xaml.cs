@@ -1,20 +1,10 @@
 ﻿using LDAv2.Controller;
-using System;
+using LDAv2.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static LDAv2.Model.workpanel_model;
 
 namespace LDAv2.Views.Panels
 {
@@ -25,7 +15,7 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         workpanel_control w_control = new workpanel_control();
-        language_control L = new language_control();
+        Language language = new Language();
         public AddNewPanel(Grid grid)
         {
             InitializeComponent();
@@ -155,9 +145,9 @@ namespace LDAv2.Views.Panels
             {
                 utomunka ="1";
             }
-            List<Cikk_Struct> list = new List<Cikk_Struct>();
+            List<CikkModel> list = new List<CikkModel>();
             List<TextBox> tb_list = Cikk_Input_Collector();
-            list.Add(new Cikk_Struct {
+            list.Add(new CikkModel {
                 cikkszam = tb_list[0].Text,
                 szallito = szallito_cbx.SelectedItem.ToString(),
                 anyag_nev = tb_list[1].Text,
@@ -190,9 +180,9 @@ namespace LDAv2.Views.Panels
 
         private void Charge_Save_Button_Click(object sender, RoutedEventArgs e)
         {
-            List<Charge_Struct> list = new List<Charge_Struct>();
+            List<ChargeModel> list = new List<ChargeModel>();
             List<TextBox> tb_list = Charge_Input_Collector();
-            list.Add(new Charge_Struct
+            list.Add(new ChargeModel
             {
                 charge_cikkszam = tb_list[0].Text,
                 charge = tb_list[1].Text,
@@ -210,40 +200,40 @@ namespace LDAv2.Views.Panels
         }
         private void LangControl_AddNewpanel()
         {
-            big_label1.Text = L.Word(112);
-            big_label2.Text = L.Word(113);
-            Save_Button.Content = L.Word(48);
-            cikkszam2_label.Text = L.Word(15);
-            szallito_label.Text = L.Word(18);
-            anyagnev_label.Text = L.Word(19);
-            utokalapacs_label.Text = L.Word(43);
-            suruseg_label.Text = L.Word(26);
-            szakszigmin_label.Text = L.Word(28);
-            charpymin_label.Text = L.Word(30);
-            folyokepming_label.Text = L.Word(32);
-            folyokepmincm_label.Text = L.Word(34);
-            toltoanyagmin_label.Text = L.Word(36);
+            big_label1.Text = language.Word(112);
+            big_label2.Text = language.Word(113);
+            Save_Button.Content = language.Word(48);
+            cikkszam2_label.Text = language.Word(15);
+            szallito_label.Text = language.Word(18);
+            anyagnev_label.Text = language.Word(19);
+            utokalapacs_label.Text = language.Word(43);
+            suruseg_label.Text = language.Word(26);
+            szakszigmin_label.Text = language.Word(28);
+            charpymin_label.Text = language.Word(30);
+            folyokepming_label.Text = language.Word(32);
+            folyokepmincm_label.Text = language.Word(34);
+            toltoanyagmin_label.Text = language.Word(36);
 
-            anyagtipus_label.Text = L.Word(19);
-            pc_label.Text = L.Word(21);
-            folyhom_label.Text = L.Word(23);
-            folysuly_label.Text = L.Word(25);
-            szin.Text = L.Word(27);
-            szakszigmax_label.Text = L.Word(29);
-            charpymax_label.Text = L.Word(31);
-            folyokepmaxg_label.Text = L.Word(33);
-            folyokepmaxcm_label.Text = L.Word(35);
-            toltoanyagmax_label.Text = L.Word(37);
-            utomunka_inp.Content = L.Word(22);
-            Save_Button.Content = L.Word(48);
-            Save_Charge_Button.Content = L.Word(48);
+            anyagtipus_label.Text = language.Word(19);
+            pc_label.Text = language.Word(21);
+            folyhom_label.Text = language.Word(23);
+            folysuly_label.Text = language.Word(25);
+            szin.Text = language.Word(27);
+            szakszigmax_label.Text = language.Word(29);
+            charpymax_label.Text = language.Word(31);
+            folyokepmaxg_label.Text = language.Word(33);
+            folyokepmaxcm_label.Text = language.Word(35);
+            toltoanyagmax_label.Text = language.Word(37);
+            utomunka_inp.Content = language.Word(22);
+            Save_Button.Content = language.Word(48);
+            Save_Charge_Button.Content = language.Word(48);
 
-            cikkszam1_label.Text = L.Word(15);
-            charge_label.Text = L.Word(16);
-            beerk_label.Text = L.Word(17);
-            utmeres_label.Text = L.Word(38);
-            kw_label.Text = L.Word(39);
-            megjegyzes_label.Text = L.Word(47);
+            cikkszam1_label.Text = language.Word(15);
+            charge_label.Text = language.Word(16);
+            beerk_label.Text = language.Word(17);
+            utmeres_label.Text = language.Word(38);
+            kw_label.Text = language.Word(39);
+            megjegyzes_label.Text = language.Word(47);
         }
         void Lang_nav_control()
         {
@@ -273,17 +263,17 @@ namespace LDAv2.Views.Panels
             {
                 case "1":
                     {
-                        L.LanguageID = 1;
+                        language.LanguageID = 1;
                         break;
                     }
                 case "2":
                     {
-                        L.LanguageID = 2;
+                        language.LanguageID = 2;
                         break;
                     }
                 case "3":
                     {
-                        L.LanguageID = 3;
+                        language.LanguageID = 3;
                         break;
                     }
                 default:

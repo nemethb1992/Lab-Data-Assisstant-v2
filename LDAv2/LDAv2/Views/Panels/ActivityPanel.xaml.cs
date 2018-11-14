@@ -25,7 +25,7 @@ namespace LDAv2.Views.Panels
 
         //Thread SearchThread = new Thread(new ThreadStart(SearchMethod));
         admin_control a_control = new admin_control();
-        language_control L = new language_control();
+        Language L = new Language();
         private  Grid grid;
         public ActivityPanel(Grid grid)
         {

@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\fzbal\Desktop\LDAv2 publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -118,10 +118,16 @@
     <Compile Include="Controller\activitay_control.cs" />
     <Compile Include="Controller\language_control.cs" />
     <Compile Include="Controller\Session.cs" />
-    <Compile Include="Model\activity_model.cs" />
-    <Compile Include="Model\admin_model.cs" />
-    <Compile Include="Model\language_model.cs" />
-    <Compile Include="Model\workpanel_model.cs" />
+    <Compile Include="Model\ActivityModel.cs" />
+    <Compile Include="Model\BeszallitoModel.cs" />
+    <Compile Include="Model\ChargeModel.cs" />
+    <Compile Include="Model\CikkModel.cs" />
+    <Compile Include="Model\MeasureModel.cs" />
+    <Compile Include="Model\MeasureShortModel.cs" />
+    <Compile Include="Model\MeasureValueModel.cs" />
+    <Compile Include="Model\SearchModel.cs" />
+    <Compile Include="Model\UserDataModel.cs" />
+    <Compile Include="Model\LanguageModel.cs" />
     <Compile Include="Views\LoginPanel.xaml.cs">
       <DependentUpon>LoginPanel.xaml</DependentUpon>
     </Compile>

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Model
 {
-    class activity_model
+    public class BeszallitoModel
     {
-
+        public int beszallito_id { get; set; }
+        public string nev { get; set; }
     }
 }

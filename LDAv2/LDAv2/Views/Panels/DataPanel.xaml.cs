@@ -1,20 +1,12 @@
 ﻿using LDAv2.Controller;
+using LDAv2.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static LDAv2.Model.workpanel_model;
 
 namespace LDAv2.Views.Panels
 {
@@ -25,7 +17,7 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         workpanel_control w_control = new workpanel_control();
-        language_control L = new language_control();
+        Language L = new Language();
         public DataPanel(Grid grid)
         {
             InitializeComponent();
@@ -112,7 +104,7 @@ namespace LDAv2.Views.Panels
 
         void DataPanel_MeasureDat_Loud_Up()
         {
-            List<Measure_Full_Struct> list = w_control.Measure_Full_Query();
+            List<MeasureModel> list = w_control.Measure_Full_Query();
             DataPanel_1.Text = list[0].cikkszam;
             DataPanel_2.Text = list[0].szallito;
             DataPanel_3.Text = list[0].anyag_nev;
@@ -168,7 +160,7 @@ namespace LDAv2.Views.Panels
             Regex regex = new Regex("[^0-9.-]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-        void inputEvaulationColorer(List<Measure_Value> li)
+        void inputEvaulationColorer(List<MeasureValueModel> li)
         {
             //if (li[0].val2 == "" || li[0].val2 == "-")
             //{
@@ -211,7 +203,7 @@ namespace LDAv2.Views.Panels
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
 
-            List<Measure_Full_Struct> li = new List<Measure_Full_Struct>();
+            List<MeasureModel> li = new List<MeasureModel>();
             List<string> listr = DataPanel_Value_List();
             //string szakszig = listr[25], utesall = listr[26], folykepg = listr[27], folykepcm = listr[28], tolto = listr[29];
             try
@@ -261,7 +253,7 @@ namespace LDAv2.Views.Panels
                 //    if (listr[42] == "" || listr[42] == "-")
                 //        listr[42] = listr[29];
             }
-            li.Add(new Measure_Full_Struct
+            li.Add(new MeasureModel
             {
                 cikkszam = listr[0],
                 szallito = listr[1],

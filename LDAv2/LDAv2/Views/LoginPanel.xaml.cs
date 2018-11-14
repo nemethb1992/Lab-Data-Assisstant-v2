@@ -26,7 +26,7 @@ namespace LDAv2.Views
         Login login = new Login();
         Session session = new Session();
         Database dbE = new Database();
-        language_control L = new language_control();
+        Language L = new Language();
         public LoginPanel(Grid grid)
         {
             InitializeComponent();

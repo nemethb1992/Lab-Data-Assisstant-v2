@@ -1,4 +1,5 @@
 ﻿using LDAv2.Controller;
+using LDAv2.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static LDAv2.Model.admin_model;
+using static LDAv2.Model.UserDataModel;
 
 namespace LDAv2.Views.Panels
 {
@@ -24,7 +25,7 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         admin_control a_control = new admin_control();
-        language_control L = new language_control();
+        Language L = new Language();
         public AdminPanel(Grid grid)
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace LDAv2.Views.Panels
         }
         void UsersListLorader()
         {
-            List<UserSessData> li = a_control.Admin_User_Datasource();
+            List<UserDataModel> li = a_control.Admin_User_Datasource();
             foreach (var item in li)
             {
                 if(item.valid == 1)
@@ -67,8 +68,8 @@ namespace LDAv2.Views.Panels
         private void User_List_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Grid gr = sender as Grid;
-            UserSessData data = gr.DataContext as UserSessData;
-            List<UserSessData> li = a_control.SelectedUserDataSource(data.user_id);
+            UserDataModel data = gr.DataContext as UserDataModel;
+            List<UserDataModel> li = a_control.SelectedUserDataSource(data.user_id);
 
             a_control.User_ID = li[0].user_id;
             User_data_inp_1.Text = li[0].username;
@@ -106,7 +107,7 @@ namespace LDAv2.Views.Panels
 
         private void User_Modification_Save_Click(object sender, RoutedEventArgs e)
         {
-            List<UserSessData> li = new List<UserSessData>();
+            List<UserDataModel> li = new List<UserDataModel>();
             int valid,auth = 1,admintag;
             if(User_data_check_1.IsChecked == true)
             {
@@ -133,7 +134,7 @@ namespace LDAv2.Views.Panels
             {
                 admintag = 0;
             }
-            li.Add(new UserSessData
+            li.Add(new UserDataModel
             {
                 user_id = a_control.User_ID,
                 username = User_data_inp_1.Text,
@@ -184,7 +185,7 @@ namespace LDAv2.Views.Panels
         private void User_Delete(object sender, RoutedEventArgs e)
         {
             MenuItem raw = sender as MenuItem;
-            UserSessData data = raw.DataContext as UserSessData;
+            UserDataModel data = raw.DataContext as UserDataModel;
             a_control.Delete_User(data.user_id);
             UsersListLorader();
         }

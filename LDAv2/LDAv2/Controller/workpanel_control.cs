@@ -1,9 +1,5 @@
-﻿using System;
+﻿using LDAv2.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static LDAv2.Model.workpanel_model;
 
 namespace LDAv2.Controller
 {
@@ -18,26 +14,16 @@ namespace LDAv2.Controller
         public int ChargeID { get { return ChargeIDs; } set { ChargeIDs = value; } }
         private static string BedatumIDs;
         public string BedatumID { get { return BedatumIDs; } set { BedatumIDs = value; } }
-
-        public struct Search_Params
-        {
-            public string cikkszam;
-            public string charge;
-            public string szallito;
-            public string anyagnev;
-            public string beerk_datum;
-            public bool allapot;
-        }
-        private static List<Search_Params> SearchParams;
-            public List<Search_Params> SearchParam { get { return SearchParams; } set { SearchParams = value; } }
+        private static List<SearchModel> SearchParams;
+        public List<SearchModel> SearchParam { get { return SearchParams; } set { SearchParams = value; } }
 
 
-            public List<Measure_Full_Struct> Measure_Full_Query()
+        public List<MeasureModel> Measure_Full_Query()
         {
             string query = "SELECT * FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam WHERE cikk.id ="+ CikkszamID + " AND charge.charge_id = "+ ChargeID + " AND charge.beerk_datum = '"+ BedatumID + "'";
             return dbE.Measure_Full_Query_MySQL(query);
         }
-        public List<Measure_Compact_Struct> Measure_Compact_Query(List<string> li)
+        public List<MeasureShortModel> Measure_Compact_Query(List<string> li)
         {
             string query = "SELECT cikk.id, charge.charge_id, cikk.cikkszam,charge.charge,szallito,anyag_nev,anyag_tipus,kw,beerk_datum,allapot FROM charge LEFT JOIN cikk ON charge.charge_cikkszam = cikk.cikkszam WHERE id IS NOT NULL AND allapot = "+li[5]+" ";
             if(li[0] != "")
@@ -63,7 +49,7 @@ namespace LDAv2.Controller
             query += " ORDER BY beerk_datum DESC LIMIT 25";
             return dbE.Measure_Compact_Query_MySQL(query);
         }
-        public List<Beszallitok_Struct> Beszallitok_Query()
+        public List<BeszallitoModel> Beszallitok_Query()
         {
             string query = "SELECT beszallito_id, nev FROM beszallitok ORDER BY nev DESC";
             return dbE.Beszallitok_Query_MySQL(query);
@@ -73,7 +59,7 @@ namespace LDAv2.Controller
             string query = "SELECT count(id) FROM cikk WHERE cikkszam='" + item + "'";
             return dbE.SimpleValider_MySQL(query);
         }
-        public void Cikk_INSERT_MySQL(List<Cikk_Struct> list)
+        public void Cikk_INSERT_MySQL(List<CikkModel> list)
         {
             string query = "INSERT INTO `cikk` (`id`, `cikkszam`, `szallito`, `anyag_nev`, `anyag_tipus`, `profit_center`, `utomun_metszve`, `folyokep_homerseklet`, `utokalapacs_meret_j`, `folyokep_terheles_kg`, `suruseg`, `szin`, `szakszig_min`, `szakszig_max`, `utesallosag_min`, `utesallosag_max`, `folyokep_min_g`, `folyokep_max_g`, `folyokep_min_cm`, `folyokep_max_cm`, `toltoanyag_min`, `toltoanyag_max`) " +
             "VALUES(NULL, " +
@@ -100,7 +86,7 @@ namespace LDAv2.Controller
             "'" + list[0].toltoanyag_max + "');";
             dbE.MysqlQueryExecute(query);
         }
-        public void Charge_INSERT_MySQL(List<Charge_Struct> list)
+        public void Charge_INSERT_MySQL(List<ChargeModel> list)
         {
             string query = "INSERT INTO `charge` (`charge_id`, `charge_cikkszam`, `charge`, `beerk_datum`, `ut_meres_datum`, `kw`, `megjegyzes`) " +
             "VALUES (NULL, " +
@@ -113,7 +99,7 @@ namespace LDAv2.Controller
 
             dbE.MysqlQueryExecute(query);
         }
-        public void Measure_UPDATE_MySQL(List<Measure_Full_Struct> list)
+        public void Measure_UPDATE_MySQL(List<MeasureModel> list)
         {
             string query = "UPDATE `charge` SET " +
                 "`charge_cikkszam` = '"+list[0].cikkszam+"', " +

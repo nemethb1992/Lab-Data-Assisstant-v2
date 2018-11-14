@@ -1,20 +1,10 @@
 ﻿using LDAv2.Controller;
+using LDAv2.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static LDAv2.Controller.workpanel_control;
-using static LDAv2.Model.workpanel_model;
 
 namespace LDAv2.Views.Panels
 {
@@ -25,7 +15,7 @@ namespace LDAv2.Views.Panels
     {
         private Grid grid;
         workpanel_control w_control = new workpanel_control();
-        language_control L = new language_control();
+        Language L = new Language();
         public SearchPanel(Grid grid)
         {
             InitializeComponent();
@@ -56,7 +46,7 @@ namespace LDAv2.Views.Panels
         {
             try
             {
-                List<Search_Params> list = w_control.SearchParam;
+                List<SearchModel> list = w_control.SearchParam;
 
                 cikkszam_srcinp.Text = list[0].cikkszam;
                 charge_srcinp.Text = list[0].charge;
@@ -83,8 +73,8 @@ namespace LDAv2.Views.Panels
             {
                 allapot_seged = true;
             }
-            List<Search_Params> list = new List<Search_Params>();
-            list.Add(new Search_Params {
+            List<SearchModel> list = new List<SearchModel>();
+            list.Add(new SearchModel {
                 cikkszam = cikkszam_srcinp.Text,
                 charge = charge_srcinp.Text,
                 szallito = szallito_srcinp.Text,
@@ -109,7 +99,7 @@ namespace LDAv2.Views.Panels
         {
             DataPanel dataPanel;
             Button btn = sender as Button;
-            Measure_Compact_Struct item = btn.DataContext as Measure_Compact_Struct;
+            MeasureShortModel item = btn.DataContext as MeasureShortModel;
             w_control.CikkszamID = item.id;
             w_control.ChargeID = item.charge_id;
             w_control.BedatumID = item.beerk_datum;
@@ -133,7 +123,7 @@ namespace LDAv2.Views.Panels
         private void Measuere_Delete(object sender, RoutedEventArgs e)
         {
             MenuItem raw = sender as MenuItem;
-            Measure_Compact_Struct data = raw.DataContext as Measure_Compact_Struct;
+            MeasureShortModel data = raw.DataContext as MeasureShortModel;
             w_control.Delete_Charge(data.charge_id);
             Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
         }

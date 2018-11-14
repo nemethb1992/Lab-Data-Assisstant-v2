@@ -1,25 +1,25 @@
-﻿using System;
+﻿using LDAv2.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static LDAv2.Model.language_model;
 
 namespace LDAv2.Controller
 {
-    class language_control
+    class Language
     {
         private static int LanguageIDs;
         public int LanguageID { get { return LanguageIDs; } set { LanguageIDs = value; } }
 
-        private List<Language_Struct> WordLists;
-        public List<Language_Struct> WordList { get { return WordLists; } set { WordLists = value; } }
+        private List<LanguageModel> WordLists;
+        public List<LanguageModel> WordList { get { return WordLists; } set { WordLists = value; } }
 
         Database dbE = new Database();
 
-        public language_control()
+        public Language()
         {
-            WordList = dbE.Language_Query_MySQL("select * from language");
+            WordList = LanguageModel.Get("select * from language");
         }
 
         public string Word(int id)
