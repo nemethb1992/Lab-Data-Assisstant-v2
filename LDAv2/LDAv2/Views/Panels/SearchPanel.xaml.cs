@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using static LDAv2.Controller.workpanel_control;
 
 namespace LDAv2.Views.Panels
 {
@@ -14,18 +13,17 @@ namespace LDAv2.Views.Panels
     public partial class SearchPanel : UserControl
     {
         private Grid grid;
-        workpanel_control w_control = new workpanel_control();
-        Language L = new Language();
+        Dictionary dict = new Dictionary();
         public SearchPanel(Grid grid)
         {
             InitializeComponent();
             this.grid = grid;
-            Read_SearchParams();
-            Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
+            SetSearchBar();
+            Search_list.ItemsSource = MeasureShort.GetSearched(SearchData());
             LangControl_Searchpanel();
 
         }
-        private List<string> Search_Data_Collector()
+        private List<string> SearchData()
         {
             List<string> list = new List<string>();
             string allapot = "0";
@@ -42,11 +40,11 @@ namespace LDAv2.Views.Panels
 
             return list;
         }
-        void Read_SearchParams()
+        void SetSearchBar()
         {
             try
             {
-                List<SearchModel> list = w_control.SearchParam;
+                List<Search> list = Session.SearchParam;
 
                 cikkszam_srcinp.Text = list[0].cikkszam;
                 charge_srcinp.Text = list[0].charge;
@@ -66,15 +64,15 @@ namespace LDAv2.Views.Panels
             }
 
         }
-        void Write_SearchParams()
+        void SetSearchParam()
         {
             bool allapot_seged = false;
             if(allapot_check.IsChecked == true)
             {
                 allapot_seged = true;
             }
-            List<SearchModel> list = new List<SearchModel>();
-            list.Add(new SearchModel {
+            List<Search> list = new List<Search>();
+            list.Add(new Search {
                 cikkszam = cikkszam_srcinp.Text,
                 charge = charge_srcinp.Text,
                 szallito = szallito_srcinp.Text,
@@ -82,33 +80,33 @@ namespace LDAv2.Views.Panels
                 beerk_datum = beerk_srcinp.Text,
                 allapot = allapot_seged
             });
-            w_control.SearchParam = list;
+            Session.SearchParam = list;
         }
-        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
-            Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
-            Write_SearchParams();
+            Search_list.ItemsSource = MeasureShort.GetSearched(SearchData());
+            SetSearchParam();
         }
 
-        private void allapot_check_Checked(object sender, RoutedEventArgs e)
+        private void AllapotChecked(object sender, RoutedEventArgs e)
         {
-            Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
+            Search_list.ItemsSource = MeasureShort.GetSearched(SearchData());
         }
 
-        private void Measure_Open_Click(object sender, RoutedEventArgs e)
+        private void MeasureOpenClick(object sender, RoutedEventArgs e)
         {
             DataPanel dataPanel;
             Button btn = sender as Button;
-            MeasureShortModel item = btn.DataContext as MeasureShortModel;
-            w_control.CikkszamID = item.id;
-            w_control.ChargeID = item.charge_id;
-            w_control.BedatumID = item.beerk_datum;
-            Write_SearchParams();
+            MeasureShort item = btn.DataContext as MeasureShort;
+            Session.CikkszamID = item.id;
+            Session.ChargeID = item.charge_id;
+            Session.BedatumID = item.beerk_datum;
+            SetSearchParam();
             grid.Children.Clear();
             grid.Children.Add(dataPanel = new DataPanel(grid));
         }
 
-        private void Refresh_Search_Click(object sender, RoutedEventArgs e)
+        private void RefreshSearchClick(object sender, RoutedEventArgs e)
         {
             cikkszam_srcinp.Text = "";
             charge_srcinp.Text = "";
@@ -116,25 +114,25 @@ namespace LDAv2.Views.Panels
             anyagnev_srcinp.Text = "";
             beerk_srcinp.Text = "";
             allapot_check.IsChecked = false;
-            Write_SearchParams();
-            Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
+            SetSearchParam();
+            Search_list.ItemsSource = MeasureShort.GetSearched(SearchData());
         }
 
-        private void Measuere_Delete(object sender, RoutedEventArgs e)
+        private void MeasuereDelete(object sender, RoutedEventArgs e)
         {
             MenuItem raw = sender as MenuItem;
-            MeasureShortModel data = raw.DataContext as MeasureShortModel;
-            w_control.Delete_Charge(data.charge_id);
-            Search_list.ItemsSource = w_control.Measure_Compact_Query(Search_Data_Collector());
+            MeasureShort data = raw.DataContext as MeasureShort;
+            Charge.Delete(data.charge_id);
+            Search_list.ItemsSource = MeasureShort.GetSearched(SearchData());
         }
         private void LangControl_Searchpanel()
         {
-            allapot_check.Content = L.Word(109);
-            cikkszam_label.Text = L.Word(15);
-            charge_label.Text = L.Word(16);
-            szallito_label.Text = L.Word(18);
-            anyagnev_label.Text = L.Word(19);
-            beerk_label.Text = L.Word(17);
+            allapot_check.Content = dict.Word(109);
+            cikkszam_label.Text = dict.Word(15);
+            charge_label.Text = dict.Word(16);
+            szallito_label.Text = dict.Word(18);
+            anyagnev_label.Text = dict.Word(19);
+            beerk_label.Text = dict.Word(17);
         }
         void Lang_nav_control()
         {
@@ -164,17 +162,17 @@ namespace LDAv2.Views.Panels
             {
                 case "1":
                     {
-                        L.LanguageID = 1;
+                        dict.LanguageID = 1;
                         break;
                     }
                 case "2":
                     {
-                        L.LanguageID = 2;
+                        dict.LanguageID = 2;
                         break;
                     }
                 case "3":
                     {
-                        L.LanguageID = 3;
+                        dict.LanguageID = 3;
                         break;
                     }
                 default:

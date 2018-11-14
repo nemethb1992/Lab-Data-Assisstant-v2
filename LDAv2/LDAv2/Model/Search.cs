@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Model
 {
-    public class SearchModel
+    public class Search
     {
         public string cikkszam { get; set; }
         public string charge { get; set; }

@@ -1,18 +1,8 @@
 ﻿using LDAv2.Controller;
 using LDAv2.Views.Panels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LDAv2.Views.Windows
 {
@@ -33,10 +23,9 @@ namespace LDAv2.Views.Windows
         }
         void DataPanel_Setting_Up()
         {
-            Session sess = new Session();
-            if (sess.UserData[0].admintag != 1)
+            if (Session.UserData[0].admintag != 1)
             {
-                if (sess.UserData[0].auth == 1)
+                if (Session.UserData[0].auth == 1)
                 {
                     mw_btn2.Visibility = Visibility.Hidden;
                     mw_btn3.Visibility = Visibility.Hidden;
@@ -51,12 +40,11 @@ namespace LDAv2.Views.Windows
         }
         private void logout_btn_Click(object sender, RoutedEventArgs e)
         {
-            workpanel_control w_control = new workpanel_control();
             MainWindow mw = new MainWindow();
             var window = Window.GetWindow(this);
-            if (w_control.SearchParam != null)
+            if (Session.SearchParam != null)
             {
-                w_control.SearchParam.Clear();
+                Session.SearchParam.Clear();
             }
             window.Close();
             mw.Show();

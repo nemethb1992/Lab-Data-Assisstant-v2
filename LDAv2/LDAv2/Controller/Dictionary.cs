@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Controller
 {
-    class Language
+    class Dictionary
     {
         private static int LanguageIDs;
         public int LanguageID { get { return LanguageIDs; } set { LanguageIDs = value; } }
 
-        private List<LanguageModel> WordLists;
-        public List<LanguageModel> WordList { get { return WordLists; } set { WordLists = value; } }
+        private List<Model.Language> WordLists;
+        public List<Model.Language> WordList { get { return WordLists; } set { WordLists = value; } }
 
         Database dbE = new Database();
 
-        public Language()
+        public Dictionary()
         {
-            WordList = LanguageModel.Get("select * from language");
+            WordList = Model.Language.Get("select * from language");
         }
 
         public string Word(int id)

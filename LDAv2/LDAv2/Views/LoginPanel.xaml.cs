@@ -1,19 +1,9 @@
 ﻿using LDAv2.Controller;
+using LDAv2.Model;
 using LDAv2.Views.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LDAv2.Views
 {
@@ -23,10 +13,8 @@ namespace LDAv2.Views
     public partial class LoginPanel : UserControl
     {
         private Grid grid;
-        Login login = new Login();
-        Session session = new Session();
-        Database dbE = new Database();
-        Language L = new Language();
+        Dictionary dict = new Dictionary();
+
         public LoginPanel(Grid grid)
         {
             InitializeComponent();
@@ -39,7 +27,7 @@ namespace LDAv2.Views
 
         private void dbConnectionOpener()
         {
-            if (!dbE.dbOpen())
+            if (!(new Database()).dbOpen())
             {
                 LoginSign.Text = "Nincs adatkapcsolat!";
             }
@@ -86,10 +74,10 @@ namespace LDAv2.Views
 
             //if (lcontrol.userValidation(Luser_tbx.Text, Lpass_pwd.Password))
             //{
-            if (login.UserValider_MySql(Luser_tbx.Text, Lpass_pwd.Password))
+            if (new Login().Validation(Luser_tbx.Text, Lpass_pwd.Password))
             {
                 //UserRemember();
-                session.UserData = login.UserSessionDataList(Luser_tbx.Text, Lpass_pwd.Password);
+                Session.UserData = UserData.GetActual(Luser_tbx.Text, Lpass_pwd.Password);
                 WorkWindow mw = new WorkWindow();
                 mw.Show();
                 var window = Window.GetWindow(this);
@@ -122,10 +110,10 @@ namespace LDAv2.Views
         }
         private void LangControl_Login()
         {
-            LoginSign.Text = L.Word(104);
-            login_cbx.Content = L.Word(105);
-            reg_btn.Text = L.Word(10);
-            btn_login.Content = L.Word(9);
+            LoginSign.Text = dict.Word(104);
+            login_cbx.Content = dict.Word(105);
+            reg_btn.Text = dict.Word(10);
+            btn_login.Content = dict.Word(9);
         }
 
         void Lang_nav_control()
@@ -156,17 +144,17 @@ namespace LDAv2.Views
             {
                 case "1":
                     {
-                        L.LanguageID = 1;
+                        dict.LanguageID = 1;
                         break;
                     }
                 case "2":
                     {
-                        L.LanguageID = 2;
+                        dict.LanguageID = 2;
                         break;
                     }
                 case "3":
                     {
-                        L.LanguageID = 3;
+                        dict.LanguageID = 3;
                         break;
                     }
                 default:

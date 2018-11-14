@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Model
 {
-    public class LanguageModel
+    public class Language
     {
          public int id { get; set; }
          public string hu_HU { get; set; }
          public string de_DE { get; set; }
          public string en_EN { get; set; }
 
-        public static List<LanguageModel> Get(string query)
+        public static List<Language> Get(string command)
         {
-            Database db = new Database();
+            List<Language> list = new List<Language>();
 
-            List<LanguageModel> list = new List<LanguageModel>();
+            Database db = new Database();
 
             if (db.dbOpen() == true)
             {
-                db.cmd = new MySqlCommand(query, db.conn);
-                db.sdr = db.cmd.ExecuteReader();
+                db.command = new MySqlCommand(command, db.connection);
+                db.sdr = db.command.ExecuteReader();
                 while (db.sdr.Read())
                 {
-                    list.Add(new LanguageModel
+                    list.Add(new Language
                     {
                         id = Convert.ToInt32(db.sdr["id"]),
                         hu_HU = db.sdr["hu_HU"].ToString(),

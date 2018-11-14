@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Model
 {
-    public class MeasureValueModel
+    public class MeasureValue
     {
         public string min { get; set; }
         public string max { get; set; }

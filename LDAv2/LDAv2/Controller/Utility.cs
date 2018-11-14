@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Controller
 {
-    class activitay_control
+    class Utility
     {
-
     }
 }

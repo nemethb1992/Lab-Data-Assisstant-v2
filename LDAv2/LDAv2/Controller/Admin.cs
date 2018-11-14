@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using static LDAv2.Model.UserDataModel;
+using static LDAv2.Model.UserData;
 
 namespace LDAv2.Controller
 {
-    class admin_control
+    class Admin
     {
 
 
@@ -17,7 +17,7 @@ namespace LDAv2.Controller
         public int User_ID { get { return User_id; } set { User_id = value; } }
 
         Database dbE = new Database();
-        public List<ActivityModel> Aktivitas_List(List<string> list)
+        public List<Activity> GetActivityList(List<string> list)
         {
             string query = "SELECT * FROM userActivity WHERE allapot = "+list[0]+" ";
             if (list[1].Length > 0)
@@ -34,40 +34,29 @@ namespace LDAv2.Controller
                 query += " AND userActivity.date LIKE '%" + list[6] + "%'";
 
             query += " ORDER BY date DESC LIMIT 50";
-            return ActivityModel.Get(query);
+            return Activity.Get(query);
         }
-        public List<UserDataModel> Admin_User_Datasource()
+        public List<UserData> GetUserData()
         {
             string query = "SELECT user_id, `username`, `real_name`, `auth`, `email`, `valid`, `admintag`, `lastlogindate`, `language` FROM users";
 
-            List<UserDataModel> list = UserDataModel.Get(query);
+            List<UserData> list = UserData.Get(query);
 
             return list;
         }
-        public List<UserDataModel> SelectedUserDataSource(int id)
+        public List<UserData> GetUser(int id)
         {
             string query = "SELECT * FROM users WHERE user_id='" + id + "'";
 
-            List<UserDataModel> list = UserDataModel.Get(query);
+            List<UserData> list = UserData.Get(query);
 
             return list;
         }
-        public void SelectedUserModification(List<UserDataModel> li)
-        {
-            string query = "UPDATE `users` " +
-                "SET `username` = '" + li[0].username+ "', " +
-                "`real_name` = '" + li[0].real_name+ "', " +
-                "`auth` = '" + li[0].auth+ "', " +
-                "`email` = '" + li[0].email+ "', " +
-                "`valid` = '" + li[0].valid+ "', " +
-                "`admintag` = '" + li[0].admintag+ "' " +
-                "WHERE `users`.`user_id` = "+li[0].user_id+";";
-            dbE.MysqlQueryExecute(query);
-        }
+
         public void Delete_User(int id)
         {
             string query = "DELETE FROM `users` WHERE `users`.`user_id` = " + id + ";";
-            dbE.MysqlQueryExecute(query);
+            dbE.Execute(query);
         }
     }
 }

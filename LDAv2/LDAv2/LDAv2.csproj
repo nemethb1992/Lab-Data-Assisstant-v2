@@ -26,8 +26,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -115,19 +115,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\activitay_control.cs" />
-    <Compile Include="Controller\language_control.cs" />
+    <Compile Include="Controller\Dictionary.cs" />
     <Compile Include="Controller\Session.cs" />
-    <Compile Include="Model\ActivityModel.cs" />
-    <Compile Include="Model\BeszallitoModel.cs" />
-    <Compile Include="Model\ChargeModel.cs" />
-    <Compile Include="Model\CikkModel.cs" />
-    <Compile Include="Model\MeasureModel.cs" />
-    <Compile Include="Model\MeasureShortModel.cs" />
-    <Compile Include="Model\MeasureValueModel.cs" />
-    <Compile Include="Model\SearchModel.cs" />
-    <Compile Include="Model\UserDataModel.cs" />
-    <Compile Include="Model\LanguageModel.cs" />
+    <Compile Include="Controller\Utility.cs" />
+    <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\Beszallito.cs" />
+    <Compile Include="Model\Charge.cs" />
+    <Compile Include="Model\Cikk.cs" />
+    <Compile Include="Model\Measure.cs" />
+    <Compile Include="Model\MeasureShort.cs" />
+    <Compile Include="Model\MeasureValue.cs" />
+    <Compile Include="Model\Search.cs" />
+    <Compile Include="Model\UserData.cs" />
+    <Compile Include="Model\Language.cs" />
     <Compile Include="Views\LoginPanel.xaml.cs">
       <DependentUpon>LoginPanel.xaml</DependentUpon>
     </Compile>
@@ -163,10 +163,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\admin_control.cs" />
+    <Compile Include="Controller\Admin.cs" />
     <Compile Include="Controller\Database.cs" />
-    <Compile Include="Controller\login_control.cs" />
-    <Compile Include="Controller\workpanel_control.cs" />
+    <Compile Include="Controller\Login.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

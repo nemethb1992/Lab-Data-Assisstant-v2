@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Model
 {
-    public class UserDataModel
+    public class UserData
     {
 
             public int user_id { get; set; }
@@ -23,19 +23,19 @@ namespace LDAv2.Model
             public int language { get; set; }
             public string allapot_megnev { get; set; }
 
-        public static List<UserDataModel> Get(string query)
+        public static List<UserData> Get(string command)
         {
-            List<UserDataModel> list = new List<UserDataModel>();
+            List<UserData> list = new List<UserData>();
 
             Database db = new Database();
 
             if (db.dbOpen() == true)
             {
-                db.cmd = new MySqlCommand(query, db.conn);
-                db.sdr = db.cmd.ExecuteReader();
+                //db.command = new MySqlCommand(query, db.connection);
+                db.sdr = (new MySqlCommand(command, db.connection)).ExecuteReader();
                 while (db.sdr.Read())
                 {
-                    list.Add(new UserDataModel
+                    list.Add(new UserData
                     {
                         user_id = Convert.ToInt32(db.sdr["user_id"]),
                         username = db.sdr["username"].ToString(),
@@ -55,5 +55,26 @@ namespace LDAv2.Model
             return list;
         }
 
+        public static List<UserData> GetActual(string username, string pass)
+        {
+            string command = "SELECT * FROM users WHERE username='" + username + "' AND pass = '" + pass + "'";
+
+            List<UserData> list = Get(command);
+
+            return list;
+        }
+
+        public static void Modify(List<UserData> li)
+        {
+            string command = "UPDATE `users` " +
+                "SET `username` = '" + li[0].username + "', " +
+                "`real_name` = '" + li[0].real_name + "', " +
+                "`auth` = '" + li[0].auth + "', " +
+                "`email` = '" + li[0].email + "', " +
+                "`valid` = '" + li[0].valid + "', " +
+                "`admintag` = '" + li[0].admintag + "' " +
+                "WHERE `users`.`user_id` = " + li[0].user_id + ";";
+            new Database().Execute(command);
+        }
     }
 }

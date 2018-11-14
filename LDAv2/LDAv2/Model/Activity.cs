@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LDAv2.Model
 {
-    public class ActivityModel
+    public class Activity
     {
         public string username { get; set; }
         public string activity { get; set; }
@@ -18,19 +18,21 @@ namespace LDAv2.Model
         public string beerk { get; set; }
         public string date { get; set; }
 
-        public static List<ActivityModel> Get(string query)
+        public static List<Activity> Get(string command)
         {
             Database db = new Database();
 
-            List<ActivityModel> list = new List<ActivityModel>();
+            List<Activity> list = new List<Activity>();
 
             if (db.dbOpen() == true)
             {
-                db.cmd = new MySqlCommand(query, db.conn);
-                db.sdr = db.cmd.ExecuteReader();
+                db.command = new MySqlCommand(command, db.connection);
+
+                db.sdr = db.command.ExecuteReader();
+
                 while (db.sdr.Read())
                 {
-                    list.Add(new ActivityModel
+                    list.Add(new Activity
                     {
                         username = db.sdr["username"].ToString(),
                         activity = db.sdr["activity"].ToString(),

@@ -1,20 +1,9 @@
 ﻿using LDAv2.Controller;
 using LDAv2.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static LDAv2.Model.UserDataModel;
 
 namespace LDAv2.Views.Panels
 {
@@ -24,8 +13,9 @@ namespace LDAv2.Views.Panels
     public partial class AdminPanel : UserControl
     {
         private Grid grid;
-        admin_control a_control = new admin_control();
-        Language L = new Language();
+        Admin admin = new Admin();
+        Dictionary dict = new Dictionary();
+
         public AdminPanel(Grid grid)
         {
             InitializeComponent();
@@ -35,7 +25,7 @@ namespace LDAv2.Views.Panels
         }
         void UsersListLorader()
         {
-            List<UserDataModel> li = a_control.Admin_User_Datasource();
+            List<UserData> li = admin.GetUserData();
             foreach (var item in li)
             {
                 if(item.valid == 1)
@@ -68,10 +58,10 @@ namespace LDAv2.Views.Panels
         private void User_List_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Grid gr = sender as Grid;
-            UserDataModel data = gr.DataContext as UserDataModel;
-            List<UserDataModel> li = a_control.SelectedUserDataSource(data.user_id);
+            UserData data = gr.DataContext as UserData;
+            List<UserData> li = admin.GetUser(data.user_id);
 
-            a_control.User_ID = li[0].user_id;
+            admin.User_ID = li[0].user_id;
             User_data_inp_1.Text = li[0].username;
             User_data_inp_2.Text = li[0].real_name;
             User_data_inp_3.Text = li[0].email;
@@ -107,7 +97,7 @@ namespace LDAv2.Views.Panels
 
         private void User_Modification_Save_Click(object sender, RoutedEventArgs e)
         {
-            List<UserDataModel> li = new List<UserDataModel>();
+            List<UserData> li = new List<UserData>();
             int valid,auth = 1,admintag;
             if(User_data_check_1.IsChecked == true)
             {
@@ -134,9 +124,9 @@ namespace LDAv2.Views.Panels
             {
                 admintag = 0;
             }
-            li.Add(new UserDataModel
+            li.Add(new UserData
             {
-                user_id = a_control.User_ID,
+                user_id = admin.User_ID,
                 username = User_data_inp_1.Text,
                 real_name = User_data_inp_2.Text,
                 email = User_data_inp_3.Text,
@@ -146,7 +136,7 @@ namespace LDAv2.Views.Panels
             });
 
 
-            a_control.SelectedUserModification(li);
+            UserData.Modify(li);
             UsersListLorader();
         }
 
@@ -185,25 +175,25 @@ namespace LDAv2.Views.Panels
         private void User_Delete(object sender, RoutedEventArgs e)
         {
             MenuItem raw = sender as MenuItem;
-            UserDataModel data = raw.DataContext as UserDataModel;
-            a_control.Delete_User(data.user_id);
+            UserData data = raw.DataContext as UserData;
+            admin.Delete_User(data.user_id);
             UsersListLorader();
         }
         private void LangControl_Adminpanel()
         {
-            felhasznalo_label.Text = L.Word(7);
+            felhasznalo_label.Text = dict.Word(7);
 
-            teljesnev_label.Text = L.Word(11);
-            email_label.Text = L.Word(13);
-            jogosultsag_label.Text = L.Word(51);
-            felhasznalok_label.Text = L.Word(110);
-            beallitasok_label.Text = L.Word(111);
+            teljesnev_label.Text = dict.Word(11);
+            email_label.Text = dict.Word(13);
+            jogosultsag_label.Text = dict.Word(51);
+            felhasznalok_label.Text = dict.Word(110);
+            beallitasok_label.Text = dict.Word(111);
 
-            User_data_check_1.Content = L.Word(49);
-            User_data_check_2.Content = L.Word(50);
-            User_data_check_3.Content = L.Word(101);
-            User_data_check_4.Content = L.Word(102);
-            User_Modification_Save_Btn.Content = L.Word(48);
+            User_data_check_1.Content = dict.Word(49);
+            User_data_check_2.Content = dict.Word(50);
+            User_data_check_3.Content = dict.Word(101);
+            User_data_check_4.Content = dict.Word(102);
+            User_Modification_Save_Btn.Content = dict.Word(48);
         }
         void Lang_nav_control()
         {
@@ -233,17 +223,17 @@ namespace LDAv2.Views.Panels
             {
                 case "1":
                     {
-                        L.LanguageID = 1;
+                        dict.LanguageID = 1;
                         break;
                     }
                 case "2":
                     {
-                        L.LanguageID = 2;
+                        dict.LanguageID = 2;
                         break;
                     }
                 case "3":
                     {
-                        L.LanguageID = 3;
+                        dict.LanguageID = 3;
                         break;
                     }
                 default:

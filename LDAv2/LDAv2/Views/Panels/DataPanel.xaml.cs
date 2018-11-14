@@ -16,8 +16,8 @@ namespace LDAv2.Views.Panels
     public partial class DataPanel : UserControl
     {
         private Grid grid;
-        workpanel_control w_control = new workpanel_control();
-        Language L = new Language();
+        Dictionary dict = new Dictionary();
+
         public DataPanel(Grid grid)
         {
             InitializeComponent();
@@ -71,10 +71,9 @@ namespace LDAv2.Views.Panels
         }
         void DataPanel_Setting_Up()
         {
-            Session sess = new Session();
-            if(sess.UserData[0].admintag != 1)
+            if(Session.UserData[0].admintag != 1)
             {
-                if(sess.UserData[0].auth == 1)
+                if(Session.UserData[0].auth == 1)
                 {
                     Kategoria_OnlyViewer();
                 }
@@ -104,7 +103,7 @@ namespace LDAv2.Views.Panels
 
         void DataPanel_MeasureDat_Loud_Up()
         {
-            List<MeasureModel> list = w_control.Measure_Full_Query();
+            List<Measure> list = Model.Measure.Measure_Full_Query();
             DataPanel_1.Text = list[0].cikkszam;
             DataPanel_2.Text = list[0].szallito;
             DataPanel_3.Text = list[0].anyag_nev;
@@ -160,7 +159,7 @@ namespace LDAv2.Views.Panels
             Regex regex = new Regex("[^0-9.-]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-        void inputEvaulationColorer(List<MeasureValueModel> li)
+        void inputEvaulationColorer(List<MeasureValue> li)
         {
             //if (li[0].val2 == "" || li[0].val2 == "-")
             //{
@@ -203,7 +202,7 @@ namespace LDAv2.Views.Panels
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
 
-            List<MeasureModel> li = new List<MeasureModel>();
+            List<Measure> li = new List<Measure>();
             List<string> listr = DataPanel_Value_List();
             //string szakszig = listr[25], utesall = listr[26], folykepg = listr[27], folykepcm = listr[28], tolto = listr[29];
             try
@@ -253,7 +252,7 @@ namespace LDAv2.Views.Panels
                 //    if (listr[42] == "" || listr[42] == "-")
                 //        listr[42] = listr[29];
             }
-            li.Add(new MeasureModel
+            li.Add(new Measure
             {
                 cikkszam = listr[0],
                 szallito = listr[1],
@@ -298,7 +297,7 @@ namespace LDAv2.Views.Panels
                 utomun_metszve = listr[36],
                 allapot = listr[37],
             });
-            w_control.Measure_UPDATE_MySQL(li);
+            Model.Measure.Update(li);
             DataPanel_MeasureDat_Loud_Up();
         }
 
@@ -401,52 +400,52 @@ namespace LDAv2.Views.Panels
         }
         private void LangControl_Datapanel()
         {
-            big_label.Text = L.Word(1);
-            Save_Button.Content = L.Word(48);
-            cikkszam_label.Text = L.Word(15);
-            szallito_label.Text = L.Word(18);
-            anyagnev_label.Text = L.Word(19);
-            utomunka_label.Text = L.Word(22);
-            utokalapacs_label.Text = L.Word(43);
-            suruseg_label.Text = L.Word(26);
-            szakszigmin_label.Text = L.Word(28);
-            charpymin_label.Text = L.Word(30);
-            folyokepming_label.Text = L.Word(32);
-            folyokepmincm_label.Text = L.Word(34);
-            toltoanyagmin_label.Text = L.Word(36);
-            DataPanel_37.Content = L.Word(108);
+            big_label.Text = dict.Word(1);
+            Save_Button.Content = dict.Word(48);
+            cikkszam_label.Text = dict.Word(15);
+            szallito_label.Text = dict.Word(18);
+            anyagnev_label.Text = dict.Word(19);
+            utomunka_label.Text = dict.Word(22);
+            utokalapacs_label.Text = dict.Word(43);
+            suruseg_label.Text = dict.Word(26);
+            szakszigmin_label.Text = dict.Word(28);
+            charpymin_label.Text = dict.Word(30);
+            folyokepming_label.Text = dict.Word(32);
+            folyokepmincm_label.Text = dict.Word(34);
+            toltoanyagmin_label.Text = dict.Word(36);
+            DataPanel_37.Content = dict.Word(108);
 
-            charge_label.Text = L.Word(16);
-            anyagtipus_label.Text = L.Word(19);
-            pc_label.Text = L.Word(21);
-            folyhom_label.Text = L.Word(23);
-            folysuly_label.Text = L.Word(25);
-            szin.Text = L.Word(27);
-            szakszigmax_label.Text = L.Word(29);
-            charpymax_label.Text = L.Word(31);
-            folyokepmaxg_label.Text = L.Word(33);
-            folyokepmaxcm_label.Text = L.Word(35);
-            toltoanyagmax_label.Text = L.Word(37);
+            charge_label.Text = dict.Word(16);
+            anyagtipus_label.Text = dict.Word(19);
+            pc_label.Text = dict.Word(21);
+            folyhom_label.Text = dict.Word(23);
+            folysuly_label.Text = dict.Word(25);
+            szin.Text = dict.Word(27);
+            szakszigmax_label.Text = dict.Word(29);
+            charpymax_label.Text = dict.Word(31);
+            folyokepmaxg_label.Text = dict.Word(33);
+            folyokepmaxcm_label.Text = dict.Word(35);
+            toltoanyagmax_label.Text = dict.Word(37);
 
-            beerk_label.Text = L.Word(17);
-            utmeres_label.Text = L.Word(38);
-            kw_label.Text = L.Word(39);
-            big2_label.Text = L.Word(106);
-            viztartalom_label.Text = L.Word(41);
-            szakszig_label.Text = L.Word(42);
-            charpy_label.Text = L.Word(43);
-            folyokepg_label.Text = L.Word(44);
-            folyokepcm_label.Text = L.Word(45);
-            toltoanyag_label.Text = L.Word(46);
+            beerk_label.Text = dict.Word(17);
+            utmeres_label.Text = dict.Word(38);
+            kw_label.Text = dict.Word(39);
+            big2_label.Text = dict.Word(106);
+            viztartalom_label.Text = dict.Word(41);
+            szakszig_label.Text = dict.Word(42);
+            charpy_label.Text = dict.Word(43);
+            folyokepg_label.Text = dict.Word(44);
+            folyokepcm_label.Text = dict.Word(45);
+            toltoanyag_label.Text = dict.Word(46);
 
-            allapot_label.Text = L.Word(107);
-            megjegyzes_label.Text = L.Word(47);
-            szakszigGY_label.Text = L.Word(84);
-            charpyGY_label.Text = L.Word(85);
-            folyokepgGY_label.Text = L.Word(86);
-            folyokepcmGY_label.Text = L.Word(87);
-            toltoanyagGY_label.Text = L.Word(88);
-            DataPanel_38.Content = L.Word(5);
+            allapot_label.Text = dict.Word(107);
+            megjegyzes_label.Text = dict.Word(47);
+            szakszigGY_label.Text = dict.Word(84);
+            charpyGY_label.Text = dict.Word(85);
+            folyokepgGY_label.Text = dict.Word(86);
+            folyokepcmGY_label.Text = dict.Word(87);
+            toltoanyagGY_label.Text = dict.Word(88);
+            DataPanel_38.Content = dict.Word(5);
         }
         void Lang_nav_control()
         {
@@ -476,17 +475,17 @@ namespace LDAv2.Views.Panels
             {
                 case "1":
                     {
-                        L.LanguageID = 1;
+                        dict.LanguageID = 1;
                         break;
                     }
                 case "2":
                     {
-                        L.LanguageID = 2;
+                        dict.LanguageID = 2;
                         break;
                     }
                 case "3":
                     {
-                        L.LanguageID = 3;
+                        dict.LanguageID = 3;
                         break;
                     }
                 default:

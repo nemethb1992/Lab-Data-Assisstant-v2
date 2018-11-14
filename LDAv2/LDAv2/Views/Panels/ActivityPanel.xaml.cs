@@ -1,19 +1,7 @@
 ﻿using LDAv2.Controller;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LDAv2.Views.Panels
 {
@@ -24,8 +12,8 @@ namespace LDAv2.Views.Panels
     {
 
         //Thread SearchThread = new Thread(new ThreadStart(SearchMethod));
-        admin_control a_control = new admin_control();
-        Language L = new Language();
+        Admin admin = new Admin();
+        Dictionary dict = new Dictionary();
         private  Grid grid;
         public ActivityPanel(Grid grid)
         {
@@ -39,7 +27,7 @@ namespace LDAv2.Views.Panels
 
         private void List_Loader()
         {
-            activity_list.ItemsSource = a_control.Aktivitas_List(Search_Value_Collector());
+            activity_list.ItemsSource = admin.GetActivityList(Search_Value_Collector());
         }
         private void Refresh_Search_Click(object sender, RoutedEventArgs e)
         {
@@ -85,13 +73,13 @@ namespace LDAv2.Views.Panels
         }
         private void LangControl_Activitypanel()
         {
-            felhasznalo_label.Text = L.Word(7);
-            muvelet_label.Text = L.Word(96);
-            muveletdat_label.Text = L.Word(97);
+            felhasznalo_label.Text = dict.Word(7);
+            muvelet_label.Text = dict.Word(96);
+            muveletdat_label.Text = dict.Word(97);
 
-            cikkszam_label.Text = L.Word(15);
-            charge_label.Text = L.Word(16);
-            beerk_label.Text = L.Word(17);
+            cikkszam_label.Text = dict.Word(15);
+            charge_label.Text = dict.Word(16);
+            beerk_label.Text = dict.Word(17);
         }
         void Lang_nav_control()
         {
@@ -121,17 +109,17 @@ namespace LDAv2.Views.Panels
             {
                 case "1":
                     {
-                        L.LanguageID = 1;
+                        dict.LanguageID = 1;
                         break;
                     }
                 case "2":
                     {
-                        L.LanguageID = 2;
+                        dict.LanguageID = 2;
                         break;
                     }
                 case "3":
                     {
-                        L.LanguageID = 3;
+                        dict.LanguageID = 3;
                         break;
                     }
                 default:

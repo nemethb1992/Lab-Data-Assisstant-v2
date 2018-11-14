@@ -8,8 +8,8 @@ namespace LDAv2.Controller
 {
     class Database
     {
-        public MySqlConnection conn;
-        public MySqlCommand cmd;
+        public MySqlConnection connection;
+        public MySqlCommand command;
         public MySqlDataReader sdr;
 
         private const string CONNECTION_URL_1 = "Data Source = 192.168.144.189; Port=3306; Initial Catalog = ldadatabase; User ID=hr-admin; Password=pmhr2018";
@@ -26,13 +26,13 @@ namespace LDAv2.Controller
         //Initialize values
         private void SetupDB()
         {
-            conn = new MySqlConnection(CONNECTION_URL_2);
+            connection = new MySqlConnection(CONNECTION_URL_2);
         }
         public bool dbOpen()
         {
             try
             {
-                conn.Open();
+                connection.Open();
                 return true;
             }
             catch (Exception e)
@@ -45,7 +45,7 @@ namespace LDAv2.Controller
         {
             try
             {
-                conn.Close();
+                connection.Close();
                 return true;
             }
             catch (MySqlException)
@@ -54,12 +54,12 @@ namespace LDAv2.Controller
             }
         }
 
-        public void MysqlQueryExecute(string query)
+        public void Execute(string query)
         {
             if (this.dbOpen() == true)
             {
-                cmd = new MySqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
+                command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
             }
             dbClose();
         }
@@ -69,8 +69,8 @@ namespace LDAv2.Controller
             if (this.dbOpen() == true)
             {
                 int seged = 0;
-                cmd = new MySqlCommand(query, conn);
-                sdr = cmd.ExecuteReader();
+                command = new MySqlCommand(query, connection);
+                sdr = command.ExecuteReader();
                 while (sdr.Read())
                 {
                     seged = Convert.ToInt32(sdr[0]);
@@ -101,105 +101,20 @@ namespace LDAv2.Controller
         //    command.ExecuteNonQuery();
         //    conn.Close();
         //}
-        public List<MeasureModel> Measure_Full_Query_MySQL(string query)
-        {
-            List<MeasureModel> list = new List<MeasureModel>();
-            if (this.dbOpen() == true)
-            {
-                cmd = new MySqlCommand(query, conn);
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    list.Add(new MeasureModel
-                    {
-                        id = Convert.ToInt32(sdr["id"]),
-                        cikkszam = sdr["cikkszam"].ToString(),
-                        szallito = sdr["szallito"].ToString(),
-                        anyag_nev = sdr["anyag_nev"].ToString(),
-                        anyag_tipus = sdr["anyag_tipus"].ToString(),
-                        profit_center = sdr["profit_center"].ToString(),
-                        utomun_metszve = sdr["utomun_metszve"].ToString(),
-                        folyokep_homerseklet = sdr["folyokep_homerseklet"].ToString(),
-                        utokalapacs_meret_j = sdr["utokalapacs_meret_j"].ToString(),
-                        folyokep_terheles_kg = sdr["folyokep_terheles_kg"].ToString(),
-                        suruseg = sdr["suruseg"].ToString(),
-                        szin = sdr["szin"].ToString(),
-                        szakszig_min = sdr["szakszig_min"].ToString(),
-                        szakszig_max = sdr["szakszig_max"].ToString(),
-                        utesallosag_min = sdr["utesallosag_min"].ToString(),
-                        utesallosag_max = sdr["utesallosag_max"].ToString(),
-                        folyokep_min_g = sdr["folyokep_min_g"].ToString(),
-                        folyokep_max_g = sdr["folyokep_max_g"].ToString(),
-                        folyokep_min_cm = sdr["folyokep_min_cm"].ToString(),
-                        folyokep_max_cm = sdr["folyokep_max_cm"].ToString(),
-                        toltoanyag_min = sdr["toltoanyag_min"].ToString(),
-                        toltoanyag_max = sdr["toltoanyag_max"].ToString(),
-                        charge_id = Convert.ToInt32(sdr["charge_id"]),
-                        charge = sdr["charge"].ToString(),
-                        beerk_datum = sdr["beerk_datum"].ToString(),
-                        ut_meres_datum = sdr["ut_meres_datum"].ToString(),
-                        kw = sdr["kw"].ToString(),
-                        allapot = sdr["allapot"].ToString(),
-                        viztartalom = sdr["viztartalom"].ToString(),
-                        szakszig = sdr["szakszig"].ToString(),
-                        szakszig_gy = sdr["szakszig_gy"].ToString(),
-                        utesallosag = sdr["utesallosag"].ToString(),
-                        utesallosag_gy = sdr["utesallosag_gy"].ToString(),
-                        folyokep_g = sdr["folyokep_g"].ToString(),
-                        folyokep_g_gy = sdr["folyokep_g_gy"].ToString(),
-                        folyokep_cm = sdr["folyokep_cm"].ToString(),
-                        folyokep_cm_gy = sdr["folyokep_cm_gy"].ToString(),
-                        toltoanyag = sdr["toltoanyag"].ToString(),
-                        toltoanyag_gy = sdr["toltoanyag_gy"].ToString(),
-                        megjegyzes = sdr["megjegyzes"].ToString(),
-                    });
-                }
-                sdr.Close();
-            }
-            dbClose();
-            return list;
-        }
-        public List<MeasureShortModel> Measure_Compact_Query_MySQL(string query)
-        {
-            List<MeasureShortModel> list = new List<MeasureShortModel>();
-            if (this.dbOpen() == true)
-            {
-                int i = 0;
-                cmd = new MySqlCommand(query, conn);
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    list.Add(new MeasureShortModel
-                    {
-                        id = Convert.ToInt32(sdr["id"]),
-                        charge_id = Convert.ToInt32(sdr["charge_id"]),
-                        cikkszam = sdr["cikkszam"].ToString(),
-                        szallito = sdr["szallito"].ToString(),
-                        anyag_nev = sdr["anyag_nev"].ToString(),
-                        anyag_tipus = sdr["anyag_tipus"].ToString(),
-                        charge = sdr["charge"].ToString(),
-                        beerk_datum = sdr["beerk_datum"].ToString(),
-                        kw = "kw " + sdr["kw"].ToString(),
-                        allapot = sdr["allapot"].ToString(),
-                    });
-                    i++;
-                }
-                sdr.Close();
-            }
-            dbClose();
-            return list;
-        }
 
-        public List<BeszallitoModel> Beszallitok_Query_MySQL(string query)
+
+
+
+        public List<Beszallito> Beszallitok_Query_MySQL(string query)
         {
-            List<BeszallitoModel> list = new List<BeszallitoModel>();
+            List<Beszallito> list = new List<Beszallito>();
             if (this.dbOpen() == true)
             {
-                cmd = new MySqlCommand(query, conn);
-                sdr = cmd.ExecuteReader();
+                command = new MySqlCommand(query, connection);
+                sdr = command.ExecuteReader();
                 while (sdr.Read())
                 {
-                    list.Add(new BeszallitoModel
+                    list.Add(new Beszallito
                     {
                         beszallito_id = Convert.ToInt32(sdr["beszallito_id"]),
                         nev = sdr["nev"].ToString(),

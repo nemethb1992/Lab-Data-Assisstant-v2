@@ -14,8 +14,8 @@ namespace LDAv2.Views.Panels
     public partial class AddNewPanel : UserControl
     {
         private Grid grid;
-        workpanel_control w_control = new workpanel_control();
-        Language language = new Language();
+        Dictionary language = new Dictionary();
+
         public AddNewPanel(Grid grid)
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace LDAv2.Views.Panels
         }
         private void StartUp()
         {
-            szallito_cbx.ItemsSource = w_control.Beszallitok_Query();
+            szallito_cbx.ItemsSource = Beszallito.Get();
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -99,7 +99,7 @@ namespace LDAv2.Views.Panels
         }
         private void NewCharge_inp_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (w_control.Cikk_Checker(cikk_inp.Text))
+            if (Cikk.IsExists(cikk_inp.Text))
             {
                 cikkszam_check.Visibility = Visibility.Visible;
                 if (charge_inp.Text.Length > 0 && beerk_inp.Text.Length > 0 && utolso_meres_inp.Text.Length > 0 && kw_inp.Text.Length > 0)
@@ -119,7 +119,7 @@ namespace LDAv2.Views.Panels
         }
         private void NewCikk_inp_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!w_control.Cikk_Checker(cikkszam_inp.Text))
+            if (!Cikk.IsExists(cikkszam_inp.Text))
             {
                 cikkszam2_check.Visibility = Visibility.Hidden;
                 if (NewCikk_All_Filled())
@@ -145,9 +145,9 @@ namespace LDAv2.Views.Panels
             {
                 utomunka ="1";
             }
-            List<CikkModel> list = new List<CikkModel>();
+            List<Cikk> list = new List<Cikk>();
             List<TextBox> tb_list = Cikk_Input_Collector();
-            list.Add(new CikkModel {
+            list.Add(new Cikk {
                 cikkszam = tb_list[0].Text,
                 szallito = szallito_cbx.SelectedItem.ToString(),
                 anyag_nev = tb_list[1].Text,
@@ -170,7 +170,7 @@ namespace LDAv2.Views.Panels
                 toltoanyag_min = tb_list[17].Text,
                 toltoanyag_max = tb_list[18].Text,
             });
-            w_control.Cikk_INSERT_MySQL(list);
+            Cikk.Insert(list);
             foreach (var item in tb_list)
             {
                 item.Text = "";
@@ -180,9 +180,9 @@ namespace LDAv2.Views.Panels
 
         private void Charge_Save_Button_Click(object sender, RoutedEventArgs e)
         {
-            List<ChargeModel> list = new List<ChargeModel>();
+            List<Charge> list = new List<Charge>();
             List<TextBox> tb_list = Charge_Input_Collector();
-            list.Add(new ChargeModel
+            list.Add(new Charge
             {
                 charge_cikkszam = tb_list[0].Text,
                 charge = tb_list[1].Text,
@@ -191,7 +191,7 @@ namespace LDAv2.Views.Panels
                 kw = tb_list[4].Text,
                 megjegyzes = tb_list[5].Text
             });
-            w_control.Charge_INSERT_MySQL(list);
+            Charge.PartialInsert(list);
             foreach (var item in tb_list)
             {
                 item.Text = "";
