@@ -26,7 +26,7 @@ namespace LDAv2.Controller
         //Initialize values
         private void SetupDB()
         {
-            connection = new MySqlConnection(CONNECTION_URL_2);
+            connection = new MySqlConnection(CONNECTION_URL_1);
         }
         public bool dbOpen()
         {
